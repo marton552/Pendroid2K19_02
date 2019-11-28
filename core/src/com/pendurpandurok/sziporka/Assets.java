@@ -47,6 +47,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> GAT1 = new AssetDescriptor<Texture>("gat1.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT2 = new AssetDescriptor<Texture>("gat2.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT3 = new AssetDescriptor<Texture>("gat3.png", Texture.class);
+	public static final AssetDescriptor<Texture> IF = new AssetDescriptor<Texture>("guihoz.png", Texture.class);
+	public static final AssetDescriptor<Texture> HP_BAR = new AssetDescriptor<Texture>("hp_bar.png", Texture.class);
+	public static final AssetDescriptor<Texture> LVL_BAR = new AssetDescriptor<Texture>("lvl_bar.png", Texture.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -66,6 +69,9 @@ public class Assets {
 		manager.load(GAT1);
 		manager.load(GAT2);
 		manager.load(GAT3);
+		manager.load(IF);
+		manager.load(HP_BAR);
+		manager.load(LVL_BAR);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
