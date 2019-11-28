@@ -2,6 +2,7 @@ package com.pendurpandurok.sziporka;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,10 +16,29 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 
 public class MyGdxGame extends MyGame {
 
+	public Preferences save;
+
 	@Override
 	public void create () {
 		Assets.prepare();
 		setScreen(new LoadingScreen(this));
+
+
+		save = Gdx.app.getPreferences("gameSave");
+
+		//save.contins("key") <- létre van-e hozva?
+		//save.putString("key", "value") <- string érték mentése
+		//save.getString("key") <- string érték lekérése
+		//save.remove("key") <- adat mentésekből törlése
+
+		/*
+		if(save.contains("teszt")) {
+			System.out.println(save.getString("teszt"));
+		}else {
+			System.out.println("Üres, berak");
+			save.putString("teszt", "Szeretem az őszt");
+		}*/
+
 	}
 
 	@Override
@@ -36,6 +56,7 @@ public class MyGdxGame extends MyGame {
 	public void dispose () {
 		super.dispose();
 		Assets.unload();
+		save.flush();
 	}
 
 	public TextButton.TextButtonStyle getButtonStyle(){

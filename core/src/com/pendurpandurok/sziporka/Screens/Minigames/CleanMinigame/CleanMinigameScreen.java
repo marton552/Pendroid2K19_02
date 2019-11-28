@@ -1,9 +1,8 @@
-package com.pendurpandurok.sziporka.Screens.CleanMinigame;
+package com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame;
 
 import com.badlogic.gdx.Gdx;
 import com.pendurpandurok.sziporka.MyGdxGame;
 
-import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
 
 public class CleanMinigameScreen extends MyScreen {
