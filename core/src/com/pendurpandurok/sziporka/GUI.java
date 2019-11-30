@@ -56,6 +56,7 @@ public class GUI {
         gs.addActor(hpbar);
         gs.addActor(iface);
 
+        MyLabel qwe;
 
         if(name == "Generátor"){
             OneSpriteStaticActor icon;
@@ -65,6 +66,8 @@ public class GUI {
             icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
             icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
             gs.addActor(icon);
+
+            qwe = new MyLabel("Generátor",gs.game.getLabelStyle());
         }
         else if(name == "Lapát"){
             OneSpriteStaticActor icon;
@@ -74,6 +77,8 @@ public class GUI {
             icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
             icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
             gs.addActor(icon);
+
+            qwe = new MyLabel("Lapát",gs.game.getLabelStyle());
         }
         else if(name == "Csőrendszer"){
             OneSpriteStaticActor icon;
@@ -83,6 +88,8 @@ public class GUI {
             icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
             icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
             gs.addActor(icon);
+
+            qwe = new MyLabel("Csörendszer",gs.game.getLabelStyle());
         }
         else if(name == "Munkások"){
             OneSpriteStaticActor icon;
@@ -92,8 +99,10 @@ public class GUI {
             icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
             icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
             gs.addActor(icon);
+
+            qwe = new MyLabel("Munkások",gs.game.getLabelStyle());
         }
-        else if(name == "Gátfal"){
+        else {
             OneSpriteStaticActor icon;
             if(gs.game.save.getInteger("gatfal_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
             else if (gs.game.save.getInteger("gatfal_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
@@ -101,9 +110,14 @@ public class GUI {
             icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
             icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
             gs.addActor(icon);
+
+            qwe = new MyLabel("Gátfal",gs.game.getLabelStyle());
         }
 
 
+        qwe.setPosition(iface.getX()+iface.getWidth()/15,iface.getY()+iface.getHeight()/2);
+        qwe.setFontScale(0.7f);
+        gs.addActor(qwe);
 
     }
 }
