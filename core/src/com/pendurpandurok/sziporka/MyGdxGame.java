@@ -16,7 +16,7 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 
 public class MyGdxGame extends MyGame {
 
-	public Preferences save;
+	public static Preferences save;
 
 	@Override
 	public void create () {
@@ -31,14 +31,68 @@ public class MyGdxGame extends MyGame {
 		//save.getString("key") <- string érték lekérése
 		//save.remove("key") <- adat mentésekből törlése
 
-		/*
-		if(save.contains("teszt")) {
+
+		/*if(save.contains("teszt")) {
 			System.out.println(save.getString("teszt"));
 		}else {
 			System.out.println("Üres, berak");
 			save.putString("teszt", "Szeretem az őszt");
 		}*/
+		save.remove("inditas");
 
+		if(save.contains("inditas")){
+			save.putInteger("inditas",(save.getInteger("inditas")+1));
+		}else{
+			save.putInteger("inditas",1);
+			//nagy változók
+			save.putFloat("penz_mennyiseg",0);
+			save.putFloat("aram%",1);
+			save.putFloat("penz%",1);
+			save.putFloat("aramveszteseg%",0.5f);
+			//elemek élete
+			save.putInteger("generator_hp",100);
+			save.putInteger("lapat_hp",100);
+			save.putInteger("gatfal_hp",100);
+			save.putInteger("munkasok_hp",100);
+			save.putInteger("csovek_hp",100);
+			//elemek FŐ szintje
+			save.putInteger("generator_lvl",0);
+			save.putInteger("lapat_lvl",0);
+			save.putInteger("gatfal_lvl",0);
+			save.putInteger("munkasok_lvl",0);
+			save.putInteger("csovek_lvl",0);
+			//generátor fejlesztései
+			save.putInteger("aram_termeles",0);
+			save.putInteger("aram_to_penz",0);
+			save.putInteger("attetelek",0);
+			save.putInteger("turokepesseg_generator",0);
+			//lapát fejlesztések
+			save.putInteger("forgasi_sebesseg",0);
+			save.putInteger("fogaskerekek",0);
+			save.putInteger("lapatok_merete",0);
+			save.putInteger("kerek_merete",0);
+			save.putInteger("turokepesseg_lapat",0);
+			//gátfal fejlesztések
+			save.putInteger("magassag",0);
+			save.putInteger("vastagsag",0);
+			save.putInteger("turokepesseg_gatfal",0);
+			//munkások fejlesztések
+			save.putInteger("munkaero",0);
+			save.putInteger("szorgalom",0);
+			save.putInteger("odafigyeles",0);
+			save.putInteger("adocsalas",0);
+			save.putInteger("turokepesseg_munkasok",0);
+			//csövek fejlesztese
+			save.putInteger("csovek_szelessege",0);
+			save.putInteger("csohalozat_elrendezese",0);
+			save.putInteger("turokepesseg_csovek",0);
+
+			//apróságok
+			save.putInteger("click_count",0);
+			save.putInteger("eltelt_ido",0);
+			save.putInteger("minigamek",0);
+		}
+		System.out.println(save.getInteger("inditas"));
 	}
 
 	@Override

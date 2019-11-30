@@ -50,6 +50,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> IF = new AssetDescriptor<Texture>("guihoz.png", Texture.class);
 	public static final AssetDescriptor<Texture> HP_BAR = new AssetDescriptor<Texture>("hp_bar.png", Texture.class);
 	public static final AssetDescriptor<Texture> LVL_BAR = new AssetDescriptor<Texture>("lvl_bar.png", Texture.class);
+	public static final AssetDescriptor<Texture> GENERATOR_ICON = new AssetDescriptor<Texture>("generator.png", Texture.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -72,6 +73,7 @@ public class Assets {
 		manager.load(IF);
 		manager.load(HP_BAR);
 		manager.load(LVL_BAR);
+		manager.load(GENERATOR_ICON);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

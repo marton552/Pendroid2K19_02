@@ -30,24 +30,75 @@ public class GUI {
 
         OneSpriteStaticActor lvlbar = new OneSpriteStaticActor(Assets.manager.get(Assets.LVL_BAR));
         lvlbar.setPosition(iface.getX()+iface.getX()/3,iface.getY()+iface.getHeight()/5);
+
         if(name == "Generátor"){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/12,iface.getHeight()/5);
         }
         else if(name == "Lapát"){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/12,iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/15,iface.getHeight()/5);
         }
         else if(name == "Csőrendszer"){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/12,iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/9,iface.getHeight()/5);
         }
         else if(name == "Munkások"){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/12,iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/15,iface.getHeight()/5);
         }
         else if(name == "Gátfal"){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/12,iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/9,iface.getHeight()/5);
         }
 
         gs.addActor(lvlbar);
         gs.addActor(hpbar);
         gs.addActor(iface);
+
+
+        if(name == "Generátor"){
+            OneSpriteStaticActor icon;
+            if(MyGdxGame.save.getInteger("generator_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else if (MyGdxGame.save.getInteger("generator_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
+            icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
+            gs.addActor(icon);
+        }
+        else if(name == "Lapát"){
+            OneSpriteStaticActor icon;
+            if(MyGdxGame.save.getInteger("lapat_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else if (MyGdxGame.save.getInteger("lapat_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
+            icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
+            gs.addActor(icon);
+        }
+        else if(name == "Csőrendszer"){
+            OneSpriteStaticActor icon;
+            if(MyGdxGame.save.getInteger("csovek_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else if (MyGdxGame.save.getInteger("csovek_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
+            icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
+            gs.addActor(icon);
+        }
+        else if(name == "Munkások"){
+            OneSpriteStaticActor icon;
+            if(MyGdxGame.save.getInteger("munkasok_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else if (MyGdxGame.save.getInteger("munkasok_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
+            icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
+            gs.addActor(icon);
+        }
+        else if(name == "Gátfal"){
+            OneSpriteStaticActor icon;
+            if(MyGdxGame.save.getInteger("gatfal_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else if (MyGdxGame.save.getInteger("gatfal_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR_ICON));}
+            icon.setPosition(iface.getX()+iface.getX()/0.22f,iface.getY()+iface.getHeight()/10);
+            icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
+            gs.addActor(icon);
+        }
+
+
+
     }
 }

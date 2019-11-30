@@ -34,11 +34,11 @@ public class MenuStage extends MyStage {
         background.setZIndex(-9);
         addActor(gat);
 
-        GUI generator = new GUI(this,"Generátor",5,50,1f);
-        GUI lapat = new GUI(this,"Lapát",0,20,1.5f);
-        GUI csovek = new GUI(this,"Csőrendszer",0,0,2f);
-        GUI munkasok = new GUI(this,"Munkások",0,0,2.5f);
-        GUI fal = new GUI(this,"Gátfal",0,0,3f);
+        GUI generator = new GUI(this,"Generátor",MyGdxGame.save.getInteger("generator_lvl"),MyGdxGame.save.getInteger("generator_hp"),1f);
+        GUI lapat = new GUI(this,"Lapát",MyGdxGame.save.getInteger("lapat_lvl"),MyGdxGame.save.getInteger("lapat_hp"),1.5f);
+        GUI csovek = new GUI(this,"Csőrendszer",MyGdxGame.save.getInteger("csovek_lvl"),MyGdxGame.save.getInteger("csovek_hp"),2f);
+        GUI munkasok = new GUI(this,"Munkások",MyGdxGame.save.getInteger("munkasok_lvl"),MyGdxGame.save.getInteger("munkasok_hp"),2.5f);
+        GUI fal = new GUI(this,"Gátfal",MyGdxGame.save.getInteger("gatfal_lvl"),MyGdxGame.save.getInteger("gatfal_hp"),3f);
 
 
     }
