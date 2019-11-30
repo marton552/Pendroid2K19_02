@@ -48,6 +48,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> GAT2 = new AssetDescriptor<Texture>("gat2.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT3 = new AssetDescriptor<Texture>("gat3.png", Texture.class);
 	public static final AssetDescriptor<Texture> IF = new AssetDescriptor<Texture>("guihoz.png", Texture.class);
+    public static final AssetDescriptor<Texture> IF_BACK = new AssetDescriptor<Texture>("guibackground.png", Texture.class);
 	public static final AssetDescriptor<Texture> HP_BAR = new AssetDescriptor<Texture>("hp_bar.png", Texture.class);
 	public static final AssetDescriptor<Texture> LVL_BAR = new AssetDescriptor<Texture>("lvl_bar.png", Texture.class);
 	public static final AssetDescriptor<Texture> GENERATOR_ICON = new AssetDescriptor<Texture>("generator.png", Texture.class);
@@ -71,6 +72,7 @@ public class Assets {
 		manager.load(GAT2);
 		manager.load(GAT3);
 		manager.load(IF);
+        manager.load(IF_BACK);
 		manager.load(HP_BAR);
 		manager.load(LVL_BAR);
 		manager.load(GENERATOR_ICON);

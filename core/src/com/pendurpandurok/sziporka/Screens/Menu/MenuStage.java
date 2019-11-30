@@ -34,11 +34,17 @@ public class MenuStage extends MyStage {
         background.setZIndex(-9);
         addActor(gat);
 
-        GUI generator = new GUI(this,"Generátor",MyGdxGame.save.getInteger("generator_lvl"),MyGdxGame.save.getInteger("generator_hp"),1f);
-        GUI lapat = new GUI(this,"Lapát",MyGdxGame.save.getInteger("lapat_lvl"),MyGdxGame.save.getInteger("lapat_hp"),1.5f);
-        GUI csovek = new GUI(this,"Csőrendszer",MyGdxGame.save.getInteger("csovek_lvl"),MyGdxGame.save.getInteger("csovek_hp"),2f);
-        GUI munkasok = new GUI(this,"Munkások",MyGdxGame.save.getInteger("munkasok_lvl"),MyGdxGame.save.getInteger("munkasok_hp"),2.5f);
-        GUI fal = new GUI(this,"Gátfal",MyGdxGame.save.getInteger("gatfal_lvl"),MyGdxGame.save.getInteger("gatfal_hp"),3f);
+        int generator_level = MyGdxGame.save.getInteger("aram_termeles")+MyGdxGame.save.getInteger("aram_to_penz")+MyGdxGame.save.getInteger("attetelek")+MyGdxGame.save.getInteger("turokepesseg_generator");
+        int lapat_level = MyGdxGame.save.getInteger("forgasi_sebesseg")+MyGdxGame.save.getInteger("fogaskerekek")+MyGdxGame.save.getInteger("lapatok_merete")+MyGdxGame.save.getInteger("kerek_merete")+MyGdxGame.save.getInteger("turokepesseg_lapat");
+        int csovek_level = MyGdxGame.save.getInteger("csovek_szelessege")+MyGdxGame.save.getInteger("csohalozat_elrendezese")+MyGdxGame.save.getInteger("turokepesseg_csovek");
+        int munaksok_level = MyGdxGame.save.getInteger("munkaero")+MyGdxGame.save.getInteger("szorgalom")+MyGdxGame.save.getInteger("odafigyeles")+MyGdxGame.save.getInteger("adocsalas")+MyGdxGame.save.getInteger("turokepesseg_munkasok");
+        int gatfal_level = MyGdxGame.save.getInteger("magassag")+MyGdxGame.save.getInteger("vastagsag")+MyGdxGame.save.getInteger("turokepesseg_gatfal");
+
+        GUI generator = new GUI(this,"Generátor",generator_level,MyGdxGame.save.getInteger("generator_hp"),1f);
+        GUI lapat = new GUI(this,"Lapát",lapat_level,MyGdxGame.save.getInteger("lapat_hp"),1.5f);
+        GUI csovek = new GUI(this,"Csőrendszer",csovek_level,MyGdxGame.save.getInteger("csovek_hp"),2f);
+        GUI munkasok = new GUI(this,"Munkások",munaksok_level,MyGdxGame.save.getInteger("munkasok_hp"),2.5f);
+        GUI fal = new GUI(this,"Gátfal",gatfal_level,MyGdxGame.save.getInteger("gatfal_hp"),3f);
 
 
     }
