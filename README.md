@@ -28,7 +28,6 @@ Dolgozz te surmo:
 	- !A fal maga amúgy is külön elmként
 		- !!Magasság 
 		- !!Vastagság 
-		- !!Tűrőképesség 
 		- !!Új fal (csak akkor ha az előző összes elem mind LVL3 fölött van)
 		- ++Tűrőképesség {+%Lassabban megy tönkre}
 	- !Munkások
@@ -57,7 +56,7 @@ Ha:
 - 25% alatt: 0.25x-ös szorzó
 - 0%: 0.05x-ös szorzó (konkrétan szinte nulla pénz)
 
-Az 5 minigame típusa (nehézségük változik annak fejében hogy mennyire van lemenve az élete)
+Az 5 minigame típusa (nehézségük változik annak fejében hogy mennyire van lemenve az élete):
 	- Generátor: Lyukak betömése 3 csíkon. Adott a lyuk szám, és hogy mennyi ragasztód van +akadályok. Cél: ne fogyjon ela  ragasztó
 	- Lapátok: Tisztítás Candy Crush Saga? :D
 	- Fal: Goblinokat puff puff
@@ -66,3 +65,40 @@ Az 5 minigame típusa (nehézségük változik annak fejében hogy mennyire van 
 	
 	
 Ja meg kellenének achimentek meg mikrotranzakció
+
+Előre definiált változók a fájlban:
+- Első elindítás?
+- Pénz mennyiség
+- Áram%
+- Pénz%
+- Áramveszteség%
+- Generátor ÉLET%
+- Lapát ÉLET%
+- Fal ÉLET%
+- Munkások ÉLET%
+- Csövek ÉLET%
+- Generátor LVL
+- Lapát LVL
+- Fal LVL
+- Munkások LVL
+- Csövek LVL
+- Áram termelés 
+- Áram to Pénz
+- Áttételek
+- Generátor Tűrőképesség
+- Forgási sebesség
+- Fogaskerekek
+- Lapátok mérete
+- Kerék mérete
+- Lapát Tűrőképesség 
+- Magasság 
+- Vastagság 
+- Gátfal Tűrőképesség 
+- Munkaerő 
+- Szorgalom
+- Odafigyelés
+- Adócsalás
+- Munkások Tűrőképesség
+- Szélesség 
+- Csőhálózat elrendezése 
+- Csőrendszer Tűrőképesség
