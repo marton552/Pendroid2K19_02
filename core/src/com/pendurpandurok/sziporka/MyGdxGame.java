@@ -16,7 +16,7 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 
 public class MyGdxGame extends MyGame {
 
-	public static Preferences save;
+	public Preferences save;
 
 	@Override
 	public void create () {

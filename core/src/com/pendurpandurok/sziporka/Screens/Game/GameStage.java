@@ -9,8 +9,13 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 
 public class GameStage extends MyStage {
+
+    public MyGdxGame game;
+
     public GameStage(Batch batch, MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
+        this.game = game;
+
 
     }
 
