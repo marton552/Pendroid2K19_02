@@ -12,6 +12,10 @@ import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.STATUS_BAR;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
 import com.pendurpandurok.sziporka.Show_part;
+import com.pendurpandurok.sziporka.Upgrade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
@@ -35,7 +39,12 @@ public class MenuStage extends MyStage {
     STATUS_BAR veszt;
     STATUS_BAR penz_mennyiseg;
 
+    public String level = "";
+    public int levelup = 0;
+
     Show_part sh_generator;
+
+    List<Upgrade> gen = new ArrayList<Upgrade>();
 
     boolean kepernyo = true;
 
@@ -118,18 +127,29 @@ public class MenuStage extends MyStage {
 
         if(name == "Generátor"){
             sh_generator = new Show_part(this,"Generátor",game.save.getInteger("generator_lvl"));
+
+            for (int i = 0; i < 5; i++){
+            gen.add(new Upgrade(this,"Generátor",i));}
         }
         else if(name == "Lapát"){
             sh_generator = new Show_part(this,"Lapát",game.save.getInteger("lapat_lvl"));
+            for (int i = 0; i < 6; i++){
+                gen.add(new Upgrade(this,"Lapát",i));}
         }
         else if(name == "Csőrendszer"){
             sh_generator = new Show_part(this,"Csőrendszer",game.save.getInteger("csovek_lvl"));
+            for (int i = 0; i < 4; i++){
+                gen.add(new Upgrade(this,"Csőrendszer",i));}
         }
         else if(name == "Munkások"){
             sh_generator = new Show_part(this,"Munkások",game.save.getInteger("munkasok_lvl"));
+            for (int i = 0; i < 6; i++){
+                gen.add(new Upgrade(this,"Munkások",i));}
         }
         else if(name == "Gátfal"){
             sh_generator = new Show_part(this,"Gátfal",game.save.getInteger("gatfal_lvl"));
+            for (int i = 0; i < 4; i++){
+                gen.add(new Upgrade(this,"Gátfal",i));}
         }
     }
 
@@ -138,6 +158,33 @@ public class MenuStage extends MyStage {
         sh_generator.destroy();
         destroy_screen();
         draw_screen();
+        for(int i = 0; i < gen.size();i++){
+            gen.get(i).destroy();
+        }
+        gen.clear();
+    }
+
+    public void vasarlas(){
+
+        if(levelup == 0){
+            if(game.save.getFloat("penz_mennyiseg") > (game.save.getInteger(level)+1)*25){
+                System.out.println("asd");
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(game.save.getInteger(level)+1)*25);
+                game.save.putInteger(level,game.save.getInteger(level)+1);
+            }
+        }
+        else if (levelup == 1){
+            if(game.save.getFloat("penz_mennyiseg") > (game.save.getFloat(level)+1)*250){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(game.save.getFloat(level)+1)*250);
+                game.save.getFloat(level,game.save.getFloat(level)+1);
+            }
+        }
+        else if(levelup == 2){
+            if(game.save.getFloat("penz_mennyiseg") > 500){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-500);
+                game.save.getFloat(level,game.save.getFloat(level)+1);
+            }
+        }
     }
 
     int counter = 0;

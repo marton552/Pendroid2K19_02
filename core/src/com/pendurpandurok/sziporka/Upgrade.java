@@ -1,0 +1,298 @@
+package com.pendurpandurok.sziporka;
+
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pendurpandurok.sziporka.Screens.Menu.MenuStage;
+
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
+
+public class Upgrade {
+        OneSpriteStaticActor upgrd;
+        OneSpriteStaticActor coin;
+        OneSpriteStaticActor icon;
+        OneSpriteStaticActor front;
+        MyLabel qwe;
+        MyLabel ar;
+        MyLabel plus;
+        final int money = 0;
+    public Upgrade(final MenuStage gs, String name, Integer hanyadik){
+
+        int melyik = 0;
+        //0 => pénz
+        //1 => áram
+        //2 => veszt
+        //3 => Tűrőképesség
+        //4 => ÚJ PART
+        int lvl = 0;
+        upgrd = new OneSpriteStaticActor(Assets.manager.get(Assets.UPGRD));
+        upgrd.setWidth(gs.getViewport().getWorldWidth()/1.5f);
+        upgrd.setHeight(upgrd.getWidth()/4.31f);
+        upgrd.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik);
+        gs.addActor(upgrd);
+
+        if(name == "Generátor"){
+            if(hanyadik == 0){
+                qwe = new MyLabel("Áram termelés",gs.game.getLabelStyle());
+                melyik = 1;
+                lvl = gs.game.save.getInteger("aram_termeles");
+                gs.level = "aram_termeles";
+            }
+            else if(hanyadik == 1){
+                qwe = new MyLabel("Áramból pénz",gs.game.getLabelStyle());
+                melyik = 0;
+                lvl = gs.game.save.getInteger("aram_to_penz");
+                gs.level = "aram_to_penz";
+            }
+            else if(hanyadik == 2){
+                qwe = new MyLabel("Áttételek",gs.game.getLabelStyle());
+                melyik = 2;
+                lvl = gs.game.save.getInteger("attetelek");
+                gs.level = "attetelek";
+            }
+            else if(hanyadik == 3){
+                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = Math.round(gs.game.save.getFloat("turokepesseg_generator")*10);
+                gs.level = "turokepesseg_generator";
+            }
+            else {
+                qwe = new MyLabel("ÚJ GENERÁTOR",gs.game.getLabelStyle());
+                melyik = 4;
+                lvl = 12-(gs.game.save.getInteger("aram_termeles") + gs.game.save.getInteger("aram_to_penz") + gs.game.save.getInteger("attetelek") + Math.round(gs.game.save.getFloat("turokepesseg_generator") * 10f));
+                gs.level = "generator_lvl";
+            }
+        }
+        else if(name == "Lapát"){
+            if(hanyadik == 0){
+                qwe = new MyLabel("Forgási sebesség",gs.game.getLabelStyle());
+                melyik = 1;
+                lvl = gs.game.save.getInteger("forgasi_sebesseg");
+                gs.level = "forgasi_sebesseg";
+            }
+            else if(hanyadik == 1){
+                qwe = new MyLabel("Fogaskerekek",gs.game.getLabelStyle());
+                melyik = 2;
+                lvl = gs.game.save.getInteger("fogaskerekek");
+                gs.level = "fogaskerekek";
+            }
+            else if(hanyadik == 2){
+                qwe = new MyLabel("Lapátok mérete",gs.game.getLabelStyle());
+                melyik = 1;
+                lvl = Math.round(gs.game.save.getFloat("lapatok_merete"));
+                gs.level = "lapatok_merete";
+            }
+            else if(hanyadik == 3){
+                qwe = new MyLabel("Kerék mérete",gs.game.getLabelStyle());
+                melyik = 1;
+                lvl = Math.round(gs.game.save.getFloat("kerek_merete"));
+                gs.level = "kerek_merete";
+            }
+            else if(hanyadik == 4){
+                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = Math.round(gs.game.save.getFloat("turokepesseg_lapat")*10);
+                gs.level = "turokepesseg_lapat";
+            }
+            else {
+                qwe = new MyLabel("ÚJ LAPÁT",gs.game.getLabelStyle());
+                melyik = 4;
+                lvl = 15-(gs.game.save.getInteger("forgasi_sebesseg") + gs.game.save.getInteger("fogaskerekek") + gs.game.save.getInteger("lapatok_merete") + gs.game.save.getInteger("kerek_merete") + Math.round(gs.game.save.getFloat("turokepesseg_lapat") * 10));
+                gs.level = "lapat_lvl";
+            }
+        }
+        else if(name == "Csőrendszer"){
+            if(hanyadik == 0){
+                qwe = new MyLabel("Szélesség",gs.game.getLabelStyle());
+                melyik = 2;
+                lvl = gs.game.save.getInteger("csovek_szelessege");
+                gs.level = "csovek_szelessege";
+            }
+            else if(hanyadik == 1){
+                qwe = new MyLabel("Csövek elrendezése",gs.game.getLabelStyle());
+                melyik = 2;
+                lvl = gs.game.save.getInteger("csohalozat_elrendezese");
+                gs.level = "csohalozat_elrendezese";
+            }
+            else if(hanyadik == 2){
+                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = Math.round(gs.game.save.getFloat("turokepesseg_csovek")*10);
+                gs.level = "turokepesseg_csovek";
+            }
+            else {
+                qwe = new MyLabel("ÚJ CSÖVEK",gs.game.getLabelStyle());
+                melyik = 4;
+                lvl = 9-(gs.game.save.getInteger("csovek_szelessege") + gs.game.save.getInteger("csohalozat_elrendezese") + Math.round(gs.game.save.getFloat("turokepesseg_csovek") * 10));
+                gs.level = "csovek_lvl";
+            }
+        }
+        else if(name == "Munkások"){
+            if(hanyadik == 0){
+                qwe = new MyLabel("Munkaerő",gs.game.getLabelStyle());
+                melyik = 0;
+                lvl = gs.game.save.getInteger("munkaero");
+                gs.level = "munkaero";
+            }
+            else if(hanyadik == 1){
+                qwe = new MyLabel("Szorgalom",gs.game.getLabelStyle());
+                melyik = 1;
+                lvl = gs.game.save.getInteger("szorgalom");
+                gs.level = "szorgalom";
+            }
+            else if(hanyadik == 2){
+                qwe = new MyLabel("Odafigyelés",gs.game.getLabelStyle());
+                melyik = 2;
+                lvl = Math.round(gs.game.save.getFloat("odafigyeles"));
+                gs.level = "odafigyeles";
+            }
+            else if(hanyadik == 3){
+                qwe = new MyLabel("Adócsalás",gs.game.getLabelStyle());
+                melyik = 0;
+                lvl = Math.round(gs.game.save.getFloat("adocsalas"));
+                gs.level = "adocsalas";
+            }
+            else if(hanyadik == 4){
+                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = Math.round(gs.game.save.getFloat("turokepesseg_munkasok")*10);
+                gs.level = "turokepesseg_munkasok";
+            }
+            else {
+                qwe = new MyLabel("ÚJ MUNKÁSOK",gs.game.getLabelStyle());
+                melyik = 4;
+                lvl = 15-(gs.game.save.getInteger("munkaero") + gs.game.save.getInteger("szorgalom") + gs.game.save.getInteger("odafigyeles") + gs.game.save.getInteger("adocsalas") + Math.round(gs.game.save.getFloat("turokepesseg_munkasok") * 10));
+                gs.level = "munkasok_lvl";
+            }
+        }
+        else{
+            if(hanyadik == 0){
+                qwe = new MyLabel("Magasság",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = gs.game.save.getInteger("magassag");
+                gs.level = "magassag";
+            }
+            else if(hanyadik == 1){
+                qwe = new MyLabel("Vastagság",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = gs.game.save.getInteger("vastagsag");
+                gs.level = "vastagsag";
+            }
+            else if(hanyadik == 2){
+                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                melyik = 3;
+                lvl = Math.round(gs.game.save.getFloat("turokepesseg_gatfal")*10);
+                gs.level = "turokepesseg_gatfal";
+            }
+            else {
+                qwe = new MyLabel("ÚJ GÁTFAL",gs.game.getLabelStyle());
+                melyik = 4;
+                lvl = 9-(gs.game.save.getInteger("magassag") + gs.game.save.getInteger("vastagsag") + Math.round(gs.game.save.getFloat("turokepesseg_gatfal") * 10));
+                gs.level = "gatfal_lvl";
+            }
+        }
+
+        qwe.setPosition(upgrd.getX()+upgrd.getWidth()/12,upgrd.getY()+upgrd.getHeight()/2.2f);
+        qwe.setFontScale(0.7f);
+        gs.addActor(qwe);
+
+        if(melyik == 0){
+            icon = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ_PER));
+            icon.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+            icon.setPosition(upgrd.getX()+upgrd.getHeight()/5,upgrd.getY()+upgrd.getHeight()/10);
+            gs.addActor(icon);
+
+             plus = new MyLabel("+Pénz szerzés"+"   Level: "+lvl,gs.game.getLabelStyle());
+            plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/25);
+            plus.setFontScale(0.3f);
+            plus.setColor(Color.WHITE);
+            gs.addActor(plus);
+        }
+        else if(melyik == 1){
+             icon = new OneSpriteStaticActor(Assets.manager.get(Assets.ARAM));
+            icon.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+            icon.setPosition(upgrd.getX()+upgrd.getHeight()/5,upgrd.getY()+upgrd.getHeight()/10);
+            gs.addActor(icon);
+
+             plus = new MyLabel("+Áram termelés"+"   Level: "+lvl,gs.game.getLabelStyle());
+            plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/25);
+            plus.setFontScale(0.3f);
+            plus.setColor(Color.WHITE);
+            gs.addActor(plus);
+        }
+        else if(melyik == 2){
+             icon = new OneSpriteStaticActor(Assets.manager.get(Assets.VESZT));
+            icon.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+            icon.setPosition(upgrd.getX()+upgrd.getHeight()/5,upgrd.getY()+upgrd.getHeight()/10);
+            gs.addActor(icon);
+
+             plus = new MyLabel("-Kevesebb áram veszteség"+"   Level: "+lvl,gs.game.getLabelStyle());
+            plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/25);
+            plus.setFontScale(0.3f);
+            plus.setColor(Color.WHITE);
+            gs.addActor(plus);
+        }
+        else if(melyik == 3){
+             icon = new OneSpriteStaticActor(Assets.manager.get(Assets.SHIELD));
+            icon.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+            icon.setPosition(upgrd.getX()+upgrd.getHeight()/5,upgrd.getY()+upgrd.getHeight()/10);
+            gs.addActor(icon);
+
+             plus = new MyLabel("-Lassabb élet vesztés"+"   Level: "+lvl,gs.game.getLabelStyle());
+            plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/25);
+            plus.setFontScale(0.3f);
+            plus.setColor(Color.WHITE);
+            gs.addActor(plus);
+        }
+        else if(melyik == 4){
+             icon = new OneSpriteStaticActor(Assets.manager.get(Assets.NEW));
+            icon.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+            icon.setPosition(upgrd.getX()+upgrd.getHeight()/5,upgrd.getY()+upgrd.getHeight()/10);
+            gs.addActor(icon);
+
+             plus = new MyLabel("Szükséges hozzá még "+lvl+" fejlesztés",gs.game.getLabelStyle());
+            plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/25);
+            plus.setFontScale(0.3f);
+            plus.setColor(Color.WHITE);
+            gs.addActor(plus);
+        }
+
+        if(melyik ==4){ar = new MyLabel(500+"",gs.game.getLabelStyle()); gs.levelup = 2;}
+        else if (melyik == 3){ar = new MyLabel((lvl+1)*25+"",gs.game.getLabelStyle()); gs.levelup = 1;}
+        else {ar = new MyLabel((lvl+1)*25+"",gs.game.getLabelStyle()); gs.levelup = 0;}
+        ar.setPosition(upgrd.getX()+upgrd.getWidth()-upgrd.getWidth()/5.5f,upgrd.getY()+upgrd.getHeight()/2.5f);
+        ar.setFontScale(0.6f);
+        gs.addActor(ar);
+
+        coin = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ));
+        coin.setSize(upgrd.getHeight()/3,upgrd.getHeight()/3);
+        coin.setPosition(upgrd.getX()+upgrd.getWidth()-upgrd.getWidth()/5.5f,upgrd.getY()+upgrd.getHeight()/4.5f);
+        gs.addActor(coin);
+
+        front = new OneSpriteStaticActor(Assets.manager.get(Assets.CLICKABLE));
+        front.setWidth(gs.getViewport().getWorldWidth()/1.5f);
+        front.setHeight(upgrd.getWidth()/4.31f);
+        front.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik);
+        front.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                gs.vasarlas();
+            }
+        });
+        gs.addActor(front);
+    }
+
+    public void destroy(){
+        upgrd.remove();
+         coin.remove();
+         icon.remove();
+         front.remove();
+         qwe.remove();
+         ar.remove();
+         plus.remove();
+    }
+
+
+}

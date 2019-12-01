@@ -46,7 +46,7 @@ public class MyGdxGame extends MyGame {
 		}else{
 			save.putInteger("inditas",1);
 			//nagy változók
-			save.putFloat("penz_mennyiseg",0.0f);
+			save.putFloat("penz_mennyiseg",500.0f);
 			save.putFloat("aram%",1.0f);
 			save.putFloat("penz%",1.0f);
 			save.putFloat("aramveszteseg%",0.5f);

@@ -18,7 +18,7 @@ public class Show_part {
         holy_light = new OneSpriteStaticActor(Assets.manager.get(Assets.LIGHT));
         holy_light.setWidth(gs.getViewport().getWorldWidth());
         holy_light.setHeight(holy_light.getWidth());
-        holy_light.setPosition(0,gs.getViewport().getWorldHeight()/3);
+        holy_light.setPosition(0,gs.getViewport().getWorldHeight()/2f);
         gs.addActor(holy_light);
 
         if(name == "Generátor"){
@@ -70,12 +70,12 @@ public class Show_part {
 
         part.setWidth(gs.getViewport().getWorldWidth()/1.5f);
         part.setHeight(part.getWidth()/1.65f);
-        part.setPosition(gs.getViewport().getWorldWidth()/2-(part.getWidth()/2),gs.getViewport().getWorldHeight()/2);
+        part.setPosition(gs.getViewport().getWorldWidth()/2-(part.getWidth()/2),gs.getViewport().getWorldHeight()/1.5f);
         gs.addActor(part);
 
         szalag.setWidth(gs.getViewport().getWorldWidth()/1.5f);
         szalag.setHeight(szalag.getWidth()/1.58f);
-        szalag.setPosition(gs.getViewport().getWorldWidth()/3,gs.getViewport().getWorldHeight()/2.3f);
+        szalag.setPosition(gs.getViewport().getWorldWidth()/3,gs.getViewport().getWorldHeight()/1.7f);
         gs.addActor(szalag);
 
 

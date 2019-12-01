@@ -71,6 +71,8 @@ public class Assets {
 	public static final AssetDescriptor<Texture> PENZ_PER = new AssetDescriptor<Texture>("coinper.png", Texture.class);
 	public static final AssetDescriptor<Texture> ARAM = new AssetDescriptor<Texture>("villam.png", Texture.class);
 	public static final AssetDescriptor<Texture> VESZT = new AssetDescriptor<Texture>("villam_nincs.png", Texture.class);
+	public static final AssetDescriptor<Texture> SHIELD = new AssetDescriptor<Texture>("shield.png", Texture.class);
+	public static final AssetDescriptor<Texture> NEW = new AssetDescriptor<Texture>("new.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> LIGHT = new AssetDescriptor<Texture>("light.png", Texture.class);
 	public static final AssetDescriptor<Texture> SZALAG1 = new AssetDescriptor<Texture>("szalag1.png", Texture.class);
@@ -79,6 +81,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> SZALAG4 = new AssetDescriptor<Texture>("szalag4.png", Texture.class);
 	public static final AssetDescriptor<Texture> SZALAG5 = new AssetDescriptor<Texture>("szalag5.png", Texture.class);
 	public static final AssetDescriptor<Texture> SZALAG6 = new AssetDescriptor<Texture>("szalag6.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> UPGRD = new AssetDescriptor<Texture>("upgrade.png", Texture.class);
+	public static final AssetDescriptor<Texture> CLICKABLE = new AssetDescriptor<Texture>("upgrade_front.png", Texture.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -122,6 +127,8 @@ public class Assets {
 		manager.load(PENZ);
 		manager.load(ARAM);
 		manager.load(VESZT);
+		manager.load(SHIELD);
+		manager.load(NEW);
 
 		manager.load(LIGHT);
 		manager.load(SZALAG1);
@@ -131,6 +138,8 @@ public class Assets {
 		manager.load(SZALAG5);
 		manager.load(SZALAG6);
 
+		manager.load(UPGRD);
+		manager.load(CLICKABLE);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
