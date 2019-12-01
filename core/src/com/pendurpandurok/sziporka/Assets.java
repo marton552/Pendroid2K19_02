@@ -72,6 +72,14 @@ public class Assets {
 	public static final AssetDescriptor<Texture> ARAM = new AssetDescriptor<Texture>("villam.png", Texture.class);
 	public static final AssetDescriptor<Texture> VESZT = new AssetDescriptor<Texture>("villam_nincs.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> LIGHT = new AssetDescriptor<Texture>("light.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG1 = new AssetDescriptor<Texture>("szalag1.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG2 = new AssetDescriptor<Texture>("szalag2.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG3 = new AssetDescriptor<Texture>("szalag3.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG4 = new AssetDescriptor<Texture>("szalag4.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG5 = new AssetDescriptor<Texture>("szalag5.png", Texture.class);
+	public static final AssetDescriptor<Texture> SZALAG6 = new AssetDescriptor<Texture>("szalag6.png", Texture.class);
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -114,6 +122,15 @@ public class Assets {
 		manager.load(PENZ);
 		manager.load(ARAM);
 		manager.load(VESZT);
+
+		manager.load(LIGHT);
+		manager.load(SZALAG1);
+		manager.load(SZALAG2);
+		manager.load(SZALAG3);
+		manager.load(SZALAG4);
+		manager.load(SZALAG5);
+		manager.load(SZALAG6);
+
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
