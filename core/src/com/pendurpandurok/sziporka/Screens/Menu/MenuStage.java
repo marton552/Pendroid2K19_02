@@ -109,10 +109,13 @@ public class MenuStage extends MyStage {
 
     int counter = 0;
 
+    double nextPay = System.currentTimeMillis() + 1000;
+
     public void act(float delta) {
         super.act(delta);
         counter++;
-        if (counter%100==0){
+        if (nextPay <= System.currentTimeMillis()){
+            nextPay = System.currentTimeMillis() + 1000;
             destroy_screen();
             draw_screen();
             Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getInteger("generator_hp"),game.save.getInteger("lapat_hp"),game.save.getInteger("csovek_hp"),game.save.getInteger("munkasok_hp"),game.save.getInteger("gatfal_hp"));
