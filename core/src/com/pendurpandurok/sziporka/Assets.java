@@ -47,11 +47,30 @@ public class Assets {
 	public static final AssetDescriptor<Texture> GAT1 = new AssetDescriptor<Texture>("gat1.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT2 = new AssetDescriptor<Texture>("gat2.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT3 = new AssetDescriptor<Texture>("gat3.png", Texture.class);
+	public static final AssetDescriptor<Texture> FAL1 = new AssetDescriptor<Texture>("fal1.png", Texture.class);
+	public static final AssetDescriptor<Texture> FAL2 = new AssetDescriptor<Texture>("fal2.png", Texture.class);
+	public static final AssetDescriptor<Texture> FAL3 = new AssetDescriptor<Texture>("fal3.png", Texture.class);
 	public static final AssetDescriptor<Texture> IF = new AssetDescriptor<Texture>("guihoz.png", Texture.class);
     public static final AssetDescriptor<Texture> IF_BACK = new AssetDescriptor<Texture>("guibackground.png", Texture.class);
 	public static final AssetDescriptor<Texture> HP_BAR = new AssetDescriptor<Texture>("hp_bar.png", Texture.class);
 	public static final AssetDescriptor<Texture> LVL_BAR = new AssetDescriptor<Texture>("lvl_bar.png", Texture.class);
-	public static final AssetDescriptor<Texture> GENERATOR_ICON = new AssetDescriptor<Texture>("generator.png", Texture.class);
+	public static final AssetDescriptor<Texture> GENERATOR1 = new AssetDescriptor<Texture>("generator1.png", Texture.class);
+    public static final AssetDescriptor<Texture> GENERATOR2 = new AssetDescriptor<Texture>("generator2.png", Texture.class);
+    public static final AssetDescriptor<Texture> GENERATOR3 = new AssetDescriptor<Texture>("generator3.png", Texture.class);
+	public static final AssetDescriptor<Texture> LAPAT1 = new AssetDescriptor<Texture>("lapat1.png", Texture.class);
+	public static final AssetDescriptor<Texture> LAPAT2 = new AssetDescriptor<Texture>("lapat2.png", Texture.class);
+	public static final AssetDescriptor<Texture> LAPAT3 = new AssetDescriptor<Texture>("lapat3.png", Texture.class);
+	public static final AssetDescriptor<Texture> MUNKASOK1 = new AssetDescriptor<Texture>("hod1.png", Texture.class);
+	public static final AssetDescriptor<Texture> MUNKASOK2 = new AssetDescriptor<Texture>("hod2.png", Texture.class);
+	public static final AssetDescriptor<Texture> MUNKASOK3 = new AssetDescriptor<Texture>("hod3.png", Texture.class);
+	public static final AssetDescriptor<Texture> CSOVEK1 = new AssetDescriptor<Texture>("csovek1.png", Texture.class);
+	public static final AssetDescriptor<Texture> CSOVEK2 = new AssetDescriptor<Texture>("csovek2.png", Texture.class);
+	public static final AssetDescriptor<Texture> CSOVEK3 = new AssetDescriptor<Texture>("csovek3.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> PENZ = new AssetDescriptor<Texture>("coin.png", Texture.class);
+	public static final AssetDescriptor<Texture> PENZ_PER = new AssetDescriptor<Texture>("coinper.png", Texture.class);
+	public static final AssetDescriptor<Texture> ARAM = new AssetDescriptor<Texture>("villam.png", Texture.class);
+	public static final AssetDescriptor<Texture> VESZT = new AssetDescriptor<Texture>("villam_nincs.png", Texture.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -71,11 +90,30 @@ public class Assets {
 		manager.load(GAT1);
 		manager.load(GAT2);
 		manager.load(GAT3);
+		manager.load(FAL1);
+		manager.load(FAL2);
+		manager.load(FAL3);
 		manager.load(IF);
         manager.load(IF_BACK);
 		manager.load(HP_BAR);
 		manager.load(LVL_BAR);
-		manager.load(GENERATOR_ICON);
+		manager.load(GENERATOR1);
+		manager.load(GENERATOR2);
+		manager.load(GENERATOR3);
+		manager.load(LAPAT1);
+		manager.load(LAPAT2);
+		manager.load(LAPAT3);
+		manager.load(MUNKASOK1);
+		manager.load(MUNKASOK2);
+		manager.load(MUNKASOK3);
+		manager.load(CSOVEK1);
+		manager.load(CSOVEK2);
+		manager.load(CSOVEK3);
+
+		manager.load(PENZ_PER);
+		manager.load(PENZ);
+		manager.load(ARAM);
+		manager.load(VESZT);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

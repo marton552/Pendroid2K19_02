@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.GUI;
 import com.pendurpandurok.sziporka.MyGdxGame;
+import com.pendurpandurok.sziporka.STATUS_BAR;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
@@ -21,6 +22,11 @@ public class MenuStage extends MyStage {
     private OneSpriteStaticActor background;
     private OneSpriteStaticActor gat;
     public MyGdxGame game;
+    GUI generator;
+    GUI lapat;
+    GUI csovek;
+    GUI munkasok;
+    GUI fal;
 
     public MenuStage(Batch batch, final MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
@@ -28,15 +34,16 @@ public class MenuStage extends MyStage {
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
-        background.setX(-75);
-        background.setZIndex(-10);
         addActor(background);
 
         gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
         gat.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
-        gat.setX(-75);
-        background.setZIndex(-9);
         addActor(gat);
+
+        STATUS_BAR money = new STATUS_BAR(this,"money",1);
+        STATUS_BAR aram = new STATUS_BAR(this,"aram",2);
+        STATUS_BAR veszt = new STATUS_BAR(this,"veszt",3);
+        STATUS_BAR penz_mennyiseg = new STATUS_BAR(this,"penz",4);
 
         int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek")+game.save.getInteger("turokepesseg_generator");
         int lapat_level = game.save.getInteger("forgasi_sebesseg") + game.save.getInteger("fogaskerekek") + game.save.getInteger("lapatok_merete")+game.save.getInteger("kerek_merete")+game.save.getInteger("turokepesseg_lapat");
@@ -44,11 +51,11 @@ public class MenuStage extends MyStage {
         int munaksok_level = game.save.getInteger("munkaero") + game.save.getInteger("szorgalom") + game.save.getInteger("odafigyeles")+game.save.getInteger("adocsalas")+game.save.getInteger("turokepesseg_munkasok");
         int gatfal_level = game.save.getInteger("magassag") + game.save.getInteger("vastagsag") + game.save.getInteger("turokepesseg_gatfal");
 
-        GUI generator = new GUI(this,"Generátor", generator_level, game.save.getInteger("generator_hp"),1f);
-        GUI lapat = new GUI(this,"Lapát", lapat_level, game.save.getInteger("lapat_hp"),1.5f);
-        GUI csovek = new GUI(this,"Csőrendszer", csovek_level, game.save.getInteger("csovek_hp"),2f);
-        GUI munkasok = new GUI(this,"Munkások", munaksok_level, game.save.getInteger("munkasok_hp"),2.5f);
-        GUI fal = new GUI(this,"Gátfal", gatfal_level, game.save.getInteger("gatfal_hp"),3f);
+        generator = new GUI(this,"Generátor", generator_level, game.save.getInteger("generator_hp"),1f);
+        lapat = new GUI(this,"Lapát", lapat_level, game.save.getInteger("lapat_hp"),1.5f);
+        csovek = new GUI(this,"Csőrendszer", csovek_level, game.save.getInteger("csovek_hp"),2f);
+        munkasok = new GUI(this,"Munkások", munaksok_level, game.save.getInteger("munkasok_hp"),2.5f);
+        fal = new GUI(this,"Gátfal", gatfal_level, game.save.getInteger("gatfal_hp"),3f);
 
 
         MyButton minigameTestBtn = new MyButton("CleanMinigameScreen", game.getButtonStyle());
@@ -65,6 +72,16 @@ public class MenuStage extends MyStage {
 
 
 
+    }
+
+
+    public void another_screen(String name){
+        System.out.println(name);
+        generator.destroy();
+        lapat.destroy();
+        csovek.destroy();
+        munkasok.destroy();
+        fal.destroy();
     }
 
     @Override
