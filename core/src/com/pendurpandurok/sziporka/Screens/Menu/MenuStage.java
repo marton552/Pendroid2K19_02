@@ -37,6 +37,7 @@ public class MenuStage extends MyStage {
     public MenuStage(Batch batch, final MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
+        getCamera().position.x += 73;
 
         getCamera().position.x += 73;
 

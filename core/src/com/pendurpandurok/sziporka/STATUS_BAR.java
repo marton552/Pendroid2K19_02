@@ -29,13 +29,15 @@ public class STATUS_BAR {
         }else icon_bar.setPosition(1,gs.getViewport().getWorldHeight()-(hanyadik*icon_bar.getWidth()));
         gs.addActor(icon_bar);
 
+        float asd = Math.round(gs.game.save.getFloat("penz_mennyiseg"));
+        System.out.println(Float.toString(Math.round(gs.game.save.getFloat("penz_mennyiseg"))).length());
+
         if(hanyadik == 4){
-            title.setPosition(gs.getViewport().getWorldWidth()*0.75f,gs.getViewport().getWorldHeight()-((icon_bar.getHeight())));
+            title.setPosition(gs.getViewport().getWorldWidth()-(icon_bar.getWidth()/2*(Float.toString(Math.round(gs.game.save.getFloat("penz_mennyiseg"))).length())),gs.getViewport().getWorldHeight()-((icon_bar.getHeight())));
         }else title.setPosition(icon_bar.getWidth()*1.2f,gs.getViewport().getWorldHeight()-(hanyadik*(icon_bar.getHeight())));
         title.setFontScale(1f);
         gs.addActor(title);
 
-        gs.game.save.flush();
     }
 
     public void destroy(){

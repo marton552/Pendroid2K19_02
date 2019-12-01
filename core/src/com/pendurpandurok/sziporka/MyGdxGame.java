@@ -25,6 +25,7 @@ public class MyGdxGame extends MyGame {
 
 
 		save = Gdx.app.getPreferences("gameSave");
+		save.clear();
 
 		//save.contins("key") <- létre van-e hozva?
 		//save.putString("key", "value") <- string érték mentése
