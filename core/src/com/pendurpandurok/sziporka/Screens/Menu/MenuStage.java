@@ -38,6 +38,8 @@ public class MenuStage extends MyStage {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
 
+        getCamera().position.x += 73;
+
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(background);
