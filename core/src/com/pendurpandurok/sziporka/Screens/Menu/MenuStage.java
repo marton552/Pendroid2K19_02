@@ -70,17 +70,19 @@ public class MenuStage extends MyStage {
         veszt = new STATUS_BAR(this,"veszt",3);
         penz_mennyiseg = new STATUS_BAR(this,"penz",4);
 
-        int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek")+Math.round(game.save.getFloat("turokepesseg_generator")*10);
+        int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek")+Math.round(game.save.getFloat("turokepesseg_generator") * 10f);
         int lapat_level = game.save.getInteger("forgasi_sebesseg") + game.save.getInteger("fogaskerekek") + game.save.getInteger("lapatok_merete")+game.save.getInteger("kerek_merete")+Math.round(game.save.getFloat("turokepesseg_lapat")*10);
         int csovek_level = game.save.getInteger("csovek_szelessege") + game.save.getInteger("csohalozat_elrendezese")+Math.round(game.save.getFloat("turokepesseg_csovek")*10);
         int munaksok_level = game.save.getInteger("munkaero") + game.save.getInteger("szorgalom") + game.save.getInteger("odafigyeles")+game.save.getInteger("adocsalas")+Math.round(game.save.getFloat("turokepesseg_munkasok")*10);
         int gatfal_level = game.save.getInteger("magassag") + game.save.getInteger("vastagsag") +Math.round(game.save.getFloat("turokepesseg_gatfal")*10);
+
 
         generator = new GUI(this,"Generátor", generator_level, game.save.getInteger("generator_hp"),1f);
         lapat = new GUI(this,"Lapát", lapat_level, game.save.getInteger("lapat_hp"),1.5f);
         csovek = new GUI(this,"Csőrendszer", csovek_level, game.save.getInteger("csovek_hp"),2f);
         munkasok = new GUI(this,"Munkások", munaksok_level, game.save.getInteger("munkasok_hp"),2.5f);
         fal = new GUI(this,"Gátfal", gatfal_level, game.save.getInteger("gatfal_hp"),3f);
+
     }
 
     public void destroy_screen(){
@@ -114,7 +116,7 @@ public class MenuStage extends MyStage {
             destroy_screen();
             draw_screen();
             Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getInteger("generator_hp"),game.save.getInteger("lapat_hp"),game.save.getInteger("csovek_hp"),game.save.getInteger("munkasok_hp"),game.save.getInteger("gatfal_hp"));
-            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg);
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg * 1.0f);
             game.save.flush();
         }
     }

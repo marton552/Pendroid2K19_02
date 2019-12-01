@@ -23,6 +23,7 @@ public class MyGdxGame extends MyGame {
 		Assets.prepare();
 		setScreen(new LoadingScreen(this));
 
+
 		save = Gdx.app.getPreferences("gameSave");
 
 		//save.contins("key") <- létre van-e hozva?
@@ -37,15 +38,16 @@ public class MyGdxGame extends MyGame {
 			System.out.println("Üres, berak");
 			save.putString("teszt", "Szeretem az őszt");
 		}*/
+		//save.remove("inditas");
 
 		if(save.contains("inditas")){
 			save.putInteger("inditas",(save.getInteger("inditas")+1));
 		}else{
 			save.putInteger("inditas",1);
 			//nagy változók
-			save.putFloat("penz_mennyiseg",0);
-			save.putFloat("aram%",1);
-			save.putFloat("penz%",1);
+			save.putFloat("penz_mennyiseg",0.0f);
+			save.putFloat("aram%",1.0f);
+			save.putFloat("penz%",1.0f);
 			save.putFloat("aramveszteseg%",0.5f);
 			//elemek élete
 			save.putInteger("generator_hp",100);
@@ -63,27 +65,27 @@ public class MyGdxGame extends MyGame {
 			save.putInteger("aram_termeles",0);
 			save.putInteger("aram_to_penz",0);
 			save.putInteger("attetelek",0);
-			save.putFloat("turokepesseg_generator",0f);
+			save.putFloat("turokepesseg_generator",0.0f);
 			//lapát fejlesztések
 			save.putInteger("forgasi_sebesseg",0);
 			save.putInteger("fogaskerekek",0);
 			save.putInteger("lapatok_merete",0);
 			save.putInteger("kerek_merete",0);
-			save.putFloat("turokepesseg_lapat",0f);
+			save.putFloat("turokepesseg_lapat",0.0f);
 			//gátfal fejlesztések
 			save.putInteger("magassag",0);
 			save.putInteger("vastagsag",0);
-			save.putFloat("turokepesseg_gatfal",0f);
+			save.putFloat("turokepesseg_gatfal",0.0f);
 			//munkások fejlesztések
 			save.putInteger("munkaero",0);
 			save.putInteger("szorgalom",0);
 			save.putInteger("odafigyeles",0);
 			save.putInteger("adocsalas",0);
-			save.putFloat("turokepesseg_munkasok",0f);
+			save.putFloat("turokepesseg_munkasok",0.0f);
 			//csövek fejlesztese
 			save.putInteger("csovek_szelessege",0);
 			save.putInteger("csohalozat_elrendezese",0);
-			save.putFloat("turokepesseg_csovek",0f);
+			save.putFloat("turokepesseg_csovek",0.0f);
 
 			//apróságok
 			save.putInteger("click_count",0);

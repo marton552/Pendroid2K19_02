@@ -16,7 +16,8 @@ public class CleanMinigameStage extends MyStage {
     OneSpriteStaticActor ember;
 
     int counter = 0;
-    float speed = 1;
+    float speed = 0.14f;
+    int csiki = 0;
 
     public CleanMinigameStage(Batch batch, MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
@@ -29,7 +30,7 @@ public class CleanMinigameStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                speed = 10f;
+                csiki += counter + 30;
             }
         });
         addActor(ember);
@@ -41,7 +42,12 @@ public class CleanMinigameStage extends MyStage {
     public void act(float delta) {
         super.act(delta);
         counter++;
-        ember.setY(ember.getY() + (float)Math.sin(counter / 20f) * 0.14f);
+
+        if(counter <= csiki) {
+            speed = 1.5f;
+        }else speed = 0.14f;
+
+        ember.setY(ember.getY() + (float)Math.sin(counter / 20f) * speed);
     }
 
     @Override
