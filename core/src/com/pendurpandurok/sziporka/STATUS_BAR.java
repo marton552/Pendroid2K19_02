@@ -6,10 +6,9 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class STATUS_BAR {
-
+    OneSpriteStaticActor icon_bar;
+    MyLabel title;
     public STATUS_BAR(final MenuStage gs, final String name, Integer hanyadik){
-        OneSpriteStaticActor icon_bar;
-        MyLabel title;
         if(hanyadik == 1){
             icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ_PER));
             title = new MyLabel(gs.game.save.getFloat("penz%")+"",gs.game.getLabelStyle());
@@ -18,7 +17,7 @@ public class STATUS_BAR {
             title = new MyLabel(gs.game.save.getFloat("aram%")+"",gs.game.getLabelStyle());
         }else if(hanyadik == 4){
             icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ));
-            title = new MyLabel(Math.floor(gs.game.save.getFloat("penz_mennyiseg"))+"",gs.game.getLabelStyle());
+            title = new MyLabel(Math.round(gs.game.save.getFloat("penz_mennyiseg"))+"",gs.game.getLabelStyle());
         }
         else{ icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.VESZT));
         title = new MyLabel((gs.game.save.getFloat("aramveszteseg%"))+"",gs.game.getLabelStyle());}
@@ -35,6 +34,13 @@ public class STATUS_BAR {
         }else title.setPosition(icon_bar.getWidth()*1.2f,gs.getViewport().getWorldHeight()-(hanyadik*(icon_bar.getHeight())));
         title.setFontScale(1f);
         gs.addActor(title);
+
+        gs.game.save.flush();
+    }
+
+    public void destroy(){
+        icon_bar.remove();
+        title.remove();
     }
 
 }

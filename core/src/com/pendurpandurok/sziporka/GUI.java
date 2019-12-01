@@ -121,6 +121,7 @@ public class GUI {
         qwe.setFontScale(0.7f);
         gs.addActor(qwe);
 
+        gs.game.save.flush();
 
     }
 
