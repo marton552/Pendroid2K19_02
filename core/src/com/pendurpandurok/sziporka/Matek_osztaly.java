@@ -41,11 +41,11 @@ public class Matek_osztaly {
 
 
 
-        gs.game.save.putInteger("generator_hp",Math.round(gs.game.save.getInteger("generator_hp")-(1-gs.game.save.getFloat("turokepesseg_generator"))));
-        gs.game.save.putInteger("lapat_hp",Math.round(gs.game.save.getInteger("lapat_hp")-(1-gs.game.save.getFloat("turokepesseg_lapat"))));
-        gs.game.save.putInteger("gatfal_hp",Math.round(gs.game.save.getInteger("gatfal_hp")-(1-gs.game.save.getFloat("turokepesseg_gatfal"))));
-        gs.game.save.putInteger("munkasok_hp",Math.round(gs.game.save.getInteger("munkasok_hp")-(1-gs.game.save.getFloat("turokepesseg_munkasok"))));
-        gs.game.save.putInteger("csovek_hp",Math.round(gs.game.save.getInteger("csovek_hp")-(1-gs.game.save.getFloat("turokepesseg_csovek"))));
+        if(gs.game.save.getInteger("generator_hp") > 0)gs.game.save.putInteger("generator_hp",Math.round(gs.game.save.getInteger("generator_hp")-(1-gs.game.save.getFloat("turokepesseg_generator"))));
+        if(gs.game.save.getInteger("lapat_hp") > 0)gs.game.save.putInteger("lapat_hp",Math.round(gs.game.save.getInteger("lapat_hp")-(1-gs.game.save.getFloat("turokepesseg_lapat"))));
+        if(gs.game.save.getInteger("gatfal_hp") > 0)gs.game.save.putInteger("gatfal_hp",Math.round(gs.game.save.getInteger("gatfal_hp")-(1-gs.game.save.getFloat("turokepesseg_gatfal"))));
+        if(gs.game.save.getInteger("munkasok_hp") > 0)gs.game.save.putInteger("munkasok_hp",Math.round(gs.game.save.getInteger("munkasok_hp")-(1-gs.game.save.getFloat("turokepesseg_munkasok"))));
+        if(gs.game.save.getInteger("csovek_hp") > 0)gs.game.save.putInteger("csovek_hp",Math.round(gs.game.save.getInteger("csovek_hp")-(1-gs.game.save.getFloat("turokepesseg_csovek"))));
 
         //gs.game.save.flush();
     }
