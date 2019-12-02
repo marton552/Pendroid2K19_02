@@ -27,6 +27,8 @@ public class MenuStage extends MyStage {
 
     private OneSpriteStaticActor background;
     private OneSpriteStaticActor gat;
+    public OneSpriteStaticActor sikerorlose;
+    public OneSpriteStaticActor smile;
     public MyGdxGame game;
     GUI generator;
     GUI lapat;
@@ -39,8 +41,10 @@ public class MenuStage extends MyStage {
     STATUS_BAR veszt;
     STATUS_BAR penz_mennyiseg;
 
-    public String level = "";
+    public String part = "";
     public int levelup = 0;
+    public boolean siker = false;
+    boolean vis = false;
 
     Show_part sh_generator;
 
@@ -60,6 +64,7 @@ public class MenuStage extends MyStage {
         gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
         gat.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(gat);
+
 
         draw_screen();
 
@@ -87,18 +92,18 @@ public class MenuStage extends MyStage {
 
 
         if(kepernyo) {
-            int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek") + Math.round(game.save.getFloat("turokepesseg_generator") * 10f);
-            int lapat_level = game.save.getInteger("forgasi_sebesseg") + game.save.getInteger("fogaskerekek") + game.save.getInteger("lapatok_merete") + game.save.getInteger("kerek_merete") + Math.round(game.save.getFloat("turokepesseg_lapat") * 10);
-            int csovek_level = game.save.getInteger("csovek_szelessege") + game.save.getInteger("csohalozat_elrendezese") + Math.round(game.save.getFloat("turokepesseg_csovek") * 10);
-            int munaksok_level = game.save.getInteger("munkaero") + game.save.getInteger("szorgalom") + game.save.getInteger("odafigyeles") + game.save.getInteger("adocsalas") + Math.round(game.save.getFloat("turokepesseg_munkasok") * 10);
-            int gatfal_level = game.save.getInteger("magassag") + game.save.getInteger("vastagsag") + Math.round(game.save.getFloat("turokepesseg_gatfal") * 10);
+            int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek") + Math.round(game.save.getFloat("turokepesseg_generator"));
+            int lapat_level = game.save.getInteger("forgasi_sebesseg") + game.save.getInteger("fogaskerekek") + game.save.getInteger("lapatok_merete") + game.save.getInteger("kerek_merete") + Math.round(game.save.getFloat("turokepesseg_lapat"));
+            int csovek_level = game.save.getInteger("csovek_szelessege") + game.save.getInteger("csohalozat_elrendezese") + Math.round(game.save.getFloat("turokepesseg_csovek"));
+            int munaksok_level = game.save.getInteger("munkaero") + game.save.getInteger("szorgalom") + game.save.getInteger("odafigyeles") + game.save.getInteger("adocsalas") + Math.round(game.save.getFloat("turokepesseg_munkasok"));
+            int gatfal_level = game.save.getInteger("magassag") + game.save.getInteger("vastagsag") + Math.round(game.save.getFloat("turokepesseg_gatfal"));
 
 
-            generator = new GUI(this, "Generátor", generator_level, game.save.getInteger("generator_hp"), 1f);
-            lapat = new GUI(this, "Lapát", lapat_level, game.save.getInteger("lapat_hp"), 1.5f);
-            csovek = new GUI(this, "Csőrendszer", csovek_level, game.save.getInteger("csovek_hp"), 2f);
-            munkasok = new GUI(this, "Munkások", munaksok_level, game.save.getInteger("munkasok_hp"), 2.5f);
-            fal = new GUI(this, "Gátfal", gatfal_level, game.save.getInteger("gatfal_hp"), 3f);
+            generator = new GUI(this, "Generátor", generator_level, game.save.getFloat("generator_hp"), 1f);
+            lapat = new GUI(this, "Lapát", lapat_level, game.save.getFloat("lapat_hp"), 1.5f);
+            csovek = new GUI(this, "Csőrendszer", csovek_level, game.save.getFloat("csovek_hp"), 2f);
+            munkasok = new GUI(this, "Munkások", munaksok_level, game.save.getFloat("munkasok_hp"), 2.5f);
+            fal = new GUI(this, "Gátfal", gatfal_level, game.save.getFloat("gatfal_hp"), 3f);
         }
     }
 
@@ -117,13 +122,13 @@ public class MenuStage extends MyStage {
     }
 
     public void another_screen(String name){
-        System.out.println(name);
         kepernyo = false;
         generator.destroy();
         lapat.destroy();
         csovek.destroy();
         munkasok.destroy();
         fal.destroy();
+        part = name;
 
         if(name == "Generátor"){
             sh_generator = new Show_part(this,"Generátor",game.save.getInteger("generator_lvl"));
@@ -164,27 +169,70 @@ public class MenuStage extends MyStage {
         gen.clear();
     }
 
-    public void vasarlas(){
+    public void vasarlas(int hanyadik){
+        siker = false;
+        if(vis == false){
 
-        if(levelup == 0){
-            if(game.save.getFloat("penz_mennyiseg") > (game.save.getInteger(level)+1)*25){
-                System.out.println("asd");
-                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(game.save.getInteger(level)+1)*25);
-                game.save.putInteger(level,game.save.getInteger(level)+1);
+        if(gen.get(hanyadik).levelup == 0){
+            if(game.save.getFloat("penz_mennyiseg") > (gen.get(hanyadik).lvl+1)*25){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(gen.get(hanyadik).lvl+1)*25);
+                game.save.putInteger(gen.get(hanyadik).level,game.save.getInteger(gen.get(hanyadik).level)+1);
+                siker = true;
             }
         }
-        else if (levelup == 1){
-            if(game.save.getFloat("penz_mennyiseg") > (game.save.getFloat(level)+1)*250){
-                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(game.save.getFloat(level)+1)*250);
-                game.save.getFloat(level,game.save.getFloat(level)+1);
+        else if (gen.get(hanyadik).levelup == 1){
+            if(game.save.getFloat("penz_mennyiseg") > (gen.get(hanyadik).lvl+1)*25f){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(gen.get(hanyadik).lvl+1)*25f);
+                game.save.putFloat(gen.get(hanyadik).level,(gen.get(hanyadik).lvl+1));
+                System.out.println((gen.get(hanyadik).lvl+1));
+                siker = true;
             }
         }
-        else if(levelup == 2){
-            if(game.save.getFloat("penz_mennyiseg") > 500){
+        else if(gen.get(hanyadik).levelup == 2){
+            if(game.save.getFloat("penz_mennyiseg") > 500 && gen.get(hanyadik).mennyikene-gen.get(hanyadik).lvl>=gen.get(hanyadik).mennyikene){
                 game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-500);
-                game.save.getFloat(level,game.save.getFloat(level)+1);
+                game.save.putInteger(gen.get(hanyadik).level,game.save.getInteger(gen.get(hanyadik).level)+1);
+                siker = true;
             }
         }
+
+        if(siker){
+            if(gen.get(hanyadik).melyik == 0){
+                game.save.putFloat("penz%",game.save.getFloat("penz%")+0.1f);
+            }
+            else if(gen.get(hanyadik).melyik == 1){
+                game.save.putFloat("aram%",game.save.getFloat("aram%")+0.1f);
+            }
+            else if(gen.get(hanyadik).melyik == 2){
+                game.save.putFloat("aramveszteseg%",game.save.getFloat("aramveszteseg%")*1.01f);
+            }
+            else if(gen.get(hanyadik).melyik == 4){
+                game.save.putFloat("penz%",game.save.getFloat("penz%")+0.5f);
+                game.save.putFloat("aram%",game.save.getFloat("aram%")+0.5f);
+                game.save.putFloat("aramveszteseg%",game.save.getFloat("aramveszteseg%")*1.03f);
+            }
+            smile = new OneSpriteStaticActor(Assets.manager.get(Assets.HAPPY));
+            smile.setHeight(getViewport().getWorldHeight()/2);
+            smile.setWidth(smile.getHeight()*1.12f);
+            smile.setPosition(getViewport().getWorldWidth()/2-smile.getWidth()/2,getViewport().getWorldHeight()/2);
+        }
+        else{
+            smile = new OneSpriteStaticActor(Assets.manager.get(Assets.SAD));
+            smile.setHeight(getViewport().getWorldHeight()/2);
+            smile.setWidth(smile.getHeight()*1.12f);
+            smile.setPosition(getViewport().getWorldWidth()/2-smile.getWidth()/2,getViewport().getWorldHeight()/2);
+            siker = true;
+        }
+
+        sh_generator.destroy();
+        destroy_screen();
+        for(int i = 0; i < gen.size();i++){
+            gen.get(i).destroy();
+        }
+        gen.clear();
+        another_screen(part);
+        draw_screen();
+        game.save.flush();}
     }
 
     int counter = 0;
@@ -194,12 +242,39 @@ public class MenuStage extends MyStage {
     public void act(float delta) {
         super.act(delta);
         counter++;
+
+
         if (nextPay <= System.currentTimeMillis()){
             nextPay = System.currentTimeMillis() + 1000;
             destroy_screen();
             draw_screen();
-            Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getInteger("generator_hp"),game.save.getInteger("lapat_hp"),game.save.getInteger("csovek_hp"),game.save.getInteger("munkasok_hp"),game.save.getInteger("gatfal_hp"));
+            Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getFloat("generator_hp"),game.save.getFloat("lapat_hp"),game.save.getFloat("csovek_hp"),game.save.getFloat("munkasok_hp"),game.save.getFloat("gatfal_hp"));
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg * 1.0f);
+
+
+
+            if(kepernyo == false){
+                sh_generator.destroy();
+                destroy_screen();
+                for(int i = 0; i < gen.size();i++){
+                    gen.get(i).destroy();
+                }
+                gen.clear();
+                another_screen(part);
+                draw_screen();
+            }
+
+            if(vis){
+                smile.remove();
+                vis = false;
+                siker = false;
+            }
+
+            if(siker && vis != true){
+                addActor(smile);
+                vis = true;
+            }
+
             game.save.flush();
         }
     }

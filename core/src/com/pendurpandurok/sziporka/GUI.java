@@ -19,7 +19,7 @@ public class GUI {
     OneSpriteStaticActor iface;
     OneSpriteStaticActor lvlbar;
 
-    public GUI(final MenuStage gs, final String name, Integer lvl, Integer life, Float hanyadik){
+    public GUI(final MenuStage gs, final String name, Integer lvl, Float life, Float hanyadik){
 
         iface_back = new OneSpriteStaticActor(Assets.manager.get(Assets.IF_BACK));
         iface_back.setSize(gs.getViewport().getWorldWidth()/1.5f,gs.getViewport().getWorldHeight()/10f);
@@ -45,21 +45,22 @@ public class GUI {
         lvlbar = new OneSpriteStaticActor(Assets.manager.get(Assets.LVL_BAR));
         lvlbar.setPosition(iface.getX()+iface.getX()/5.2f,iface.getY()+iface.getHeight()/5);
 
-        if(name == "Generátor"){
+        if(name == "Generátor" && lvl <= 12){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(12*(gs.game.save.getInteger("generator_lvl")+1)),iface.getHeight()/5);
         }
-        else if(name == "Lapát"){
+        else if(name == "Lapát" && lvl <= 15){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getInteger("lapat_lvl")+1)),iface.getHeight()/5);
         }
-        else if(name == "Csőrendszer"){
+        else if(name == "Csőrendszer" && lvl <= 9){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getInteger("csovek_lvl")+1)),iface.getHeight()/5);
         }
-        else if(name == "Munkások"){
+        else if(name == "Munkások" && lvl <= 15){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getInteger("munkasok_lvl")+1)),iface.getHeight()/5);
         }
-        else if(name == "Gátfal"){
+        else if(name == "Gátfal" && lvl <= 9){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getInteger("gatfal_lvl")+1)),iface.getHeight()/5);
         }
+        else lvlbar.setSize((iface.getWidth()/1.7f),iface.getHeight()/5);
 
         gs.addActor(lvlbar);
         gs.addActor(hpbar);

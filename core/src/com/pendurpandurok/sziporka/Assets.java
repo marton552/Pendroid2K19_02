@@ -85,6 +85,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> UPGRD = new AssetDescriptor<Texture>("upgrade.png", Texture.class);
 	public static final AssetDescriptor<Texture> CLICKABLE = new AssetDescriptor<Texture>("upgrade_front.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> HAPPY = new AssetDescriptor<Texture>("happy.png", Texture.class);
+	public static final AssetDescriptor<Texture> SAD = new AssetDescriptor<Texture>("sad.png", Texture.class);
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -140,6 +143,9 @@ public class Assets {
 
 		manager.load(UPGRD);
 		manager.load(CLICKABLE);
+
+		manager.load(SAD);
+		manager.load(HAPPY);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

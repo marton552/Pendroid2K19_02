@@ -11,16 +11,16 @@ public class STATUS_BAR {
     public STATUS_BAR(final MenuStage gs, final String name, Integer hanyadik){
         if(hanyadik == 1){
             icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ_PER));
-            title = new MyLabel(gs.game.save.getFloat("penz%")+"",gs.game.getLabelStyle());
+            title = new MyLabel(Math.round(gs.game.save.getFloat("penz%")*100.0)/100.0+"",gs.game.getLabelStyle());
         }else if(hanyadik == 2){
             icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.ARAM));
-            title = new MyLabel(gs.game.save.getFloat("aram%")+"",gs.game.getLabelStyle());
+            title = new MyLabel(Math.round(gs.game.save.getFloat("aram%")*100.0)/100.0+"",gs.game.getLabelStyle());
         }else if(hanyadik == 4){
             icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.PENZ));
             title = new MyLabel(Math.round(gs.game.save.getFloat("penz_mennyiseg"))+"",gs.game.getLabelStyle());
         }
         else{ icon_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.VESZT));
-        title = new MyLabel((gs.game.save.getFloat("aramveszteseg%"))+"",gs.game.getLabelStyle());}
+        title = new MyLabel(Math.round(gs.game.save.getFloat("aramveszteseg%")*100.0)/100.0+"",gs.game.getLabelStyle());}
 
         icon_bar.setWidth(gs.getViewport().getWorldWidth()/15f);
         icon_bar.setHeight(icon_bar.getWidth());
@@ -30,7 +30,6 @@ public class STATUS_BAR {
         gs.addActor(icon_bar);
 
         float asd = Math.round(gs.game.save.getFloat("penz_mennyiseg"));
-        System.out.println(Float.toString(Math.round(gs.game.save.getFloat("penz_mennyiseg"))).length());
 
         if(hanyadik == 4){
             title.setPosition(gs.getViewport().getWorldWidth()-(icon_bar.getWidth()/2*(Float.toString(Math.round(gs.game.save.getFloat("penz_mennyiseg"))).length())),gs.getViewport().getWorldHeight()-((icon_bar.getHeight())));

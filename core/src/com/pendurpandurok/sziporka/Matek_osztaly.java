@@ -39,13 +39,11 @@ public class Matek_osztaly {
 
         osszeg = penz*aram*veszt*gen_hp*lapat_hp*cso_hp*munkas_hp*fal_hp;
 
-
-
-        if(gs.game.save.getInteger("generator_hp") > 0)gs.game.save.putInteger("generator_hp",Math.round(gs.game.save.getInteger("generator_hp")-(1-gs.game.save.getFloat("turokepesseg_generator"))));
-        if(gs.game.save.getInteger("lapat_hp") > 0)gs.game.save.putInteger("lapat_hp",Math.round(gs.game.save.getInteger("lapat_hp")-(1-gs.game.save.getFloat("turokepesseg_lapat"))));
-        if(gs.game.save.getInteger("gatfal_hp") > 0)gs.game.save.putInteger("gatfal_hp",Math.round(gs.game.save.getInteger("gatfal_hp")-(1-gs.game.save.getFloat("turokepesseg_gatfal"))));
-        if(gs.game.save.getInteger("munkasok_hp") > 0)gs.game.save.putInteger("munkasok_hp",Math.round(gs.game.save.getInteger("munkasok_hp")-(1-gs.game.save.getFloat("turokepesseg_munkasok"))));
-        if(gs.game.save.getInteger("csovek_hp") > 0)gs.game.save.putInteger("csovek_hp",Math.round(gs.game.save.getInteger("csovek_hp")-(1-gs.game.save.getFloat("turokepesseg_csovek"))));
+        if(gs.game.save.getFloat("generator_hp") > 0)gs.game.save.putFloat("generator_hp",gs.game.save.getFloat("generator_hp")-(1/(gs.game.save.getFloat("turokepesseg_generator")+1)));
+        if(gs.game.save.getFloat("lapat_hp") > 0)gs.game.save.putFloat("lapat_hp",gs.game.save.getFloat("lapat_hp")-(1/(gs.game.save.getFloat("turokepesseg_lapat")+1)));
+        if(gs.game.save.getFloat("gatfal_hp") > 0)gs.game.save.putFloat("gatfal_hp",gs.game.save.getFloat("gatfal_hp")-(1/(gs.game.save.getFloat("turokepesseg_gatfal")+1)));
+        if(gs.game.save.getFloat("munkasok_hp") > 0)gs.game.save.putFloat("munkasok_hp",gs.game.save.getFloat("munkasok_hp")-(1/(gs.game.save.getFloat("turokepesseg_munkasok")+1)));
+        if(gs.game.save.getFloat("csovek_hp") > 0)gs.game.save.putFloat("csovek_hp",gs.game.save.getFloat("csovek_hp")-(1/(gs.game.save.getFloat("turokepesseg_csovek")+1)));
 
         //gs.game.save.flush();
     }
