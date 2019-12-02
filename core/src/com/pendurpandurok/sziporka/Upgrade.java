@@ -86,13 +86,13 @@ public class Upgrade {
             else if(hanyadik == 2){
                 qwe = new MyLabel("Lapátok mérete",gs.game.getLabelStyle());
                 melyik = 1;
-                lvl = Math.round(gs.game.save.getFloat("lapatok_merete"));
+                lvl = gs.game.save.getInteger("lapatok_merete");
                 level = "lapatok_merete";
             }
             else if(hanyadik == 3){
                 qwe = new MyLabel("Kerék mérete",gs.game.getLabelStyle());
                 melyik = 1;
-                lvl = Math.round(gs.game.save.getFloat("kerek_merete"));
+                lvl = gs.game.save.getInteger("kerek_merete");
                 level = "kerek_merete";
             }
             else if(hanyadik == 4){

@@ -19,12 +19,12 @@ public class CleanMinigameStage extends MyStage {
     int counter = 0;
     float speed = 50f;
     int csiki = 0;
-    boolean canCsiki = true;
 
     float oY = 0;
 
     public CleanMinigameStage(Batch batch, MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
+        getCamera().position.x += 73;
 
         ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
         ember.setSize(500, 500);

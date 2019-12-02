@@ -57,6 +57,7 @@ public class MenuStage extends MyStage {
         this.game = game;
         getCamera().position.x += 73;
 
+
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
         background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(background);
