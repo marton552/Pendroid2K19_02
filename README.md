@@ -1,5 +1,33 @@
 # Pendroid2K19_02
 
+Bendzsi:
+- 2 goblin
+- 6 dolog (1 bomba)
+- kártya hátlap
+- has-has
+- cső végtelenitett hatter
+- takony darab
+- űrhajó valami
+- lövedék
+
+Walter:
+- Nevetés hangok (3 szint, kicsi, közepes, szenvedő)
+- Csöpögés hang
+- Vizfolyás hang
+- 6 zene
+
+Martin:
+- vakarás minigame
+- goblin minigame
+- shott em up alapjai (hajó mozgás, lövés, végtelenitett hatter
+
+Márton:
+- Maradék főgame
+- Memória játék
+- Shoot em up
+- lyuk betömés minigame
+
+
 nagy változók:
 - %Áram
 - %Pénz
@@ -58,7 +86,7 @@ Ha:
 
 Az 5 minigame típusa (nehézségük változik annak fejében hogy mennyire van lemenve az élete):
 	- Generátor: Lyukak betömése 3 csíkon. Adott a lyuk szám, és hogy mennyi ragasztód van +akadályok. Cél: ne fogyjon ela  ragasztó
-	- Lapátok: Tisztítás Candy Crush Saga? :D
+	- Lapátok: memória játék
 	- Fal: Goblinokat puff puff
 	- Munkások: Csikizni kell a szőrös pocijukat (ne tűl gyorsan és ne túl lassan tap-tap)
 	- Shoot em up szerű pucolás +ellenfelek
