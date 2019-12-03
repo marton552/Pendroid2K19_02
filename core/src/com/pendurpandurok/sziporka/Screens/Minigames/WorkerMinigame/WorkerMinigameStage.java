@@ -41,10 +41,15 @@ public class WorkerMinigameStage extends MyStage {
 
     int barW = 700;
 
+    int difficulty = 1;
+
     public WorkerMinigameStage(Batch batch, MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
         getCamera().position.x += 73;
+
+        difficulty = Math.round(100.0f - game.save.getFloat("munkasok_hp"));
+        if(difficulty <= 0) difficulty = 1;
 
         if(MathUtils.random(0, 1) == 0) ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_F));
         else ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_L));
@@ -113,11 +118,11 @@ public class WorkerMinigameStage extends MyStage {
         addActor(sumSpotBar);
 
 
-        MyLabel l = new MyLabel("Haladás", game.getLabelStyle());
+        MyLabel l = new MyLabel("Boldogság", game.getLabelStyle());
         l.setFontScale(0.5f);
         l.setAlignment(Align.center);
         l.setPosition((sumBarBG.getX() + sumBarBG.getWidth()) / 2 - l.getWidth() / 2 + 40, sumBarBG.getY() - 20);
-        l.setColor(Color.WHITE);
+        l.setColor(Color.BLACK);
         addActor(l);
 
 
@@ -142,8 +147,7 @@ public class WorkerMinigameStage extends MyStage {
         super.act(delta);
         counter++;
 
-
-        if(currSpot >= theSpotStart && currSpot <= (theSpotStart + theSpotW) && counter % 10 == 0) {
+        if(currSpot >= theSpotStart && currSpot <= (theSpotStart + theSpotW) && counter % difficulty == 0) {
             sumSpot++;
 
             if(sumSpot >= 100) {
