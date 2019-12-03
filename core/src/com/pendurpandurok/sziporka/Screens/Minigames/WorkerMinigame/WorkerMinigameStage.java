@@ -1,5 +1,6 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.MathUtils;
@@ -42,13 +43,14 @@ public class WorkerMinigameStage extends MyStage {
     int barW = 700;
 
     int difficulty = 1;
+    int playingSound = 1;
 
     public WorkerMinigameStage(Batch batch, MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
-        getCamera().position.x += 73;
+        //getCamera().position.x += 73;
 
-        difficulty = Math.round(100.0f - game.save.getFloat("munkasok_hp"));
+        difficulty = Math.round((100.0f - game.save.getFloat("munkasok_hp")) / 2);
         if(difficulty <= 0) difficulty = 1;
 
         if(MathUtils.random(0, 1) == 0) ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_F));
@@ -142,6 +144,21 @@ public class WorkerMinigameStage extends MyStage {
 
     }
 
+    private void playLaughSound(int a) {
+        float vol = 1f;
+
+        Assets.manager.get(Assets.LAUGH_1).stop();
+        Assets.manager.get(Assets.LAUGH_2).stop();
+        Assets.manager.get(Assets.LAUGH_3).stop();
+
+        if(a == 1) Assets.manager.get(Assets.LAUGH_1).loop(vol);
+        if(a == 2) Assets.manager.get(Assets.LAUGH_2).loop(vol);
+        if(a == 3) Assets.manager.get(Assets.LAUGH_3).loop(vol);
+
+        playingSound = a;
+
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
@@ -152,12 +169,28 @@ public class WorkerMinigameStage extends MyStage {
 
             if(sumSpot >= 100) {
                 //setScreen
+                Assets.manager.get(Assets.LAUGH_1).stop();
+                Assets.manager.get(Assets.LAUGH_2).stop();
+                Assets.manager.get(Assets.LAUGH_3).stop();
+
                 game.save.putFloat("munkasok_hp", 100.0f);
                 game.save.flush();
                 game.setScreen(new MenuScreen(game));
             }
+
+            if(playingSound != 2) playLaughSound(2);
         }
-        if(currSpot > 0) currSpot--;
+
+        if(currSpot < theSpotStart) {
+            if(currSpot <= 10) playLaughSound(0);
+            else if(playingSound != 1) playLaughSound(1);
+        }
+
+        if(currSpot > theSpotStart + theSpotW) {
+            if(playingSound != 3) playLaughSound(3);
+        }
+
+        if(currSpot > 0 && counter % 2 == 0) currSpot--;
 
         currSpotBar.setWidth((barW / 100) * currSpot);
         sumSpotBar.setWidth((barW / 100) * sumSpot);
@@ -171,6 +204,16 @@ public class WorkerMinigameStage extends MyStage {
         ember.setY(oY + (float)Math.sin(counter / tSpeed) * 3f);
     }
 
+
+    @Override
+    public void dispose() {
+        super.dispose();
+
+        Assets.manager.get(Assets.LAUGH_1).stop();
+        Assets.manager.get(Assets.LAUGH_2).stop();
+        Assets.manager.get(Assets.LAUGH_3).stop();
+
+    }
 
     @Override
     public void init() {

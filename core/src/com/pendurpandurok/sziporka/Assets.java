@@ -96,6 +96,11 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> HAS_F = new AssetDescriptor<Texture>("hodhasf.png", Texture.class);
 	public static final AssetDescriptor<Texture> HAS_L = new AssetDescriptor<Texture>("hodhasl.png", Texture.class);
+	public static final AssetDescriptor<Sound> LAUGH_1 = new AssetDescriptor<Sound>("sfx/laugh/1.wav", Sound.class);
+	public static final AssetDescriptor<Sound> LAUGH_2 = new AssetDescriptor<Sound>("sfx/laugh/2.wav", Sound.class);
+	public static final AssetDescriptor<Sound> LAUGH_3 = new AssetDescriptor<Sound>("sfx/laugh/3.wav", Sound.class);
+
+
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -163,6 +168,9 @@ public class Assets {
 
 		manager.load(HAS_F);
 		manager.load(HAS_L);
+		manager.load(LAUGH_1);
+		manager.load(LAUGH_2);
+		manager.load(LAUGH_3);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
