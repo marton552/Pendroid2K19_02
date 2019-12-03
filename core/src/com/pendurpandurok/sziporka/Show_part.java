@@ -106,19 +106,19 @@ public class Show_part {
 
         back_bar = new OneSpriteStaticActor(Assets.manager.get(Assets.BAR_B));
         back_bar.setWidth(gs.getViewport().getWorldWidth()/1.33f);
-        back_bar.setHeight(back_bar.getWidth()/10);
+        back_bar.setHeight(back.getHeight());
         back_bar.setPosition(back.getWidth(),0);
         gs.addActor(back_bar);
 
         red = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
         red.setWidth(gs.getViewport().getWorldWidth()/1.33f*(level/100));
-        red.setHeight(back_bar.getHeight());
+        red.setHeight(back.getHeight());
         red.setPosition(back.getWidth(),0);
         gs.addActor(red);
 
         bar = new OneSpriteStaticActor(Assets.manager.get(Assets.BAR_F));
         bar.setWidth(gs.getViewport().getWorldWidth()/1.33f);
-        bar.setHeight(bar.getWidth()/10);
+        bar.setHeight(back.getHeight());
         bar.setPosition(back.getWidth(),0);
         gs.addActor(bar);
 
