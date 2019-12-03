@@ -43,6 +43,10 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> BTN_BACK = new AssetDescriptor<Texture>("ui_textures/btn_back.png", Texture.class);
 	public static final AssetDescriptor<Texture> BTN_HOVER = new AssetDescriptor<Texture>("ui_textures/btn_hover.png", Texture.class);
+	public static final AssetDescriptor<Texture> FULLWHITE = new AssetDescriptor<Texture>("ui_textures/thisiswhite.png", Texture.class);
+	public static final AssetDescriptor<Texture> GRAY = new AssetDescriptor<Texture>("ui_textures/gray.png", Texture.class);
+
+
 	public static final AssetDescriptor<Texture> BACKGROUND = new AssetDescriptor<Texture>("hatter.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT1 = new AssetDescriptor<Texture>("gat1.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT2 = new AssetDescriptor<Texture>("gat2.png", Texture.class);
@@ -102,6 +106,8 @@ public class Assets {
 		manager.load(BADLOGIC_TEXTURE);
 		manager.load(BTN_BACK);
 		manager.load(BTN_HOVER);
+		manager.load(FULLWHITE);
+		manager.load(GRAY);
 		manager.load(BACKGROUND);
 		manager.load(GAT1);
 		manager.load(GAT2);

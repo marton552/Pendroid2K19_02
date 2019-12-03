@@ -11,6 +11,7 @@ import com.pendurpandurok.sziporka.Matek_osztaly;
 import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.STATUS_BAR;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
 import com.pendurpandurok.sziporka.Show_part;
 import com.pendurpandurok.sziporka.Upgrade;
 
@@ -69,14 +70,14 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("CleanMinigameScreen", game.getButtonStyle());
+        MyButton minigameTestBtn = new MyButton("WorkerMinigameScreen", game.getButtonStyle());
         minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
         minigameTestBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new CleanMinigameScreen(game));
+                game.setScreen(new WorkerMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);
