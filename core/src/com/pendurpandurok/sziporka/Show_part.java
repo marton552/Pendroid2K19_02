@@ -146,5 +146,6 @@ public class Show_part {
         back_bar.remove();
         red.remove();
         bar.remove();
+        play.remove();
     }
 }
