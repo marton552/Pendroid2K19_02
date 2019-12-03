@@ -92,6 +92,10 @@ public class Assets {
 	public static final AssetDescriptor<Texture> HAPPY = new AssetDescriptor<Texture>("happy.png", Texture.class);
 	public static final AssetDescriptor<Texture> SAD = new AssetDescriptor<Texture>("sad.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> HAS_F = new AssetDescriptor<Texture>("hodhasf.png", Texture.class);
+	public static final AssetDescriptor<Texture> HAS_L = new AssetDescriptor<Texture>("hodhasl.png", Texture.class);
+
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -152,6 +156,9 @@ public class Assets {
 
 		manager.load(SAD);
 		manager.load(HAPPY);
+
+		manager.load(HAS_F);
+		manager.load(HAS_L);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

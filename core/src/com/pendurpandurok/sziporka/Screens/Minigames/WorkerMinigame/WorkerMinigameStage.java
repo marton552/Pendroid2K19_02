@@ -46,9 +46,10 @@ public class WorkerMinigameStage extends MyStage {
         this.game = game;
         getCamera().position.x += 73;
 
-        ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
-        ember.setSize(500, 500);
-        ember.setPosition(getViewport().getWorldWidth() / 2 - ember.getWidth() / 2, getViewport().getWorldHeight() / 2 - ember.getHeight() / 2);
+        if(MathUtils.random(0, 1) == 0) ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_F));
+        else ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_L));
+        ember.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
+
         oY = ember.getY();
         ember.addListener(new ClickListener() {
             @Override
@@ -87,6 +88,13 @@ public class WorkerMinigameStage extends MyStage {
 
         addActor(currSpotBar);
 
+        MyLabel currl = new MyLabel("Csiki méter", game.getLabelStyle());
+        currl.setFontScale(0.5f);
+        currl.setAlignment(Align.center);
+        currl.setPosition((spotBarBG.getX() + spotBarBG.getWidth()) / 2 - currl.getWidth() / 2 + 40, spotBarBG.getY() - 20);
+        currl.setColor(Color.BLACK);
+        addActor(currl);
+
         OneSpriteStaticActor sumBarBG = new OneSpriteStaticActor(Assets.manager.get(Assets.FULLWHITE));
         sumBarBG.setSize(barW, 30);
         sumBarBG.setPosition(getViewport().getWorldWidth() / 2 - sumBarBG.getWidth() / 2, getViewport().getWorldHeight() - 50 - 30 - 15);
@@ -112,6 +120,20 @@ public class WorkerMinigameStage extends MyStage {
         l.setColor(Color.WHITE);
         addActor(l);
 
+
+        MyLabel infoout = new MyLabel("Csikizz meg!", game.getLabelStyle());
+        infoout.setColor(Color.BLACK);
+        infoout.setFontScale(0.72f);
+        infoout.setAlignment(Align.center);
+        infoout.setPosition(getViewport().getWorldWidth() / 2 - l.getWidth() / 2 - 55 - 1, sumBarBG.getY() - 20 - 60 - 1);
+        addActor(infoout);
+
+        MyLabel info = new MyLabel("Csikizz meg!", game.getLabelStyle());
+        info.setColor(Color.RED);
+        info.setFontScale(0.7f);
+        info.setAlignment(Align.center);
+        info.setPosition(getViewport().getWorldWidth() / 2 - l.getWidth() / 2 - 55, sumBarBG.getY() - 20 - 60);
+        addActor(info);
 
     }
 
