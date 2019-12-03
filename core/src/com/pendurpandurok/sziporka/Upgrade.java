@@ -152,13 +152,13 @@ public class Upgrade {
             else if(hanyadik == 2){
                 qwe = new MyLabel("Odafigyelés",gs.game.getLabelStyle());
                 melyik = 2;
-                lvl = Math.round(gs.game.save.getFloat("odafigyeles"));
+                lvl = Math.round(gs.game.save.getInteger("odafigyeles"));
                 level = "odafigyeles";
             }
             else if(hanyadik == 3){
                 qwe = new MyLabel("Adócsalás",gs.game.getLabelStyle());
                 melyik = 0;
-                lvl = Math.round(gs.game.save.getFloat("adocsalas"));
+                lvl = Math.round(gs.game.save.getInteger("adocsalas"));
                 level = "adocsalas";
             }
             else if(hanyadik == 4){
