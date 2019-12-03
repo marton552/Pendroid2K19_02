@@ -49,6 +49,7 @@ public class WorkerMinigameStage extends MyStage {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
         //getCamera().position.x += 73;
+        getCamera().position.y += 150;
 
         difficulty = Math.round((100.0f - game.save.getFloat("munkasok_hp")) / 2);
         if(difficulty <= 0) difficulty = 1;

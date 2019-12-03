@@ -249,7 +249,6 @@ public class Upgrade {
              plus = new MyLabel("-Lassabb élet vesztés"+"   Level: "+Math.round(lvl),gs.game.getLabelStyle());
             plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/50);
             plus.setFontScale(0.3f);
-            plus.setColor(Color.WHITE);
             gs.addActor(plus);
         }
         else if(melyik == 4){
@@ -262,7 +261,6 @@ public class Upgrade {
             else plus = new MyLabel("Szükséges hozzá még "+Math.round(lvl)+" fejlesztés",gs.game.getLabelStyle());
             plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/50);
             plus.setFontScale(0.3f);
-            plus.setColor(Color.WHITE);
             gs.addActor(plus);
         }
 
