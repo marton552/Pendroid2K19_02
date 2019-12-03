@@ -34,7 +34,7 @@ public class Upgrade {
         upgrd = new OneSpriteStaticActor(Assets.manager.get(Assets.UPGRD));
         upgrd.setWidth(gs.getViewport().getWorldWidth()/1.2f);
         upgrd.setHeight(upgrd.getWidth()/4.31f);
-        upgrd.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik);
+        upgrd.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik+gs.getViewport().getWorldHeight()/20);
         gs.addActor(upgrd);
 
         if(name == "Generátor"){
@@ -216,7 +216,6 @@ public class Upgrade {
              plus = new MyLabel("+Pénz szerzés"+"   Level: "+Math.round(lvl),gs.game.getLabelStyle());
             plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/50);
             plus.setFontScale(0.3f);
-            plus.setColor(Color.WHITE);
             gs.addActor(plus);
         }
         else if(melyik == 1){
@@ -228,7 +227,6 @@ public class Upgrade {
              plus = new MyLabel("+Áram termelés"+"   Level: "+Math.round(lvl),gs.game.getLabelStyle());
             plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/50);
             plus.setFontScale(0.3f);
-            plus.setColor(Color.WHITE);
             gs.addActor(plus);
         }
         else if(melyik == 2){
@@ -240,7 +238,6 @@ public class Upgrade {
              plus = new MyLabel("-Kevesebb áram veszteség"+"   Level: "+Math.round(lvl),gs.game.getLabelStyle());
             plus.setPosition(upgrd.getX()+upgrd.getWidth()/7,upgrd.getY()+upgrd.getHeight()/50);
             plus.setFontScale(0.3f);
-            plus.setColor(Color.WHITE);
             gs.addActor(plus);
         }
         else if(melyik == 3){
@@ -284,7 +281,7 @@ public class Upgrade {
         front = new OneSpriteStaticActor(Assets.manager.get(Assets.CLICKABLE));
         front.setWidth(gs.getViewport().getWorldWidth()/1.2f);
         front.setHeight(upgrd.getWidth()/4.31f);
-        front.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik);
+        front.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik+gs.getViewport().getWorldHeight()/20);
         front.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

@@ -41,12 +41,11 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE
 			= new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
 
-	public static final AssetDescriptor<Texture> BTN_BACK = new AssetDescriptor<Texture>("ui_textures/btn_back.png", Texture.class);
-	public static final AssetDescriptor<Texture> BTN_HOVER = new AssetDescriptor<Texture>("ui_textures/btn_hover.png", Texture.class);
 	public static final AssetDescriptor<Texture> FULLWHITE = new AssetDescriptor<Texture>("ui_textures/thisiswhite.png", Texture.class);
 	public static final AssetDescriptor<Texture> GRAY = new AssetDescriptor<Texture>("ui_textures/gray.png", Texture.class);
 
-
+	public static final AssetDescriptor<Texture> BTN_BACK = new AssetDescriptor<Texture>("ui_textures/btn_back.png", Texture.class);
+	public static final AssetDescriptor<Texture> BTN_HOVER = new AssetDescriptor<Texture>("ui_textures/btn_hover.png", Texture.class);
 	public static final AssetDescriptor<Texture> BACKGROUND = new AssetDescriptor<Texture>("hatter.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT1 = new AssetDescriptor<Texture>("gat1.png", Texture.class);
 	public static final AssetDescriptor<Texture> GAT2 = new AssetDescriptor<Texture>("gat2.png", Texture.class);
@@ -92,9 +91,11 @@ public class Assets {
 	public static final AssetDescriptor<Texture> HAPPY = new AssetDescriptor<Texture>("happy.png", Texture.class);
 	public static final AssetDescriptor<Texture> SAD = new AssetDescriptor<Texture>("sad.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BAR_B = new AssetDescriptor<Texture>("bar_back.png", Texture.class);
+	public static final AssetDescriptor<Texture> BAR_F = new AssetDescriptor<Texture>("bar_front.png", Texture.class);
+
 	public static final AssetDescriptor<Texture> HAS_F = new AssetDescriptor<Texture>("hodhasf.png", Texture.class);
 	public static final AssetDescriptor<Texture> HAS_L = new AssetDescriptor<Texture>("hodhasl.png", Texture.class);
-
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -107,11 +108,11 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(resolver));
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
+		manager.load(GRAY);
+		manager.load(FULLWHITE);
 		manager.load(BADLOGIC_TEXTURE);
 		manager.load(BTN_BACK);
 		manager.load(BTN_HOVER);
-		manager.load(FULLWHITE);
-		manager.load(GRAY);
 		manager.load(BACKGROUND);
 		manager.load(GAT1);
 		manager.load(GAT2);
@@ -156,6 +157,9 @@ public class Assets {
 
 		manager.load(SAD);
 		manager.load(HAPPY);
+
+		manager.load(BAR_F);
+		manager.load(BAR_B);
 
 		manager.load(HAS_F);
 		manager.load(HAS_L);
