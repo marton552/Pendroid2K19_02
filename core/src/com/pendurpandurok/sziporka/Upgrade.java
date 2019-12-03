@@ -57,7 +57,7 @@ public class Upgrade {
                 level = "attetelek";
             }
             else if(hanyadik == 3){
-                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                qwe = new MyLabel("Türöképesség",gs.game.getLabelStyle());
                 melyik = 3;
                 lvl = Math.round(gs.game.save.getFloat("turokepesseg_generator"));
                 level = "turokepesseg_generator";
@@ -96,7 +96,7 @@ public class Upgrade {
                 level = "kerek_merete";
             }
             else if(hanyadik == 4){
-                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                qwe = new MyLabel("Türöképesség",gs.game.getLabelStyle());
                 melyik = 3;
                 lvl = Math.round(gs.game.save.getFloat("turokepesseg_lapat"));
                 level = "turokepesseg_lapat";
@@ -123,7 +123,7 @@ public class Upgrade {
                 level = "csohalozat_elrendezese";
             }
             else if(hanyadik == 2){
-                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                qwe = new MyLabel("Türöképesség",gs.game.getLabelStyle());
                 melyik = 3;
                 lvl = Math.round(gs.game.save.getFloat("turokepesseg_csovek"));
                 level = "turokepesseg_csovek";
@@ -138,7 +138,7 @@ public class Upgrade {
         }
         else if(name == "Munkások"){
             if(hanyadik == 0){
-                qwe = new MyLabel("Munkaerő",gs.game.getLabelStyle());
+                qwe = new MyLabel("Munkaerö",gs.game.getLabelStyle());
                 melyik = 0;
                 lvl = gs.game.save.getFloat("munkaero");
                 level = "munkaero";
@@ -162,7 +162,7 @@ public class Upgrade {
                 level = "adocsalas";
             }
             else if(hanyadik == 4){
-                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                qwe = new MyLabel("Türöképesség",gs.game.getLabelStyle());
                 melyik = 3;
                 lvl = Math.round(gs.game.save.getFloat("turokepesseg_munkasok"));
                 level = "turokepesseg_munkasok";
@@ -189,7 +189,7 @@ public class Upgrade {
                 level = "vastagsag";
             }
             else if(hanyadik == 2){
-                qwe = new MyLabel("Türőképesség",gs.game.getLabelStyle());
+                qwe = new MyLabel("Türöképesség",gs.game.getLabelStyle());
                 melyik = 3;
                 lvl = Math.round(gs.game.save.getFloat("turokepesseg_gatfal"));
                 level = "turokepesseg_gatfal";
@@ -282,7 +282,7 @@ public class Upgrade {
         gs.addActor(coin);
 
         front = new OneSpriteStaticActor(Assets.manager.get(Assets.CLICKABLE));
-        front.setWidth(gs.getViewport().getWorldWidth()/1.5f);
+        front.setWidth(gs.getViewport().getWorldWidth()/1.2f);
         front.setHeight(upgrd.getWidth()/4.31f);
         front.setPosition(gs.getViewport().getWorldWidth()/2-upgrd.getWidth()/2,upgrd.getHeight()*hanyadik);
         front.addListener(new ClickListener() {
