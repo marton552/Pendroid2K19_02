@@ -44,7 +44,7 @@ public class MenuStage extends MyStage {
     public String part = "";
     public int levelup = 0;
     public boolean siker = false;
-    boolean vis = false;
+    public boolean vis = false;
 
     Show_part sh_generator;
 
@@ -55,7 +55,7 @@ public class MenuStage extends MyStage {
     public MenuStage(Batch batch, final MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), batch, game);
         this.game = game;
-        getCamera().position.x += 73;
+        //getCamera().position.y += 110;
 
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
@@ -93,11 +93,11 @@ public class MenuStage extends MyStage {
 
 
         if(kepernyo) {
-            int generator_level = game.save.getInteger("aram_termeles") + game.save.getInteger("aram_to_penz") + game.save.getInteger("attetelek") + Math.round(game.save.getFloat("turokepesseg_generator"));
-            int lapat_level = game.save.getInteger("forgasi_sebesseg") + game.save.getInteger("fogaskerekek") + game.save.getInteger("lapatok_merete") + game.save.getInteger("kerek_merete") + Math.round(game.save.getFloat("turokepesseg_lapat"));
-            int csovek_level = game.save.getInteger("csovek_szelessege") + game.save.getInteger("csohalozat_elrendezese") + Math.round(game.save.getFloat("turokepesseg_csovek"));
-            int munaksok_level = game.save.getInteger("munkaero") + game.save.getInteger("szorgalom") + game.save.getInteger("odafigyeles") + game.save.getInteger("adocsalas") + Math.round(game.save.getFloat("turokepesseg_munkasok"));
-            int gatfal_level = game.save.getInteger("magassag") + game.save.getInteger("vastagsag") + Math.round(game.save.getFloat("turokepesseg_gatfal"));
+            float generator_level = game.save.getFloat("aram_termeles") + game.save.getFloat("aram_to_penz") + game.save.getFloat("attetelek") + Math.round(game.save.getFloat("turokepesseg_generator"));
+            float lapat_level = game.save.getFloat("forgasi_sebesseg") + game.save.getFloat("fogaskerekek") + game.save.getFloat("lapatok_merete") + game.save.getFloat("kerek_merete") + Math.round(game.save.getFloat("turokepesseg_lapat"));
+            float csovek_level = game.save.getFloat("csovek_szelessege") + game.save.getFloat("csohalozat_elrendezese") + Math.round(game.save.getFloat("turokepesseg_csovek"));
+            float munaksok_level = game.save.getFloat("munkaero") + game.save.getFloat("szorgalom") + game.save.getFloat("odafigyeles") + game.save.getFloat("adocsalas") + Math.round(game.save.getFloat("turokepesseg_munkasok"));
+            float gatfal_level = game.save.getFloat("magassag") + game.save.getFloat("vastagsag") + Math.round(game.save.getFloat("turokepesseg_gatfal"));
 
 
             generator = new GUI(this, "Generátor", generator_level, game.save.getFloat("generator_hp"), 1f);
@@ -132,28 +132,28 @@ public class MenuStage extends MyStage {
         part = name;
 
         if(name == "Generátor"){
-            sh_generator = new Show_part(this,"Generátor",game.save.getInteger("generator_lvl"));
+            sh_generator = new Show_part(this,"Generátor",game.save.getFloat("generator_lvl"));
 
             for (int i = 0; i < 5; i++){
             gen.add(new Upgrade(this,"Generátor",i));}
         }
         else if(name == "Lapát"){
-            sh_generator = new Show_part(this,"Lapát",game.save.getInteger("lapat_lvl"));
+            sh_generator = new Show_part(this,"Lapát",game.save.getFloat("lapat_lvl"));
             for (int i = 0; i < 6; i++){
                 gen.add(new Upgrade(this,"Lapát",i));}
         }
         else if(name == "Csőrendszer"){
-            sh_generator = new Show_part(this,"Csőrendszer",game.save.getInteger("csovek_lvl"));
+            sh_generator = new Show_part(this,"Csőrendszer",game.save.getFloat("csovek_lvl"));
             for (int i = 0; i < 4; i++){
                 gen.add(new Upgrade(this,"Csőrendszer",i));}
         }
         else if(name == "Munkások"){
-            sh_generator = new Show_part(this,"Munkások",game.save.getInteger("munkasok_lvl"));
+            sh_generator = new Show_part(this,"Munkások",game.save.getFloat("munkasok_lvl"));
             for (int i = 0; i < 6; i++){
                 gen.add(new Upgrade(this,"Munkások",i));}
         }
         else if(name == "Gátfal"){
-            sh_generator = new Show_part(this,"Gátfal",game.save.getInteger("gatfal_lvl"));
+            sh_generator = new Show_part(this,"Gátfal",game.save.getFloat("gatfal_lvl"));
             for (int i = 0; i < 4; i++){
                 gen.add(new Upgrade(this,"Gátfal",i));}
         }
@@ -175,9 +175,10 @@ public class MenuStage extends MyStage {
         if(vis == false){
 
         if(gen.get(hanyadik).levelup == 0){
+            System.out.println("asd");
             if(game.save.getFloat("penz_mennyiseg") > (gen.get(hanyadik).lvl+1)*25){
                 game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(gen.get(hanyadik).lvl+1)*25);
-                game.save.putInteger(gen.get(hanyadik).level,game.save.getInteger(gen.get(hanyadik).level)+1);
+                game.save.putFloat(gen.get(hanyadik).level,game.save.getFloat(gen.get(hanyadik).level)+1);
                 siker = true;
             }
         }
@@ -192,7 +193,7 @@ public class MenuStage extends MyStage {
         else if(gen.get(hanyadik).levelup == 2){
             if(game.save.getFloat("penz_mennyiseg") > 500 && gen.get(hanyadik).mennyikene-gen.get(hanyadik).lvl>=gen.get(hanyadik).mennyikene){
                 game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-500);
-                game.save.putInteger(gen.get(hanyadik).level,game.save.getInteger(gen.get(hanyadik).level)+1);
+                game.save.putFloat(gen.get(hanyadik).level,game.save.getFloat(gen.get(hanyadik).level)+1);
                 siker = true;
             }
         }
@@ -233,7 +234,13 @@ public class MenuStage extends MyStage {
         gen.clear();
         another_screen(part);
         draw_screen();
-        game.save.flush();}
+
+            System.out.println(gen.get(hanyadik).level);
+            System.out.println(gen.get(hanyadik).levelup);
+            System.out.println(hanyadik);
+        }
+
+
     }
 
     int counter = 0;
@@ -252,8 +259,6 @@ public class MenuStage extends MyStage {
             Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getFloat("generator_hp"),game.save.getFloat("lapat_hp"),game.save.getFloat("csovek_hp"),game.save.getFloat("munkasok_hp"),game.save.getFloat("gatfal_hp"));
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg * 1.0f);
 
-
-
             if(kepernyo == false){
                 sh_generator.destroy();
                 destroy_screen();
@@ -271,11 +276,10 @@ public class MenuStage extends MyStage {
                 siker = false;
             }
 
-            if(siker && vis != true){
+            if(siker == true && vis == false){
                 addActor(smile);
                 vis = true;
             }
-
             game.save.flush();
         }
     }

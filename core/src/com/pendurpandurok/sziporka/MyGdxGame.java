@@ -25,7 +25,6 @@ public class MyGdxGame extends MyGame {
 
 
 		save = Gdx.app.getPreferences("gameSave");
-		save.clear();
 
 		//save.contins("key") <- létre van-e hozva?
 		//save.putString("key", "value") <- string érték mentése
@@ -42,9 +41,9 @@ public class MyGdxGame extends MyGame {
 		//save.remove("inditas");
 
 		if(save.contains("inditas")){
-			save.putInteger("inditas",(save.getInteger("inditas")+1));
+			save.putFloat("inditas",(save.getFloat("inditas")+1));
 		}else{
-			save.putInteger("inditas",1);
+			save.putFloat("inditas",1);
 			//nagy változók
 			save.putFloat("penz_mennyiseg",10500.0f);
 			save.putFloat("aram%",1.0f);
@@ -57,41 +56,41 @@ public class MyGdxGame extends MyGame {
 			save.putFloat("munkasok_hp",100.0f);
 			save.putFloat("csovek_hp",100.0f);
 			//elemek FŐ szintje
-			save.putInteger("generator_lvl",0);
-			save.putInteger("lapat_lvl",0);
-			save.putInteger("gatfal_lvl",0);
-			save.putInteger("munkasok_lvl",0);
-			save.putInteger("csovek_lvl",0);
+			save.putFloat("generator_lvl",0);
+			save.putFloat("lapat_lvl",0);
+			save.putFloat("gatfal_lvl",0);
+			save.putFloat("munkasok_lvl",0);
+			save.putFloat("csovek_lvl",0);
 			//generátor fejlesztései
-			save.putInteger("aram_termeles",0);
-			save.putInteger("aram_to_penz",0);
-			save.putInteger("attetelek",0);
+			save.putFloat("aram_termeles",0);
+			save.putFloat("aram_to_penz",0);
+			save.putFloat("attetelek",0);
 			save.putFloat("turokepesseg_generator",0.0f);
 			//lapát fejlesztések
-			save.putInteger("forgasi_sebesseg",0);
-			save.putInteger("fogaskerekek",0);
-			save.putInteger("lapatok_merete",0);
-			save.putInteger("kerek_merete",0);
+			save.putFloat("forgasi_sebesseg",0);
+			save.putFloat("fogaskerekek",0);
+			save.putFloat("lapatok_merete",0);
+			save.putFloat("kerek_merete",0);
 			save.putFloat("turokepesseg_lapat",0.0f);
 			//gátfal fejlesztések
-			save.putInteger("magassag",0);
-			save.putInteger("vastagsag",0);
+			save.putFloat("magassag",0);
+			save.putFloat("vastagsag",0);
 			save.putFloat("turokepesseg_gatfal",0.0f);
 			//munkások fejlesztések
-			save.putInteger("munkaero",0);
-			save.putInteger("szorgalom",0);
-			save.putInteger("odafigyeles",0);
-			save.putInteger("adocsalas",0);
+			save.putFloat("munkaero",0);
+			save.putFloat("szorgalom",0);
+			save.putFloat("odafigyeles",0);
+			save.putFloat("adocsalas",0);
 			save.putFloat("turokepesseg_munkasok",0.0f);
 			//csövek fejlesztese
-			save.putInteger("csovek_szelessege",0);
-			save.putInteger("csohalozat_elrendezese",0);
+			save.putFloat("csovek_szelessege",0);
+			save.putFloat("csohalozat_elrendezese",0);
 			save.putFloat("turokepesseg_csovek",0.0f);
 
 			//apróságok
-			save.putInteger("click_count",0);
-			save.putInteger("eltelt_ido",0);
-			save.putInteger("minigamek",0);
+			save.putFloat("click_count",0);
+			save.putFloat("eltelt_ido",0);
+			save.putFloat("minigamek",0);
 		}
 		save.flush();
 	}

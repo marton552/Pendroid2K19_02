@@ -19,7 +19,7 @@ public class GUI {
     OneSpriteStaticActor iface;
     OneSpriteStaticActor lvlbar;
 
-    public GUI(final MenuStage gs, final String name, Integer lvl, Float life, Float hanyadik){
+    public GUI(final MenuStage gs, final String name, Float lvl, Float life, Float hanyadik){
 
         iface_back = new OneSpriteStaticActor(Assets.manager.get(Assets.IF_BACK));
         iface_back.setSize(gs.getViewport().getWorldWidth()/1.5f,gs.getViewport().getWorldHeight()/10f);
@@ -46,19 +46,19 @@ public class GUI {
         lvlbar.setPosition(iface.getX()+iface.getX()/5.2f,iface.getY()+iface.getHeight()/5);
 
         if(name == "Generátor" && lvl <= 12){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(12*(gs.game.save.getInteger("generator_lvl")+1)),iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(12*(gs.game.save.getFloat("generator_lvl")+1)),iface.getHeight()/5);
         }
         else if(name == "Lapát" && lvl <= 15){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getInteger("lapat_lvl")+1)),iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getFloat("lapat_lvl")+1)),iface.getHeight()/5);
         }
         else if(name == "Csőrendszer" && lvl <= 9){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getInteger("csovek_lvl")+1)),iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getFloat("csovek_lvl")+1)),iface.getHeight()/5);
         }
         else if(name == "Munkások" && lvl <= 15){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getInteger("munkasok_lvl")+1)),iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(15*(gs.game.save.getFloat("munkasok_lvl")+1)),iface.getHeight()/5);
         }
         else if(name == "Gátfal" && lvl <= 9){
-            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getInteger("gatfal_lvl")+1)),iface.getHeight()/5);
+            lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(9*(gs.game.save.getFloat("gatfal_lvl")+1)),iface.getHeight()/5);
         }
         else lvlbar.setSize((iface.getWidth()/1.7f),iface.getHeight()/5);
 
@@ -69,40 +69,40 @@ public class GUI {
 
 
         if(name == "Generátor"){
-            if(gs.game.save.getInteger("generator_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR1));}
-            else if (gs.game.save.getInteger("generator_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR2));}
+            if(gs.game.save.getFloat("generator_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR1));}
+            else if (gs.game.save.getFloat("generator_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR2));}
             else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.GENERATOR3));}
             gs.addActor(icon);
 
             qwe = new MyLabel("Generátor",gs.game.getLabelStyle());
         }
         else if(name == "Lapát"){
-            if(gs.game.save.getInteger("lapat_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.LAPAT1));}
-            else if (gs.game.save.getInteger("lapat_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.LAPAT2));}
+            if(gs.game.save.getFloat("lapat_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.LAPAT1));}
+            else if (gs.game.save.getFloat("lapat_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.LAPAT2));}
             else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.LAPAT3));}
             gs.addActor(icon);
 
             qwe = new MyLabel("Lapát",gs.game.getLabelStyle());
         }
         else if(name == "Csőrendszer"){
-            if(gs.game.save.getInteger("csovek_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.CSOVEK1));}
-            else if (gs.game.save.getInteger("csovek_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.CSOVEK2));}
+            if(gs.game.save.getFloat("csovek_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.CSOVEK1));}
+            else if (gs.game.save.getFloat("csovek_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.CSOVEK2));}
             else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.CSOVEK3));}
             gs.addActor(icon);
 
             qwe = new MyLabel("Csörendszer",gs.game.getLabelStyle());
         }
         else if(name == "Munkások"){
-            if(gs.game.save.getInteger("munkasok_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.MUNKASOK1));}
-            else if (gs.game.save.getInteger("munkasok_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.MUNKASOK2));}
+            if(gs.game.save.getFloat("munkasok_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.MUNKASOK1));}
+            else if (gs.game.save.getFloat("munkasok_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.MUNKASOK2));}
             else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.MUNKASOK3));}
             gs.addActor(icon);
 
             qwe = new MyLabel("Munkások",gs.game.getLabelStyle());
         }
         else {
-            if(gs.game.save.getInteger("gatfal_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.FAL1));}
-            else if (gs.game.save.getInteger("gatfal_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.FAL2));}
+            if(gs.game.save.getFloat("gatfal_lvl")==0){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.FAL1));}
+            else if (gs.game.save.getFloat("gatfal_lvl")==1){ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.FAL2));}
             else{ icon = new OneSpriteStaticActor(Assets.manager.get(Assets.FAL3));}
             gs.addActor(icon);
 

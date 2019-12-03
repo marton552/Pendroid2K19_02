@@ -14,7 +14,7 @@ public class Show_part {
     OneSpriteStaticActor szalag;
     MyButton back;
 
-    public Show_part(final MenuStage gs, String name, Integer lvl){
+    public Show_part(final MenuStage gs, String name, Float lvl){
         holy_light = new OneSpriteStaticActor(Assets.manager.get(Assets.LIGHT));
         holy_light.setWidth(gs.getViewport().getWorldWidth());
         holy_light.setHeight(holy_light.getWidth());
