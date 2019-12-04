@@ -61,11 +61,10 @@ public class MenuStage extends MyStage {
         this.game = game;
         //getCamera().position.y += 150;
 
-        //if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
-
+        if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
-        background.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), getViewport().getWorldHeight());
+        background.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
         addActor(background);
 
         gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));

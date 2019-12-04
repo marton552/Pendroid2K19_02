@@ -100,6 +100,10 @@ public class Assets {
 	public static final AssetDescriptor<Sound> LAUGH_2 = new AssetDescriptor<Sound>("sfx/laugh/2.wav", Sound.class);
 	public static final AssetDescriptor<Sound> LAUGH_3 = new AssetDescriptor<Sound>("sfx/laugh/3.wav", Sound.class);
 
+	public static final AssetDescriptor<Texture> GOBLIN_1 = new AssetDescriptor<Texture>("goblin.png", Texture.class);
+	public static final AssetDescriptor<Texture> GOBLIN_2 = new AssetDescriptor<Texture>("goblin2.png", Texture.class);
+	public static final AssetDescriptor<Texture> GOBLIN_3 = new AssetDescriptor<Texture>("goblin3.png", Texture.class);
+
 
 
     public static void prepare() {
@@ -172,6 +176,10 @@ public class Assets {
 		manager.load(LAUGH_1);
 		manager.load(LAUGH_2);
 		manager.load(LAUGH_3);
+
+		manager.load(GOBLIN_1);
+		manager.load(GOBLIN_2);
+		manager.load(GOBLIN_3);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
