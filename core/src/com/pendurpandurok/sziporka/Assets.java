@@ -103,6 +103,8 @@ public class Assets {
 	public static final AssetDescriptor<Texture> GOBLIN_1 = new AssetDescriptor<Texture>("goblin.png", Texture.class);
 	public static final AssetDescriptor<Texture> GOBLIN_2 = new AssetDescriptor<Texture>("goblin2.png", Texture.class);
 	public static final AssetDescriptor<Texture> GOBLIN_3 = new AssetDescriptor<Texture>("goblin3.png", Texture.class);
+	public static final AssetDescriptor<TextureAtlas> BLOOD_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/blood.atlas", TextureAtlas.class);
+
 
 
 
@@ -180,6 +182,7 @@ public class Assets {
 		manager.load(GOBLIN_1);
 		manager.load(GOBLIN_2);
 		manager.load(GOBLIN_3);
+		manager.load(BLOOD_ATLAS);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 
@@ -11,13 +12,15 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
+import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
+
 public class ShootUpMinigameStage extends MyStage {
 
     OneSpriteStaticActor dolog;
     boolean isTouching = false; //Ez nézi hogy az ujjad rajta van-e a stagen
 
     public ShootUpMinigameStage(MyGame game) {
-        super(new ExtendViewport(720f, 1280f), game);
+        super(new FitViewport(720f, keparanySzelesvaszonra()), game);
 
         dolog = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
         dolog.setSize(200, 200);

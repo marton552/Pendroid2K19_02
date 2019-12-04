@@ -14,6 +14,7 @@ import com.pendurpandurok.sziporka.Matek_osztaly;
 import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.STATUS_BAR;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.ShootMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
 import com.pendurpandurok.sziporka.Show_part;
@@ -64,7 +65,7 @@ public class MenuStage extends MyStage {
         this.game = game;
         //getCamera().position.y += 150;
 
-        if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
+        //if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
         background.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
@@ -77,14 +78,14 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("ShootUpMinigameScreen", game.getButtonStyle());
+        MyButton minigameTestBtn = new MyButton("ShootMinigameScreen", game.getButtonStyle());
         minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
         minigameTestBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new ShootUpMinigameScreen(game));
+                game.setScreen(new ShootMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);
