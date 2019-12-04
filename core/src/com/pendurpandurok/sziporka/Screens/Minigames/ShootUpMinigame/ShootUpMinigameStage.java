@@ -38,16 +38,18 @@ public class ShootUpMinigameStage extends MyStage {
 
     boolean isPlaying = true;
 
-    int maxKill = MathUtils.random(15, 30);
-    int currKill = 0;
+    public int maxKill = MathUtils.random(15, 30);
+    public int currKill = 0;
 
     OneSpriteAnimatedActor explosion;
 
     ShootUpMinigameScreen screen;
+    MyGdxGame game;
 
     public ShootUpMinigameStage(final MyGdxGame game, ShootUpMinigameScreen screen) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.screen = screen;
+        this.game = game;
 
         getCamera().position.y = 0;
 
@@ -58,12 +60,15 @@ public class ShootUpMinigameStage extends MyStage {
             tube.setZIndex(10);
             if(i > 0){
                 tube.setY(lastY + tube.getHeight());
+                addActor(tube);
 
                 int randAmount = MathUtils.random(1, 3);
                 for (int j = 0; j < randAmount; j++) spawnTakony(lastY + tube.getHeight());
             }
-            else tube.setY(lastY);
-            addActor(tube);
+            else {
+                tube.setY(lastY);
+                addActor(tube);
+            }
 
             if(tube.getY() > lastY) lastY = tube.getY();
 
@@ -105,9 +110,6 @@ public class ShootUpMinigameStage extends MyStage {
             }
         });
 
-
-        explosion = new OneSpriteAnimatedActor(Assets.manager.get(Assets.EXPLOSION_ATLAS));
-
     }
 
     public void fireWeapon() {
@@ -120,7 +122,7 @@ public class ShootUpMinigameStage extends MyStage {
     public void spawnTakony(float startY) {
         Takony t = new Takony();
         t.setPosition(MathUtils.random(50, getViewport().getWorldWidth() - 50 - t.getWidth()), MathUtils.random(startY, startY + getViewport().getWorldHeight()));
-        t.setZIndex(15);
+        t.setZIndex(5);
         addActor(t);
         takonys.add(t);
 
@@ -129,9 +131,12 @@ public class ShootUpMinigameStage extends MyStage {
     public void killTakony(Takony t, Bullet b) {
         if(isPlaying){
             currKill++;
+            screen.hud.updateKillText(maxKill, currKill);
 
             Blood blood = new Blood(this);
-            blood.setPosition(t.getX() + t.getWidth() / 2 - blood.getWidth(), t.getY() + t.getHeight() / 2 - blood.getHeight());
+            blood.setZIndex(1);
+            blood.setPosition(t.getX() + t.getWidth() / 2 - blood.getWidth() / 2, t.getY() + t.getHeight() / 2 - blood.getHeight() / 2);
+            addActor(blood);
 
             getActors().removeValue(t, false);
             getActors().removeValue(b, false);
@@ -148,9 +153,11 @@ public class ShootUpMinigameStage extends MyStage {
     public void gameOver() {
         isPlaying = false;
 
-        explosion.setSize(explosion.getWidth() / 2, explosion.getHeight() / 2);
+        explosion = new OneSpriteAnimatedActor(Assets.manager.get(Assets.EXPLOSION_ATLAS));
+        explosion.setZIndex(1);
+        explosion.setSize(explosion.getWidth() * 2, explosion.getHeight() * 2);
         explosion.setPosition(urhajo.getX() + urhajo.getWidth() / 2 - explosion.getWidth() / 2, urhajo.getY() + urhajo.getHeight() / 2 - explosion.getHeight() / 2);
-        explosion.setLooping(false);
+
         addActor(explosion);
 
         urhajo.setVisible(false);
@@ -161,6 +168,13 @@ public class ShootUpMinigameStage extends MyStage {
         }
 
         bullets.clear();
+
+        for (int i = 0; i < takonys.size(); i++) {
+            Takony t = takonys.get(i);
+            getActors().removeValue(t, false);
+        }
+
+        takonys.clear();
 
         screen.hud.togOverPanel(true);
     }
@@ -175,6 +189,9 @@ public class ShootUpMinigameStage extends MyStage {
 
         bullets.clear();
 
+        game.save.putFloat("csovek_hp", 100.0f);
+        game.save.flush();
+
         screen.hud.togVictoryPanel(true);
 
     }
@@ -186,6 +203,10 @@ public class ShootUpMinigameStage extends MyStage {
 
         urhajo.setVisible(true);
         currKill = 0;
+
+        getActors().removeValue(explosion, false);
+        screen.hud.updateKillText(maxKill, currKill);
+
 
     }
 
@@ -214,7 +235,7 @@ public class ShootUpMinigameStage extends MyStage {
             for (int i = 0; i < bullets.size(); i++) {
                 Bullet b = bullets.get(i);
 
-                if (b.getY() > getCamera().position.y + getViewport().getWorldHeight() * 2) {
+                if (b.getY() > getCamera().position.y + getViewport().getWorldHeight()) {
                     getActors().removeValue(b, false);
                     bullets.remove(b);
                     i--;
@@ -230,13 +251,19 @@ public class ShootUpMinigameStage extends MyStage {
                 }
             }
 
+            for(int i = 0; i < takonys.size(); i++) {
+                Takony t = takonys.get(i);
+
+                if(t.overlaps(urhajo)) {
+                    gameOver();
+                }
+
+                if(t.getY() + getViewport().getWorldHeight() /2  < getCamera().position.y) gameOver();
+            }
+
 
             if (counter % 50 == 0 && isTouching) {
                 fireWeapon();
-            }
-        }else {
-            if(explosion.getActualFrame() >= explosion.getFrameCount()-1) {
-                getActors().removeValue(explosion, false);
             }
         }
     }

@@ -27,6 +27,8 @@ public class ShootUpHUD extends MyStage {
     MyLabel victoryLabel;
     MyButton victoryBtn;
 
+    MyLabel info;
+
 
     public ShootUpHUD(final MyGdxGame game, final ShootUpMinigameScreen screen) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
@@ -95,6 +97,18 @@ public class ShootUpHUD extends MyStage {
 
         addActor(victoryBtn);
 
+        info = new MyLabel(screen.shootUpMinigameStage.maxKill+"/"+screen.shootUpMinigameStage.currKill, game.getLabelStyle());
+        info.setAlignment(Align.center);
+        info.setFontScale(0.9f);
+        info.setPosition(getViewport().getWorldWidth() / 2 - (info.getWidth()*info.getFontScaleX()) / 2 - 10, getViewport().getWorldHeight() - info.getHeight() - 10);
+
+        addActor(info);
+
+
+    }
+
+    public void updateKillText(int max, int curr) {
+        info.setText(max+"/"+curr);
     }
 
 

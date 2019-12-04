@@ -167,7 +167,6 @@ public class ShootMinigameStage extends MyStage {
         info.setFontScale(0.9f);
         info.setPosition(getViewport().getWorldWidth() / 2 - (info.getWidth()*info.getFontScaleX()) / 2 - 10, getViewport().getWorldHeight() - 130);
 
-
         addActor(info);
 
     }
@@ -244,6 +243,8 @@ public class ShootMinigameStage extends MyStage {
         for (int i = 0; i < goblins.size(); i++) {
             goblins.remove(i);
         }
+
+        goblins.clear();
 
 
         overBg.setVisible(false);
