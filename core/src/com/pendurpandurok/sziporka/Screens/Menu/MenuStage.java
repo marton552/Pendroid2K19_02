@@ -27,6 +27,8 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
+import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
+
 public class MenuStage extends MyStage {
 
     private OneSpriteStaticActor background;
@@ -57,7 +59,7 @@ public class MenuStage extends MyStage {
     boolean kepernyo = true;
 
     public MenuStage( final MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), game);
+        super(new ExtendViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
         //getCamera().position.y += 150;
 

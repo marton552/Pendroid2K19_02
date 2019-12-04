@@ -20,6 +20,8 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
+import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
+
 public class WorkerMinigameStage extends MyStage {
 
     OneSpriteStaticActor ember;
@@ -55,10 +57,13 @@ public class WorkerMinigameStage extends MyStage {
 
 
     public WorkerMinigameStage(final MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), game);
+        super(new ExtendViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
         if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
         //getCamera().position.y += 150;
+        //Szia Martin, Dani vagyok :D
+        //Átírtam FitViewportra az ExtendViewportot, így hátha nem szívtok vele annyit :D
+        //A világ mindig 720 széles, s a függvényem a magasságot pedig kiszámolja a képarányhoz
 
         difficulty = Math.round((100.0f - game.save.getFloat("munkasok_hp")) / 10);
         if(difficulty <= 0) difficulty = 1;
