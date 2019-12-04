@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.GUI;
@@ -59,7 +60,7 @@ public class MenuStage extends MyStage {
     boolean kepernyo = true;
 
     public MenuStage( final MyGdxGame game) {
-        super(new ExtendViewport(720f, keparanySzelesvaszonra()), game);
+        super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
         //getCamera().position.y += 150;
 
@@ -67,7 +68,7 @@ public class MenuStage extends MyStage {
 
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
-        background.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), getViewport().getWorldHeight());
+        background.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
         addActor(background);
 
         gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));

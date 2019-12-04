@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuScreen;
@@ -57,7 +58,7 @@ public class WorkerMinigameStage extends MyStage {
 
 
     public WorkerMinigameStage(final MyGdxGame game) {
-        super(new ExtendViewport(720f, keparanySzelesvaszonra()), game);
+        super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
         if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
         //getCamera().position.y += 150;
