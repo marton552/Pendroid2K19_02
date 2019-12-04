@@ -17,6 +17,8 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
+import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
+
 public class WorkerMinigameStage extends MyStage {
 
     OneSpriteStaticActor ember;
@@ -46,7 +48,7 @@ public class WorkerMinigameStage extends MyStage {
     int playingSound = 1;
 
     public WorkerMinigameStage(MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), game);
+        super(new ExtendViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
         //getCamera().position.x += 73;
         getCamera().position.y += 150;
