@@ -1,31 +1,30 @@
 # Pendroid2K19_02
 
 Bendzsi:
-- 2 goblin
-- 6 dolog (1 bomba)
-- kártya hátlap
-- has-has
-- cső végtelenitett hatter
-- takony darab
-- űrhajó valami
-- lövedék
+- Erdő háttér a goblinokhoz
+- Egy asztal háttér a kártyához
+- madár (szárnya 2 állásban)
+- Halacska
+- Gyík
 
 Walter:
-- Nevetés hangok (3 szint, kicsi, közepes, szenvedő)
-- Csöpögés hang
-- Vizfolyás hang
-- 6 zene
+- űrhajó lövés hang
+- minecraft slime ugrálás hang
+- puska lövés hang
+- goblin hörgés
+- goblin szét ploccsanás hang
+- robbanás hang
 
 Martin:
-- vakarás minigame
-- goblin minigame
-- shott em up alapjai (hajó mozgás, lövés, végtelenitett hatter
+- shott em up 
 
 Márton:
-- Maradék főgame
+- Gát fala változzon
+- Főképernyő állatok
+- Skill pontok
+- Achimentek
 - Memória játék
-- Shoot em up
-- lyuk betömés minigame
+- Lyuk betömés minigame
 
 
 nagy változók:
