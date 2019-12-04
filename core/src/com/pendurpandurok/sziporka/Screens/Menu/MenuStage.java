@@ -178,6 +178,9 @@ public class MenuStage extends MyStage {
             for (int i = 0; i < 4; i++){
                 gen.add(new Upgrade(this,"Gátfal",i));}
         }
+
+        sh_generator.back.setHeight(gen.get(gen.size()-1).front.getY()+gen.get(gen.size()-1).front.getHeight());
+        sh_generator.play.setHeight(gen.get(gen.size()-1).front.getY()+gen.get(gen.size()-1).front.getHeight());
     }
 
     public void back_to_mainscreens(){
