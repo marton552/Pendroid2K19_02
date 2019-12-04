@@ -12,7 +12,7 @@ public class WorkerMinigameScreen extends MyScreen {
     public WorkerMinigameScreen(MyGdxGame game) {
         super(game);
 
-        workerMinigameStage = new WorkerMinigameStage(spriteBatch, game);
+        workerMinigameStage = new WorkerMinigameStage(game);
         Gdx.input.setInputProcessor(workerMinigameStage);
     }
 

@@ -26,9 +26,9 @@ public class LoadingScreen extends MyScreen {
 	public void render(float delta) {
 		super.render(delta);
 
-		spriteBatch.begin();
-		bitmapFont.draw(spriteBatch,"Betöltés: " + Assets.manager.getLoadedAssets() + "/" + (Assets.manager.getQueuedAssets()+ Assets.manager.getLoadedAssets()) + " (" + ((int)(Assets.manager.getProgress()*100f)) + "%)", Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
-		spriteBatch.end();
+		mygame.getSpriteBatch().begin();
+		bitmapFont.draw(mygame.getSpriteBatch(),"Betöltés: " + Assets.manager.getLoadedAssets() + "/" + (Assets.manager.getQueuedAssets()+ Assets.manager.getLoadedAssets()) + " (" + ((int)(Assets.manager.getProgress()*100f)) + "%)", Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
+		mygame.getSpriteBatch().end();
 		if (Assets.manager.update()) {
 			Assets.afterLoaded();
 			game.setScreen(new MenuScreen(mygame));

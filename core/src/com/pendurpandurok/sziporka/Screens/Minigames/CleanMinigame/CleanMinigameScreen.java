@@ -11,7 +11,7 @@ public class CleanMinigameScreen extends MyScreen {
     public CleanMinigameScreen(MyGdxGame game) {
         super(game);
 
-        cleanMinigameStage = new CleanMinigameStage(spriteBatch, game);
+        cleanMinigameStage = new CleanMinigameStage(game);
         Gdx.input.setInputProcessor(cleanMinigameStage);
     }
 

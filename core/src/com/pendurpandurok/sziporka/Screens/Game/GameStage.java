@@ -12,8 +12,8 @@ public class GameStage extends MyStage {
 
     public MyGdxGame game;
 
-    public GameStage(Batch batch, MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+    public GameStage(MyGdxGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
         this.game = game;
 
 

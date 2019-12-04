@@ -13,7 +13,7 @@ public class MenuScreen extends MyScreen {
     public MenuScreen(MyGdxGame game) {
         super(game);
 
-        menuStage = new MenuStage(spriteBatch, game);
+        menuStage = new MenuStage(game);
         Gdx.input.setInputProcessor(menuStage);
     }
 

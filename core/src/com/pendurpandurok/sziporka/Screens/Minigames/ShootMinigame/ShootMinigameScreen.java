@@ -11,7 +11,7 @@ public class ShootMinigameScreen extends MyScreen {
     public ShootMinigameScreen(MyGdxGame game) {
         super(game);
 
-        shootMinigameStage = new ShootMinigameStage(spriteBatch, game);
+        shootMinigameStage = new ShootMinigameStage(game);
         Gdx.input.setInputProcessor(shootMinigameStage);
     }
 

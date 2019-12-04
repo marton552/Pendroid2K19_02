@@ -20,6 +20,7 @@ public class MyGdxGame extends MyGame {
 
 	@Override
 	public void create () {
+		super.create();
 		Assets.prepare();
 		setScreen(new LoadingScreen(this));
 

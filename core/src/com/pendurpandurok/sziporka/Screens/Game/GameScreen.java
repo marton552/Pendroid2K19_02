@@ -13,7 +13,7 @@ public class GameScreen extends MyScreen {
     public GameScreen(MyGdxGame game) {
         super(game);
 
-        gameStage = new GameStage(spriteBatch, game);
+        gameStage = new GameStage(game);
         Gdx.input.setInputProcessor(gameStage);
     }
 

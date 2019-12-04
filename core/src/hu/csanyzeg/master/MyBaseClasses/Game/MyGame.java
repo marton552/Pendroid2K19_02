@@ -3,6 +3,8 @@ package hu.csanyzeg.master.MyBaseClasses.Game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
 
 import java.lang.reflect.InvocationTargetException;
@@ -20,10 +22,20 @@ abstract public class MyGame extends Game {
 	}
 
 	private iBluetooth bluetooth = null;
+
+	public MasterDemo() {
+		bluetooth = BluetoothSingleton.getInstance().bluetoothManager;
+	}
 */
+
+    public SpriteBatch getSpriteBatch() {
+        return spriteBatch;
+    }
+    protected SpriteBatch spriteBatch;
 
     @Override
     public void create() {
+        spriteBatch = new SpriteBatch();
         Gdx.input.setCatchBackKey(true);
         Gdx.input.setCatchMenuKey(true);
     }
@@ -36,9 +48,21 @@ abstract public class MyGame extends Game {
     }
 
     public void setScreenBackByStackPop(){
+        setScreenBackByStackPop(null);
+    }
+
+    public interface ScreenInit{
+        public void init(MyScreen scr);
+    }
+
+    public void setScreenBackByStackPop(ScreenInit init){
         if (backButtonStack.size()>1){
             try {
-                setScreen((MyScreen) backButtonStack.pop().getConstructor(MyGame.class).newInstance(this),false);
+                MyScreen scr = (MyScreen) backButtonStack.pop().getConstructor(MyGame.class).newInstance(this);
+                if (init != null) {
+                    init.init(scr);
+                }
+                setScreen(scr,false);
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -54,6 +78,7 @@ abstract public class MyGame extends Game {
             Gdx.app.exit();
         }
     }
+
 
 
     public void setScreen(Screen screen, boolean pushToStack) {

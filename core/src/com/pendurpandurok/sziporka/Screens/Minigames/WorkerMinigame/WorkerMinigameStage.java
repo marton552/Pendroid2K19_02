@@ -45,8 +45,8 @@ public class WorkerMinigameStage extends MyStage {
     int difficulty = 1;
     int playingSound = 1;
 
-    public WorkerMinigameStage(Batch batch, MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+    public WorkerMinigameStage(MyGdxGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
         this.game = game;
         //getCamera().position.x += 73;
         getCamera().position.y += 150;

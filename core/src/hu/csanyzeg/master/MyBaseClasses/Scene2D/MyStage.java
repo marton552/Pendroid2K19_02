@@ -3,7 +3,6 @@ package hu.csanyzeg.master.MyBaseClasses.Scene2D;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -25,25 +24,39 @@ abstract public class MyStage extends Stage implements InitableInterface {
     protected float elapsedTime = 0;
     protected static int ZIndexAutoInc = 1;
 
-    public MyStage(Viewport viewport, Batch batch, MyGame game) {
-        super(viewport, batch);
+    public MyStage(Viewport viewport, MyGame game) {
+        super(viewport);
         this.game = game;
         setCameraResetToCenterOfScreen();
         init();
     }
 
-    public void addBackEventStackListener()    {
+    public interface BackButtonListener {
+        public void backKeyDown();
+    }
+
+    public void addBackButtonListener(final BackButtonListener backButton)    {
         addListener(new InputListener() {
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if(keycode== Input.Keys.ESCAPE) {
-                    game.setScreenBackByStackPop();
+                    backButton.backKeyDown();
                 }
                 if(keycode== Input.Keys.BACK) {
-                    game.setScreenBackByStackPop();
+                    backButton.backKeyDown();
                 }
                 return true;
+            }
+        });
+    }
+
+
+    public void addBackButtonScreenBackByStackPopListener()    {
+        addBackButtonListener(new BackButtonListener() {
+            @Override
+            public void backKeyDown() {
+                game.setScreenBackByStackPop();
             }
         });
     }

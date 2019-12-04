@@ -8,8 +8,8 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 
 public class ShootUpMinigameStage extends MyStage {
-    public ShootUpMinigameStage(Batch batch, MyGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+    public ShootUpMinigameStage(MyGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
     }
 
     @Override

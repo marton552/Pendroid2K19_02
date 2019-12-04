@@ -53,8 +53,8 @@ public class MenuStage extends MyStage {
 
     boolean kepernyo = true;
 
-    public MenuStage(Batch batch, final MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+    public MenuStage( final MyGdxGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
         this.game = game;
         getCamera().position.y += 150;
 

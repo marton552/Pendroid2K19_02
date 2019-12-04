@@ -14,8 +14,8 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 public class CleanMinigameStage extends MyStage {
 
-        public CleanMinigameStage(Batch batch, MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+        public CleanMinigameStage(MyGdxGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
     }
 
     @Override

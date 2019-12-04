@@ -9,8 +9,8 @@ import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 
 public class GeneratorMinigameStage extends MyStage {
-    public GeneratorMinigameStage(Batch batch, MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), batch, game);
+    public GeneratorMinigameStage(MyGdxGame game) {
+        super(new ExtendViewport(720f, 1280f), game);
 
     }
 

@@ -12,7 +12,7 @@ public class DetailScreen extends MyScreen {
     public DetailScreen(MyGdxGame game) {
         super(game);
 
-        detailStage = new DetailStage(spriteBatch, game);
+        detailStage = new DetailStage( game);
         Gdx.input.setInputProcessor(detailStage);
     }
 

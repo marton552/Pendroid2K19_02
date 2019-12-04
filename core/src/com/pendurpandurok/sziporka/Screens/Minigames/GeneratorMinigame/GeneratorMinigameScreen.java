@@ -12,7 +12,7 @@ public class GeneratorMinigameScreen extends MyScreen {
     public GeneratorMinigameScreen(MyGdxGame game) {
         super(game);
 
-        generatorMinigameStage = new GeneratorMinigameStage(spriteBatch, game);
+        generatorMinigameStage = new GeneratorMinigameStage(game);
         Gdx.input.setInputProcessor(generatorMinigameStage);
     }
 
