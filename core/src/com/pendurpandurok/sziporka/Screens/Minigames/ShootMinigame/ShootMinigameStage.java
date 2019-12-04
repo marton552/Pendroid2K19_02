@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
 
 import java.util.ArrayList;
 import java.util.EventListener;

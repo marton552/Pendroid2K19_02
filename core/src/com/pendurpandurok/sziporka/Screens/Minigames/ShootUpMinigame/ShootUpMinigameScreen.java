@@ -1,18 +1,27 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.pendurpandurok.sziporka.MyGdxGame;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
 
 public class ShootUpMinigameScreen extends MyScreen {
 
-    ShootUpMinigameStage shootUpMinigameStage;
+    public ShootUpMinigameStage shootUpMinigameStage;
+    public ShootUpHUD hud;
+
     public ShootUpMinigameScreen(MyGdxGame game) {
         super(game);
 
-        shootUpMinigameStage = new ShootUpMinigameStage(game);
-        Gdx.input.setInputProcessor(shootUpMinigameStage);
+        shootUpMinigameStage = new ShootUpMinigameStage(game, this);
+        hud = new ShootUpHUD(game,this);
+
+        InputMultiplexer im = new InputMultiplexer();
+        im.addProcessor(hud);
+        im.addProcessor(shootUpMinigameStage);
+
+        Gdx.input.setInputProcessor(im);
     }
 
     @Override
@@ -21,6 +30,9 @@ public class ShootUpMinigameScreen extends MyScreen {
 
         shootUpMinigameStage.act(delta);
         shootUpMinigameStage.draw();
+
+        hud.act(delta);
+        hud.draw();
     }
 
     @Override

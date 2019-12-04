@@ -78,14 +78,14 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("ShootMinigameScreen", game.getButtonStyle());
+        MyButton minigameTestBtn = new MyButton("ShootUpMinigameScreen", game.getButtonStyle());
         minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
         minigameTestBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new ShootMinigameScreen(game));
+                game.setScreen(new ShootUpMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);

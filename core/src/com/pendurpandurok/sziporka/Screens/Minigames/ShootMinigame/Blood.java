@@ -3,13 +3,14 @@ package com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.pendurpandurok.sziporka.Assets;
 
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 
 public class Blood extends OneSpriteAnimatedActor {
 
-    ShootMinigameStage stage;
+    MyStage stage;
 
-    public Blood(ShootMinigameStage stage) {
+    public Blood(MyStage stage) {
         super(Assets.manager.get(Assets.BLOOD_ATLAS));
         this.stage = stage;
 
