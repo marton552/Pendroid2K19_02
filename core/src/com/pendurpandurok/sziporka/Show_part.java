@@ -4,6 +4,11 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuStage;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.GeneratorMinigame.GeneratorMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.GeneratorMinigame.GeneratorMinigameStage;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.ShootMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
@@ -15,10 +20,10 @@ public class Show_part {
     OneSpriteStaticActor back_bar;
     OneSpriteStaticActor bar;
     OneSpriteStaticActor red;
-    MyButton back;
-    MyButton play;
+    public MyButton back;
+    public MyButton play;
 
-    public Show_part(final MenuStage gs, String name, Float lvl){
+    public Show_part(final MenuStage gs, final String name, Float lvl){
         float level = 0;
 
         holy_light = new OneSpriteStaticActor(Assets.manager.get(Assets.LIGHT));
@@ -90,10 +95,10 @@ public class Show_part {
         gs.addActor(szalag);
 
 
-        back = new MyButton("Vissza", gs.game.getButtonStyle());
+        back = new MyButton("V\nI\nS\nS\nZ\nA", gs.game.getButtonStyle());
         back.setWidth(gs.getViewport().getWorldWidth()/8);
         back.setPosition(0, 0);
-        back.getLabel().setFontScale(0.4f);
+        back.getLabel().setFontScale(0.8f);
         back.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -122,15 +127,30 @@ public class Show_part {
         bar.setPosition(back.getWidth(),0);
         gs.addActor(bar);
 
-        play = new MyButton("Play", gs.game.getButtonStyle());
+        play = new MyButton("P\nL\nA\nY", gs.game.getButtonStyle());
         play.setWidth(gs.getViewport().getWorldWidth()/8);
         play.setPosition(gs.getViewport().getWorldWidth()-play.getWidth(), 0);
-        play.getLabel().setFontScale(0.4f);
+        play.getLabel().setFontScale(0.8f);
         play.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
+                if(name == "Generátor"){
+                    gs.game.setScreen(new GeneratorMinigameScreen(gs.game));
+                }
+                else if(name == "Lapát"){
+                    gs.game.setScreen(new CleanMinigameScreen(gs.game));
+                }
+                else if(name == "Csőrendszer"){
+                    gs.game.setScreen(new ShootUpMinigameScreen(gs.game));
+                }
+                else if(name == "Munkások"){
+                    gs.game.setScreen(new WorkerMinigameScreen(gs.game));
+                }
+                else{
+                    gs.game.setScreen(new ShootMinigameScreen(gs.game));
+                }
 
             }
         });

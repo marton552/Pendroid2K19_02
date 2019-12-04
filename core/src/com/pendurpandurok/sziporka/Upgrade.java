@@ -12,7 +12,7 @@ public class Upgrade {
         OneSpriteStaticActor upgrd;
         OneSpriteStaticActor coin;
         OneSpriteStaticActor icon;
-        OneSpriteStaticActor front;
+        public OneSpriteStaticActor front;
         MyLabel qwe;
         MyLabel ar;
         MyLabel plus;
