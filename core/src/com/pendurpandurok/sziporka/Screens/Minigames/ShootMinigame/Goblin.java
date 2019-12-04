@@ -89,10 +89,10 @@ public class Goblin extends OneSpriteStaticActor {
         if(counter % stage.difficulty == 0) {
 
             if(angry >= 5f)  {
-                if(counter % 100 == 0) {
+                //if(counter % 100 == 0) {
                     stage.hitPlayer();
                     counter = 0;
-                }
+                //}
             }else angry++;
         }
 
