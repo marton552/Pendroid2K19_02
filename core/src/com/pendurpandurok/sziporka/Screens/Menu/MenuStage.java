@@ -38,12 +38,14 @@ public class MenuStage extends MyStage {
     private OneSpriteStaticActor gat;
     public OneSpriteStaticActor sikerorlose;
     public OneSpriteStaticActor smile;
+    public OneSpriteStaticActor skill;
     public MyGdxGame game;
     GUI generator;
     GUI lapat;
     GUI csovek;
     GUI munkasok;
     GUI fal;
+    GUI skillpoints;
 
     STATUS_BAR money;
     STATUS_BAR aram;
@@ -127,6 +129,18 @@ public class MenuStage extends MyStage {
             csovek = new GUI(this, "Csőrendszer", csovek_level, game.save.getFloat("csovek_hp"), 2f);
             munkasok = new GUI(this, "Munkások", munaksok_level, game.save.getFloat("munkasok_hp"), 2.5f);
             fal = new GUI(this, "Gátfal", gatfal_level, game.save.getFloat("gatfal_hp"), 3f);
+
+            skill = new OneSpriteStaticActor(Assets.manager.get(Assets.SKILL));
+            skill.setSize(getViewport().getWorldWidth()/2f,getViewport().getWorldHeight()/10f);
+            skill.setPosition(getViewport().getWorldWidth()/2-skill.getWidth()/2,getViewport().getWorldHeight()-(3.5f*(getViewport().getWorldHeight()/4f)));
+            skill.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    game.setScreen(new GameScreen(game));
+                }
+            });
+            addActor(skill);
         }
     }
 
@@ -137,6 +151,7 @@ public class MenuStage extends MyStage {
             csovek.destroy();
             munkasok.destroy();
             fal.destroy();
+            skill.remove();
         }
         money.destroy();
         aram.destroy();

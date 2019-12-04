@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.pendurpandurok.sziporka.Screens.Game.GameScreen;
 import com.pendurpandurok.sziporka.Screens.Game.GameStage;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuStage;
 
@@ -44,7 +45,6 @@ public class GUI {
 
         lvlbar = new OneSpriteStaticActor(Assets.manager.get(Assets.LVL_BAR));
         lvlbar.setPosition(iface.getX()+iface.getX()/5.2f,iface.getY()+iface.getHeight()/5);
-
         if(name == "Generátor" && lvl <= 12){
             lvlbar.setSize((iface.getWidth()/1.7f)*lvl/(12*(gs.game.save.getFloat("generator_lvl")+1)),iface.getHeight()/5);
         }
@@ -65,7 +65,6 @@ public class GUI {
         gs.addActor(lvlbar);
         gs.addActor(hpbar);
         gs.addActor(iface);
-
 
 
         if(name == "Generátor"){

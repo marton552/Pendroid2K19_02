@@ -5,14 +5,18 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.MyGdxGame;
+import com.pendurpandurok.sziporka.Skill;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+
+import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
 
 public class GameStage extends MyStage {
 
@@ -22,29 +26,15 @@ public class GameStage extends MyStage {
     OneSpriteStaticActor kocka;
 
     public GameStage(MyGdxGame game) {
-        super(new ExtendViewport(720f, 1280f), game);
+        super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
 
-        kocka = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
-        kocka.setSize(100, 100);
-        addActor(kocka);
+        OneSpriteStaticActor background = new OneSpriteStaticActor(Assets.manager.get(Assets.SKILL_TREE));
+        background.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+        addActor(background);
 
-        //A stagere rakjuk a listenert mert ha kockára rakod bugool
-        addListener(new ClickListener() {
-            @Override
-            public void touchDragged(InputEvent event, float x, float y, int pointer) {
-                super.touchDragged(event, x, y, pointer);
-
-                //megnézzük hogy a kockára kattintintunk-e (opcionális)
-                if(x >= kocka.getX() && x <= kocka.getX() + kocka.getWidth()) {
-                    if(y >= kocka.getY() && y <= kocka.getY() + kocka.getHeight()) {
-
-                        //Itt pedig középre pozícionáljuk a kockát rá az x,y koordinátára
-                        kocka.setPosition(x - kocka.getWidth() / 2, y - kocka.getHeight() / 2);
-                    }
-                }
-            }
-        });
+        Skill cube = new Skill(this,1);
+        Skill cube2 = new Skill(this,2);
 
     }
 

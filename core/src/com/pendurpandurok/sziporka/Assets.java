@@ -90,6 +90,10 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> HAPPY = new AssetDescriptor<Texture>("happy.png", Texture.class);
 	public static final AssetDescriptor<Texture> SAD = new AssetDescriptor<Texture>("sad.png", Texture.class);
+	public static final AssetDescriptor<Texture> SKILL = new AssetDescriptor<Texture>("skill_points.png", Texture.class);
+	public static final AssetDescriptor<Texture> PSL = new AssetDescriptor<Texture>("skill.png", Texture.class);
+	public static final AssetDescriptor<Texture> SKILL_TREE = new AssetDescriptor<Texture>("skilltree.png", Texture.class);
+	public static final AssetDescriptor<Texture> ACH = new AssetDescriptor<Texture>("ach.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> BAR_B = new AssetDescriptor<Texture>("bar_back.png", Texture.class);
 	public static final AssetDescriptor<Texture> BAR_F = new AssetDescriptor<Texture>("bar_front.png", Texture.class);
@@ -174,6 +178,10 @@ public class Assets {
 
 		manager.load(SAD);
 		manager.load(HAPPY);
+		manager.load(SKILL);
+		manager.load(PSL);
+		manager.load(ACH);
+		manager.load(SKILL_TREE);
 
 		manager.load(BAR_F);
 		manager.load(BAR_B);

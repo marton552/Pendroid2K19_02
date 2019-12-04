@@ -199,7 +199,7 @@ public class ShootMinigameStage extends MyStage {
     public void hitPlayer() {
         if(isGamePlaying == false) return;
 
-        playerHP -= MathUtils.random(1, 5);
+        playerHP -= MathUtils.random(1, 3);
         if(playerHP <= 0) {
             playerHP = 0;
 
