@@ -56,11 +56,11 @@ public class MenuStage extends MyStage {
     public MenuStage( final MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), game);
         this.game = game;
-        getCamera().position.y += 150;
+        //getCamera().position.y += 150;
 
 
         background = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
-        background.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
+        background.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), getViewport().getWorldHeight());
         addActor(background);
 
         gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
@@ -83,6 +83,18 @@ public class MenuStage extends MyStage {
         addActor(minigameTestBtn);
 
         game.save.flush();
+
+        addBackButtonListener(new BackButtonListener() {
+            @Override
+            public void backKeyDown() {
+                if (kepernyo){
+                    game.setScreenBackByStackPop();
+                }
+                else{
+                    back_to_mainscreens();
+                }
+            }
+        });
 
     }
 
