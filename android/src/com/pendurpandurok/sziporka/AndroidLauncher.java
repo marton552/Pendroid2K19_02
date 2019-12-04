@@ -13,4 +13,10 @@ public class AndroidLauncher extends AndroidApplication {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		initialize(new MyGdxGame(), config);
 	}
+
+	@Override
+	public void onBackPressed() {
+		//ne lépjen ki a back gombbal
+	}
+
 }

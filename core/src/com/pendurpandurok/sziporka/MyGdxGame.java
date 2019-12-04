@@ -26,7 +26,7 @@ public class MyGdxGame extends MyGame {
 
 
 		save = Gdx.app.getPreferences("gameSave");
-		save.clear();
+		//save.clear();
 
 		//save.contins("key") <- létre van-e hozva?
 		//save.putString("key", "value") <- string érték mentése
@@ -105,14 +105,15 @@ public class MyGdxGame extends MyGame {
 
 	@Override
 	public void pause() {
+		save.flush();
 		super.pause();
 	}
 
 	@Override
 	public void dispose () {
+		save.flush();
 		super.dispose();
 		Assets.unload();
-		save.flush();
 	}
 
 	public TextButton.TextButtonStyle getButtonStyle(){
