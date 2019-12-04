@@ -1,5 +1,7 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -15,6 +17,7 @@ import com.pendurpandurok.sziporka.Screens.Menu.MenuStage;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class WorkerMinigameStage extends MyStage {
@@ -44,30 +47,37 @@ public class WorkerMinigameStage extends MyStage {
 
     int difficulty = 1;
     int playingSound = 1;
+    boolean minigameDone = false;
 
-    public WorkerMinigameStage(MyGdxGame game) {
+    MyButton doneBtn;
+    MyLabel doneLabel;
+    OneSpriteStaticActor doneBg;
+
+
+    public WorkerMinigameStage(final MyGdxGame game) {
         super(new ExtendViewport(720f, 1280f), game);
         this.game = game;
-        //getCamera().position.x += 73;
-        getCamera().position.y += 150;
+        if(Gdx.app.getType() == Application.ApplicationType.Desktop) getCamera().position.x += 73;
+        //getCamera().position.y += 150;
 
-        difficulty = Math.round((100.0f - game.save.getFloat("munkasok_hp")) / 2);
+        difficulty = Math.round((100.0f - game.save.getFloat("munkasok_hp")) / 10);
         if(difficulty <= 0) difficulty = 1;
 
         if(MathUtils.random(0, 1) == 0) ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_F));
         else ember = new OneSpriteStaticActor(Assets.manager.get(Assets.HAS_L));
         ember.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
-
         oY = ember.getY();
         ember.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                if(counter >= csiki) csiki = counter + 40 + MathUtils.random(0, 10);
+                if(minigameDone == false) {
+                    if (counter >= csiki) csiki = counter + 40 + MathUtils.random(0, 10);
 
-                currSpot += 10;
-                if(currSpot > 100) currSpot = 100;
+                    currSpot += 10;
+                    if (currSpot > 100) currSpot = 100;
+                }
             }
         });
         addActor(ember);
@@ -143,6 +153,37 @@ public class WorkerMinigameStage extends MyStage {
         info.setPosition(getViewport().getWorldWidth() / 2 - l.getWidth() / 2 - 55, sumBarBG.getY() - 20 - 60);
         addActor(info);
 
+        doneBg = new OneSpriteStaticActor(Assets.manager.get(Assets.BLACK));
+        doneBg.setSize(getViewport().getWorldWidth(), 500);
+        doneBg.setY(getViewport().getWorldHeight() / 2 - doneBg.getHeight() / 2);
+        doneBg.setAlpha(0.8f);
+        doneBg.setVisible(false);
+
+        addActor(doneBg);
+
+        doneLabel = new MyLabel("Sikeresen teljesítetted a feladatot!", game.getLabelStyle());
+        doneLabel.setFontScale(0.7f);
+        doneLabel.setColor(Color.WHITE);
+        doneLabel.setPosition(getViewport().getWorldWidth() / 2 - (doneLabel.getWidth()*doneLabel.getFontScaleX()) / 2, doneBg.getY() + 300);
+        doneLabel.setVisible(false);
+
+        addActor(doneLabel);
+
+        doneBtn = new MyButton("Vissza", game.getButtonStyle());
+        doneBtn.setWidth(300);
+        doneBtn.setPosition(getViewport().getWorldWidth() / 2 - doneBtn.getWidth() / 2, doneBg.getY() + 150);
+        doneBtn.setVisible(false);
+        doneBtn.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                game.setScreen(new MenuScreen(game));
+            }
+        });
+
+        addActor(doneBtn);
+
+
     }
 
     private void playLaughSound(int a) {
@@ -160,49 +201,64 @@ public class WorkerMinigameStage extends MyStage {
 
     }
 
+
+    private void minigameEnded() {
+        minigameDone = true;
+
+        doneBtn.setVisible(true);
+        doneLabel.setVisible(true);
+        doneBg.setVisible(true);
+    }
+
+
     @Override
     public void act(float delta) {
         super.act(delta);
-        counter++;
 
-        if(currSpot >= theSpotStart && currSpot <= (theSpotStart + theSpotW) && counter % difficulty == 0) {
-            sumSpot++;
+        if(minigameDone == false) {
+            counter++;
 
-            if(sumSpot >= 100) {
-                //setScreen
-                Assets.manager.get(Assets.LAUGH_1).stop();
-                Assets.manager.get(Assets.LAUGH_2).stop();
-                Assets.manager.get(Assets.LAUGH_3).stop();
+            if (currSpot >= theSpotStart && currSpot <= (theSpotStart + theSpotW) && counter % difficulty == 0) {
+                sumSpot++;
 
-                game.save.putFloat("munkasok_hp", 100.0f);
-                game.save.flush();
-                game.setScreen(new MenuScreen(game));
+                if (sumSpot >= 100) {
+                    //setScreen
+                    Assets.manager.get(Assets.LAUGH_1).stop();
+                    Assets.manager.get(Assets.LAUGH_2).stop();
+                    Assets.manager.get(Assets.LAUGH_3).stop();
+
+                    game.save.putFloat("munkasok_hp", 100.0f);
+                    game.save.flush();
+                    //game.setScreen(new MenuScreen(game));
+                    minigameEnded();
+                    return;
+                }
+
+                if (playingSound != 2) playLaughSound(2);
             }
 
-            if(playingSound != 2) playLaughSound(2);
+            if (currSpot < theSpotStart) {
+                if (currSpot <= 10) playLaughSound(0);
+                else if (playingSound != 1) playLaughSound(1);
+            }
+
+            if (currSpot > theSpotStart + theSpotW) {
+                if (playingSound != 3) playLaughSound(3);
+            }
+
+            if (currSpot > 0 && counter % 2 == 0) currSpot--;
+
+            currSpotBar.setWidth((barW / 100) * currSpot);
+            sumSpotBar.setWidth((barW / 100) * sumSpot);
+
+            float tSpeed = speed;
+
+            if (counter <= csiki) {
+                tSpeed = 2f;
+            }
+
+            ember.setY(oY + (float) Math.sin(counter / tSpeed) * 3f);
         }
-
-        if(currSpot < theSpotStart) {
-            if(currSpot <= 10) playLaughSound(0);
-            else if(playingSound != 1) playLaughSound(1);
-        }
-
-        if(currSpot > theSpotStart + theSpotW) {
-            if(playingSound != 3) playLaughSound(3);
-        }
-
-        if(currSpot > 0 && counter % 2 == 0) currSpot--;
-
-        currSpotBar.setWidth((barW / 100) * currSpot);
-        sumSpotBar.setWidth((barW / 100) * sumSpot);
-
-        float tSpeed = speed;
-
-        if(counter <= csiki) {
-            tSpeed = 2f;
-        }
-
-        ember.setY(oY + (float)Math.sin(counter / tSpeed) * 3f);
     }
 
 
