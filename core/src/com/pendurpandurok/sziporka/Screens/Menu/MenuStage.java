@@ -16,6 +16,7 @@ import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.STATUS_BAR;
 import com.pendurpandurok.sziporka.Screens.Game.GameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.GeneratorMinigame.GeneratorMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.ShootMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
@@ -87,14 +88,14 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("Kártya", game.getButtonStyle());
+        MyButton minigameTestBtn = new MyButton("Generátor", game.getButtonStyle());
         minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
         minigameTestBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new CleanMinigameScreen(game));
+                game.setScreen(new GeneratorMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);

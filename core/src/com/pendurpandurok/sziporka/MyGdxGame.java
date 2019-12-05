@@ -110,6 +110,14 @@ public class MyGdxGame extends MyGame {
 			save.putFloat("skillpontok",3);
 			save.putString("kordinata","");
 
+			//acihvmentek
+			save.putFloat("allatok_0",0);
+			save.putFloat("eltelt_ido_0",0);
+			save.putFloat("minigamek_0",0);
+			save.putFloat("goblinok_0",0);
+			save.putFloat("szerzett_penz_0",0);
+			save.putFloat("fejlesztesek_szama_0",0);
+
 		}
 		save.flush();
 	}

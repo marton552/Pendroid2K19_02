@@ -126,6 +126,12 @@ public class Assets {
 	public static final AssetDescriptor<Texture> KARTYA5 = new AssetDescriptor<Texture>("kartya_6.png", Texture.class);
 	public static final AssetDescriptor<Texture> TW = new AssetDescriptor<Texture>("testwood.jpg", Texture.class);
 
+	public static final AssetDescriptor<Texture> ALVANY = new AssetDescriptor<Texture>("ragaszto.png", Texture.class);
+	public static final AssetDescriptor<Texture> PLAYER = new AssetDescriptor<Texture>("player.png", Texture.class);
+	public static final AssetDescriptor<Texture> ENEMY = new AssetDescriptor<Texture>("enemy.png", Texture.class);
+	public static final AssetDescriptor<Texture> CSUSZKA_BG = new AssetDescriptor<Texture>("tall.png", Texture.class);
+	public static final AssetDescriptor<Texture> CSUSZKA = new AssetDescriptor<Texture>("csuszka.png", Texture.class);
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -221,6 +227,13 @@ public class Assets {
 		manager.load(KARTYA5);
 		manager.load(ROSSZKARTYA);
 		manager.load(TW);
+
+        manager.load(ALVANY);
+
+		manager.load(PLAYER);
+		manager.load(ENEMY);
+		manager.load(CSUSZKA_BG);
+		manager.load(CSUSZKA);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
