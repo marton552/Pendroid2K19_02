@@ -20,10 +20,20 @@ public class Bomb extends OneSpriteStaticActor {
         setVisible(false);
     }
 
+
+    float oY = 0;
+    float dropSpeed = 20;
+    float dropAmount;
+
     public void armTheBomb() {
         bombTime = System.currentTimeMillis() + MathUtils.random(5000, 10000);
         exploded = false;
         setVisible(true);
+
+        oY = getY();
+        setY(getY() + getHeight() + 100);
+
+        dropAmount = (getY() - oY) / dropSpeed;
     }
 
     public void explodeTheBomb() {
@@ -57,7 +67,9 @@ public class Bomb extends OneSpriteStaticActor {
 
         if(exploded == false) {
             if(System.currentTimeMillis() >= bombTime) {
-                explodeTheBomb();
+
+                setY(getY() - dropAmount);
+                if(getY() <= oY) explodeTheBomb();
             }
         }
 

@@ -113,6 +113,8 @@ public class MenuStage extends MyStage {
             }
         });
 
+        addActor(new AchievementPanel("Siker!", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+
     }
 
     public void draw_screen(){
