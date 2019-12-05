@@ -9,6 +9,6 @@ public class Takony extends OneSpriteStaticActor {
         super(Assets.manager.get(Assets.TAKONY));
 
         setSize(getWidth() / 10, getHeight() / 10);
-        addBaseCollisionRectangleShape();
+        addBaseCollisionCircleShape();
     }
 }

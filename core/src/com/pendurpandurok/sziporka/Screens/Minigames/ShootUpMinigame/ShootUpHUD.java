@@ -1,6 +1,7 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
@@ -9,6 +10,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pendurpandurok.sziporka.Assets;
 import com.pendurpandurok.sziporka.MyGdxGame;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuScreen;
+
+import java.awt.SystemTray;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
@@ -29,9 +32,26 @@ public class ShootUpHUD extends MyStage {
 
     MyLabel info;
 
+    Bomb bomb;
+    OneSpriteStaticActor bombLine;
+
+    ShootUpMinigameScreen screen;
 
     public ShootUpHUD(final MyGdxGame game, final ShootUpMinigameScreen screen) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
+        this.screen = screen;
+
+        bombLine = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
+        bombLine.setSize(screen.shootUpMinigameStage.urhajo.getWidth(), getViewport().getWorldHeight());
+        bombLine.setVisible(false);
+        bombLine.addBaseCollisionRectangleShape();
+        bombLine.setAlpha(0.8f);
+        addActor(bombLine);
+
+        bomb = new Bomb(this);
+        bomb.setSize(bomb.getWidth() / 10, bomb.getHeight() / 10);
+        addActor(bomb);
+
 
         overBg = new OneSpriteStaticActor(Assets.manager.get(Assets.BLACK));
         overBg.setSize(getViewport().getWorldWidth(), 500);
@@ -48,7 +68,6 @@ public class ShootUpHUD extends MyStage {
         overLabel.setPosition(getViewport().getWorldWidth() / 2 - (overLabel.getWidth()*overLabel.getFontScaleX()) / 2, overBg.getY() + 300);
         overLabel.setVisible(false);
         overLabel.setZIndex(1000);
-
         addActor(overLabel);
 
         overBtn = new MyButton("Újra", game.getButtonStyle());
@@ -103,8 +122,40 @@ public class ShootUpHUD extends MyStage {
         info.setPosition(getViewport().getWorldWidth() / 2 - (info.getWidth()*info.getFontScaleX()) / 2 - 10, getViewport().getWorldHeight() - info.getHeight() - 10);
 
         addActor(info);
+    }
+
+    boolean exploded = true;
+    double nextBomb = 0;
 
 
+    public void generateBomb() {
+        bombLine.setX(MathUtils.random(0, getViewport().getWorldWidth() - bombLine.getWidth()));
+        bombLine.setVisible(true);
+
+        bomb.setPosition(bombLine.getX() + bombLine.getWidth() / 2 - bomb.getWidth() / 2, getViewport().getWorldHeight() - bomb.getHeight() - 10);
+        bomb.armTheBomb();
+        bomb.setVisible(true);
+
+        exploded = false;
+    }
+
+    public void reArmBomb() {
+        exploded = true;
+        nextBomb = System.currentTimeMillis() + MathUtils.random(5000, 8000);
+    }
+
+    public void bombExploded() {
+        OneSpriteStaticActor temp = new OneSpriteStaticActor(Assets.manager.get(Assets.HP_BAR));
+        temp.addBaseCollisionRectangleShape();
+        temp.setSize(bombLine.getWidth(), bombLine.getHeight());
+        temp.setX(bombLine.getX());
+
+        boolean death = screen.shootUpMinigameStage.bombExploded(temp);
+        bombLine.setVisible(false);
+        if(death == false) {
+            exploded = true;
+            nextBomb = System.currentTimeMillis() + MathUtils.random(5000, 8000);
+        }
     }
 
     public void updateKillText(int max, int curr) {
@@ -122,6 +173,17 @@ public class ShootUpHUD extends MyStage {
         overBg.setVisible(state);
         overLabel.setVisible(state);
         overBtn.setVisible(state);
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+
+        if(exploded) {
+            if(nextBomb <= System.currentTimeMillis()) {
+                generateBomb();
+            }
+        }
     }
 
     @Override

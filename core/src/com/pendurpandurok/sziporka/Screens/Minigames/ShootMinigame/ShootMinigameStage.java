@@ -218,6 +218,17 @@ public class ShootMinigameStage extends MyStage {
         overBtn.setVisible(true);
 
         hpBar.setWidth((barW/100)*playerHP);
+
+        for (int i = 0; i < goblins.size(); i++) {
+            Goblin g = goblins.get(i);
+            getActors().removeValue(g, false);
+        }
+
+        for (int i = 0; i < goblins.size(); i++) {
+            goblins.remove(i);
+        }
+
+        goblins.clear();
     }
 
     public void gameVictory() {
@@ -234,18 +245,6 @@ public class ShootMinigameStage extends MyStage {
     public void restartGame() {
         playerHP = 100;
         killedGoblins = 0;
-
-        for (int i = 0; i < goblins.size(); i++) {
-            Goblin g = goblins.get(i);
-            getActors().removeValue(g, false);
-        }
-
-        for (int i = 0; i < goblins.size(); i++) {
-            goblins.remove(i);
-        }
-
-        goblins.clear();
-
 
         overBg.setVisible(false);
         overLabel.setVisible(false);

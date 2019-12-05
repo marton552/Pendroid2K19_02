@@ -88,7 +88,7 @@ public class MenuStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new ShootMinigameScreen(game));
+                game.setScreen(new ShootUpMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);
