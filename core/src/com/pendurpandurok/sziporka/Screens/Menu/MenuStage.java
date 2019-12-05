@@ -3,6 +3,7 @@ package com.pendurpandurok.sziporka.Screens.Menu;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -41,6 +42,7 @@ public class MenuStage extends MyStage {
     public OneSpriteStaticActor sikerorlose;
     public OneSpriteStaticActor smile;
     public OneSpriteStaticActor skill;
+    public OneSpriteStaticActor ach;
     public MyGdxGame game;
     GUI generator;
     GUI lapat;
@@ -289,6 +291,8 @@ public class MenuStage extends MyStage {
     }
 
     int counter = 0;
+    int rnd1 = 0;
+    int rnd2 = 0;
 
     double nextPay = System.currentTimeMillis() + 1000;
 
@@ -296,7 +300,7 @@ public class MenuStage extends MyStage {
         super.act(delta);
         counter++;
 
-
+        rnd1 = MathUtils.random(1, 100);
         if (nextPay <= System.currentTimeMillis()){
             nextPay = System.currentTimeMillis() + 1000;
             destroy_screen();
@@ -326,6 +330,17 @@ public class MenuStage extends MyStage {
                 vis = true;
             }
             game.save.flush();
+        }
+        rnd2 = MathUtils.random(1, 200);
+        if(rnd1 == rnd2){
+            rnd1 = MathUtils.random(1, 3);
+            if(rnd1 == 1){
+                System.out.println("Halacska");
+            }
+            else if(rnd1 == 2){
+                System.out.println("Madár");
+            }
+            else System.out.println("Gyík");
         }
     }
 
