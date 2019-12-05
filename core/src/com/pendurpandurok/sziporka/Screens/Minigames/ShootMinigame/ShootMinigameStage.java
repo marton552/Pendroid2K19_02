@@ -138,7 +138,7 @@ public class ShootMinigameStage extends MyStage {
 
         addActor(victoryBg);
 
-        victoryLabel = new MyLabel("Sikeresen kiírtottad\naz összes goblint!", game.getLabelStyle());
+        victoryLabel = new MyLabel("Sikeresen kiírtottad\naz összes goblint!"+"\nJutalmad "+25*(game.save.getFloat("skill_3")+1)+" pénz", game.getLabelStyle());
         victoryLabel.setFontScale(0.7f);
         victoryLabel.setAlignment(Align.center);
         victoryLabel.setColor(Color.WHITE);

@@ -118,6 +118,11 @@ public class MyGdxGame extends MyGame {
 			save.putFloat("szerzett_penz_0",0);
 			save.putFloat("fejlesztesek_szama_0",0);
 
+			//mentett aram stb
+			save.putFloat("aram_volt",0);
+			save.putFloat("penz_volt",0);
+			save.putFloat("veszt_volt",0);
+
 		}
 		save.flush();
 	}

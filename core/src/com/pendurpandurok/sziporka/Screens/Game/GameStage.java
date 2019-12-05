@@ -125,19 +125,19 @@ public class GameStage extends MyStage {
                 if(pontok.get(i).kocka.getY() > getViewport().getWorldHeight() / 7){
                 if (pontok.get(i).kocka.getX() < getViewport().getWorldWidth() / 2f) {
                     if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 3.66f) {
-                        game.save.putFloat("skill_1",game.save.getFloat("skill_3")+1);
+                        game.save.putFloat("skill_3",game.save.getFloat("skill_3")+1);
                     } else if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 1.83f) {
-                        game.save.putFloat("skill_1",game.save.getFloat("skill_2")+1);
+                        game.save.putFloat("skill_2",game.save.getFloat("skill_2")+1);
                     } else if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 1.22f) {
                         game.save.putFloat("skill_1",game.save.getFloat("skill_1")+1);
                     }
                 } else {
                     if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 3.66f) {
-                        game.save.putFloat("skill_1",game.save.getFloat("skill_6")+1);
+                        game.save.putFloat("skill_6",game.save.getFloat("skill_6")+1);
                     } else if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 1.75f) {
-                        game.save.putFloat("skill_1",game.save.getFloat("skill_5")+1);
+                        game.save.putFloat("skill_5",game.save.getFloat("skill_5")+1);
                     } else if (pontok.get(i).kocka.getY()-getViewport().getWorldHeight() / 7 < getViewport().getWorldHeight() / 1.22f) {
-                        game.save.putFloat("skill_1",game.save.getFloat("skill_4")+1);
+                        game.save.putFloat("skill_4",game.save.getFloat("skill_4")+1);
                     }
                 }
                 }

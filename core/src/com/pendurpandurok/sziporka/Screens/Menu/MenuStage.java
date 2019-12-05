@@ -66,6 +66,10 @@ public class MenuStage extends MyStage {
 
     List<Upgrade> gen = new ArrayList<Upgrade>();
 
+    public float aram_volt = 0;
+    public float penz_volt = 0;
+    public float veszt_volt = 0;
+
     boolean kepernyo = true;
 
     public MenuStage( final MyGdxGame game) {
@@ -88,17 +92,6 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("Generátor", game.getButtonStyle());
-        minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
-        minigameTestBtn.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-
-                game.setScreen(new GeneratorMinigameScreen(game));
-            }
-        });
-        addActor(minigameTestBtn);
 
         game.save.flush();
 
@@ -223,18 +216,18 @@ public class MenuStage extends MyStage {
     public void vasarlas(int hanyadik){
         siker = false;
         if(vis == false){
-
+        float ar = Float.parseFloat((gen.get(hanyadik).lvl+1)*25*(1+(game.save.getFloat("skill_2")*0.2))+"");
         if(gen.get(hanyadik).levelup == 0){
             System.out.println("asd");
-            if(game.save.getFloat("penz_mennyiseg") > (gen.get(hanyadik).lvl+1)*25){
-                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(gen.get(hanyadik).lvl+1)*25);
+            if(game.save.getFloat("penz_mennyiseg") > ar){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-ar);
                 game.save.putFloat(gen.get(hanyadik).level,game.save.getFloat(gen.get(hanyadik).level)+1);
                 siker = true;
             }
         }
         else if (gen.get(hanyadik).levelup == 1){
-            if(game.save.getFloat("penz_mennyiseg") > (gen.get(hanyadik).lvl+1)*25f){
-                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-(gen.get(hanyadik).lvl+1)*25f);
+            if(game.save.getFloat("penz_mennyiseg") > ar){
+                game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")-ar);
                 game.save.putFloat(gen.get(hanyadik).level,(gen.get(hanyadik).lvl+1));
                 System.out.println((gen.get(hanyadik).lvl+1));
                 siker = true;
@@ -296,6 +289,7 @@ public class MenuStage extends MyStage {
     int counter = 0;
     int rnd1 = 0;
     int rnd2 = 0;
+    float ideiglenes = 0;
 
     double nextPay = System.currentTimeMillis() + 1000;
 
@@ -303,13 +297,33 @@ public class MenuStage extends MyStage {
         super.act(delta);
         counter++;
 
-        rnd1 = MathUtils.random(1, 100);
+        rnd1 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
         if (nextPay <= System.currentTimeMillis()){
             nextPay = System.currentTimeMillis() + 1000;
             destroy_screen();
             draw_screen();
             Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getFloat("generator_hp"),game.save.getFloat("lapat_hp"),game.save.getFloat("csovek_hp"),game.save.getFloat("munkasok_hp"),game.save.getFloat("gatfal_hp"));
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg * 1.0f);
+
+            System.out.println(game.save.getFloat("skill_1")+" "+aram_volt);
+
+            if(game.save.getFloat("aram_volt") != (game.save.getFloat("skill_1")-game.save.getFloat("skill_3"))){
+                ideiglenes = (game.save.getFloat("skill_1")-game.save.getFloat("skill_3"))-game.save.getFloat("aram_volt");
+                game.save.putFloat("aram%",game.save.getFloat("aram%")+ideiglenes);
+                game.save.putFloat("aram_volt", (game.save.getFloat("skill_1")-game.save.getFloat("skill_3")));
+            }
+
+            if(game.save.getFloat("penz_volt") != game.save.getFloat("skill_4")+game.save.getFloat("skill_5")){
+                ideiglenes = (game.save.getFloat("skill_4")+game.save.getFloat("skill_5"))-game.save.getFloat("penz_volt");
+                game.save.putFloat("aram%",game.save.getFloat("aram%")+ideiglenes);
+                game.save.putFloat("penz_volt", (game.save.getFloat("skill_4")+game.save.getFloat("skill_5")));
+            }
+
+            if(game.save.getFloat("veszt_volt") != game.save.getFloat("skill_2")){
+                ideiglenes = (game.save.getFloat("skill_2")-game.save.getFloat("veszt_volt"))*0.04f;
+                game.save.putFloat("aramveszteseg%",game.save.getFloat("aramveszteseg%")+ideiglenes);
+                game.save.putFloat("veszt_volt",game.save.getFloat("skill_2"));
+            }
 
             if(kepernyo == false){
                 sh_generator.destroy();
@@ -334,7 +348,7 @@ public class MenuStage extends MyStage {
             }
             game.save.flush();
         }
-        rnd2 = MathUtils.random(1, 200);
+        rnd2 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
         if(rnd1 == rnd2){
             rnd1 = MathUtils.random(1, 3);
             if(rnd1 == 1){

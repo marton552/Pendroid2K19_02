@@ -163,7 +163,7 @@ public class WorkerMinigameStage extends MyStage {
 
         addActor(doneBg);
 
-        doneLabel = new MyLabel("Sikeresen teljesítetted a feladatot!", game.getLabelStyle());
+        doneLabel = new MyLabel("Sikeresen teljesítetted a feladatot!"+"\nJutalmad "+25*(game.save.getFloat("skill_3")+1)+" pénz", game.getLabelStyle());
         doneLabel.setFontScale(0.7f);
         doneLabel.setColor(Color.WHITE);
         doneLabel.setPosition(getViewport().getWorldWidth() / 2 - (doneLabel.getWidth()*doneLabel.getFontScaleX()) / 2, doneBg.getY() + 300);
