@@ -19,6 +19,7 @@ import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.ShootMinigame
 import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
 import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
 import com.pendurpandurok.sziporka.Show_part;
+import com.pendurpandurok.sziporka.Skill;
 import com.pendurpandurok.sziporka.Upgrade;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 import static com.pendurpandurok.sziporka.MyGdxGame.keparanySzelesvaszonra;
 
 public class MenuStage extends MyStage {
+
 
     private OneSpriteStaticActor background;
     private OneSpriteStaticActor gat;
@@ -74,21 +76,23 @@ public class MenuStage extends MyStage {
         background.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
         addActor(background);
 
-        gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
+        if(game.save.getFloat("gatfal_lvl")== 0)gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
+        else if(game.save.getFloat("gatfal_lvl")== 1)gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT2));
+        else gat = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT3));
         gat.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(gat);
 
 
         draw_screen();
 
-        MyButton minigameTestBtn = new MyButton("ShootMinigameScreen", game.getButtonStyle());
+        MyButton minigameTestBtn = new MyButton("Kártya", game.getButtonStyle());
         minigameTestBtn.setPosition(0, minigameTestBtn.getHeight()*2);
         minigameTestBtn.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                game.setScreen(new ShootMinigameScreen(game));
+                game.setScreen(new CleanMinigameScreen(game));
             }
         });
         addActor(minigameTestBtn);
@@ -131,12 +135,13 @@ public class MenuStage extends MyStage {
             fal = new GUI(this, "Gátfal", gatfal_level, game.save.getFloat("gatfal_hp"), 3f);
 
             skill = new OneSpriteStaticActor(Assets.manager.get(Assets.SKILL));
-            skill.setSize(getViewport().getWorldWidth()/2f,getViewport().getWorldHeight()/10f);
-            skill.setPosition(getViewport().getWorldWidth()/2-skill.getWidth()/2,getViewport().getWorldHeight()-(3.5f*(getViewport().getWorldHeight()/4f)));
+            skill.setSize(getViewport().getWorldWidth()/2f,getViewport().getWorldHeight()/15f);
+            skill.setPosition(getViewport().getWorldWidth()/2-skill.getWidth()/2,getViewport().getWorldHeight()-(3.5f*(getViewport().getWorldHeight()/4f))+skill.getHeight()/2);
             skill.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
+                    game.save.flush();
                     game.setScreen(new GameScreen(game));
                 }
             });

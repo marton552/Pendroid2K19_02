@@ -116,6 +116,14 @@ public class Assets {
 	public static final AssetDescriptor<Texture> TAKONY = new AssetDescriptor<Texture>("takony.png", Texture.class);
 	public static final AssetDescriptor<TextureAtlas> EXPLOSION_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/explosion.atlas", TextureAtlas.class);
 
+	public static final AssetDescriptor<Texture> HATLAP = new AssetDescriptor<Texture>("kartyalap.png", Texture.class);
+	public static final AssetDescriptor<Texture> KARTYA1 = new AssetDescriptor<Texture>("kartya_1.png", Texture.class);
+	public static final AssetDescriptor<Texture> ROSSZKARTYA = new AssetDescriptor<Texture>("kartya_2.png", Texture.class);
+	public static final AssetDescriptor<Texture> KARTYA2 = new AssetDescriptor<Texture>("kartya_3.png", Texture.class);
+	public static final AssetDescriptor<Texture> KARTYA3 = new AssetDescriptor<Texture>("kartya_4.png", Texture.class);
+	public static final AssetDescriptor<Texture> KARTYA4 = new AssetDescriptor<Texture>("kartya_5.png", Texture.class);
+	public static final AssetDescriptor<Texture> KARTYA5 = new AssetDescriptor<Texture>("kartya_6.png", Texture.class);
+	public static final AssetDescriptor<Texture> TW = new AssetDescriptor<Texture>("testwood.jpg", Texture.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -202,6 +210,15 @@ public class Assets {
 		manager.load(URHAJO);
 		manager.load(TAKONY);
 		manager.load(EXPLOSION_ATLAS);
+
+		manager.load(HATLAP);
+		manager.load(KARTYA1);
+		manager.load(KARTYA2);
+		manager.load(KARTYA3);
+		manager.load(KARTYA4);
+		manager.load(KARTYA5);
+		manager.load(ROSSZKARTYA);
+		manager.load(TW);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

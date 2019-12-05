@@ -12,6 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
 
 public class MyGdxGame extends MyGame {
@@ -26,7 +29,7 @@ public class MyGdxGame extends MyGame {
 
 
 		save = Gdx.app.getPreferences("gameSave");
-		//save.clear();
+		save.clear();
 
 		//save.contins("key") <- létre van-e hozva?
 		//save.putString("key", "value") <- string érték mentése
@@ -90,9 +93,23 @@ public class MyGdxGame extends MyGame {
 			save.putFloat("turokepesseg_csovek",0.0f);
 
 			//apróságok
-			save.putFloat("click_count",0);
+			save.putFloat("allatok",0);
 			save.putFloat("eltelt_ido",0);
 			save.putFloat("minigamek",0);
+			save.putFloat("goblinok",0);
+			save.putFloat("szerzett_penz",0);
+			save.putFloat("fejlesztesek_szama",0);
+
+			//skillek
+			save.putFloat("skill_1",0);
+			save.putFloat("skill_2",0);
+			save.putFloat("skill_3",0);
+			save.putFloat("skill_4",0);
+			save.putFloat("skill_5",0);
+			save.putFloat("skill_6",0);
+			save.putFloat("skillpontok",3);
+			save.putString("kordinata","");
+
 		}
 		save.flush();
 	}

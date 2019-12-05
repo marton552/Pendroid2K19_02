@@ -7,10 +7,11 @@ import com.pendurpandurok.sziporka.Screens.Game.GameStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 public class Skill {
-    OneSpriteStaticActor kocka;
-    public Skill(GameStage gs,Integer howmany){
+    public OneSpriteStaticActor kocka;
+    public Skill(GameStage gs,Integer howmany,Float x,Float y){
         kocka = new OneSpriteStaticActor(Assets.manager.get(Assets.PSL));
-        kocka.setPosition((gs.getViewport().getWorldWidth()/10)*howmany,gs.getViewport().getWorldWidth()/10);
+        if(x == 0 && y == 0) kocka.setPosition((gs.getViewport().getWorldWidth()/10)*howmany*1.5f,gs.getViewport().getWorldWidth()/10);
+        else kocka.setPosition(x,y);
         kocka.setSize(100, 100);
         gs.addActor(kocka);
 

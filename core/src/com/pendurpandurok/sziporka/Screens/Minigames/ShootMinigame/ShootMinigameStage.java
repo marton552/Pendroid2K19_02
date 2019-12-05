@@ -256,6 +256,13 @@ public class ShootMinigameStage extends MyStage {
         hpBar.setWidth((barW/100)*playerHP);
 
         isGamePlaying = true;
+
+        addBackButtonListener(new BackButtonListener() {
+            @Override
+            public void backKeyDown() {
+                game.setScreen(new MenuScreen(game));
+            }
+        });
     }
 
     int counter = 0;
