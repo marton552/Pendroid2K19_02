@@ -155,6 +155,8 @@ public class ShootMinigameStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                game.save.putFloat("minigamek",game.save.getFloat("minigamek")+1);
+                game.save.flush();
                 game.setScreen(new MenuScreen(game));
             }
         });
@@ -172,6 +174,7 @@ public class ShootMinigameStage extends MyStage {
     }
 
     public void onGoblinKill(Goblin g) {
+        game.save.putFloat("goblinok",game.save.getFloat("goblinok")+1);
 
         Blood blood = new Blood(this);
         blood.setPosition(g.getX() + g.getWidth() / 2 - blood.getWidth() / 2, g.getY() + g.getHeight() / 2 - blood.getHeight() / 2);

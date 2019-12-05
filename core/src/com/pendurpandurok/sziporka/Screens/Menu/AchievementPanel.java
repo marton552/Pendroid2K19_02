@@ -46,9 +46,11 @@ public class AchievementPanel extends Group {
 
         MyLabel l = new MyLabel(text, game.getLabelStyle());
         l.setScale(0.8f);
+        l.setScale(0.8f);
         l.setAlignment(Align.center);
         l.setPosition(w / 2 - (l.getWidth() * l.getScaleX()) / 2 - 65, h / 2 - (l.getHeight() * l.getScaleY()) / 2);
         l.setColor(Color.WHITE);
+        l.setFontScale(0.6f);
         addActor(l);
     }
 

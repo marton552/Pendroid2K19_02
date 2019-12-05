@@ -174,6 +174,7 @@ public class GeneratorMinigameStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                game.save.putFloat("minigamek",game.save.getFloat("minigamek")+1);
                 game.save.putFloat("generator_hp",100);
                 game.save.flush();
                 game.setScreen(new MenuScreen(game));

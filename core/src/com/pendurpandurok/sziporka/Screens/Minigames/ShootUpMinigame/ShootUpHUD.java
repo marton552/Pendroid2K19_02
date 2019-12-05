@@ -110,6 +110,8 @@ public class ShootUpHUD extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                game.save.putFloat("minigamek",game.save.getFloat("minigamek")+1);
+                game.save.flush();
                 game.setScreen(new MenuScreen(game));
             }
         });
