@@ -14,6 +14,7 @@ import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.Blood;
 import java.util.ArrayList;
 
 import hu.csanyzeg.master.MyBaseClasses.Game.MyGame;
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyRectangle;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -79,7 +80,7 @@ public class ShootUpMinigameStage extends MyStage {
         urhajo = new OneSpriteStaticActor(Assets.manager.get(Assets.URHAJO));
         urhajo.setSize(urhajo.getWidth() / 10, urhajo.getHeight() / 10);
         urhajo.setPosition(getViewport().getWorldWidth() / 2 - urhajo.getWidth() / 2, 20);
-        urhajo.addBaseCollisionRectangleShape();
+        urhajo.addBaseCollisionCircleShape();
         addActor(urhajo);
 
 
@@ -126,6 +127,29 @@ public class ShootUpMinigameStage extends MyStage {
         addActor(t);
         takonys.add(t);
 
+    }
+
+    public boolean bombExploded(OneSpriteStaticActor line) {
+
+
+        OneSpriteStaticActor temp = line;
+        temp.setPosition(line.getX(), getCamera().position.y - getViewport().getWorldHeight() / 2);
+        addActor(temp);
+
+        //temp.setSize(line.getWidth(), line.getHeight() + getViewport().getWorldHeight());
+        /*temp.setAlpha(1f);
+        addActor(temp);
+        temp.addBaseCollisionRectangleShape();
+        */
+
+        if(temp.overlaps(urhajo)) {
+            gameOver();
+
+            getActors().removeValue(temp, false);
+            return true;
+        }
+        getActors().removeValue(temp, false);
+        return false;
     }
 
     public void killTakony(Takony t, Bullet b) {
@@ -207,6 +231,8 @@ public class ShootUpMinigameStage extends MyStage {
         getActors().removeValue(explosion, false);
         screen.hud.updateKillText(maxKill, currKill);
 
+        screen.hud.reArmBomb();
+
 
     }
 
@@ -254,10 +280,7 @@ public class ShootUpMinigameStage extends MyStage {
             for(int i = 0; i < takonys.size(); i++) {
                 Takony t = takonys.get(i);
 
-                if(t.overlaps(urhajo)) {
-                    gameOver();
-                }
-
+                if(t.overlaps(urhajo)) gameOver();
                 if(t.getY() + getViewport().getWorldHeight() /2  < getCamera().position.y) gameOver();
             }
 

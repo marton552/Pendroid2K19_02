@@ -114,7 +114,8 @@ public class Assets {
 	public static final AssetDescriptor<Texture> AMMO = new AssetDescriptor<Texture>("lovedek.png", Texture.class);
 	public static final AssetDescriptor<Texture> URHAJO = new AssetDescriptor<Texture>("urhajo.png", Texture.class);
 	public static final AssetDescriptor<Texture> TAKONY = new AssetDescriptor<Texture>("takony.png", Texture.class);
-	public static final AssetDescriptor<TextureAtlas> EXPLOSION_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/explosion.atlas", TextureAtlas.class);
+    public static final AssetDescriptor<Texture> CSOMBA = new AssetDescriptor<Texture>("csomba.png", Texture.class);
+    public static final AssetDescriptor<TextureAtlas> EXPLOSION_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/explosion.atlas", TextureAtlas.class);
 
 	public static final AssetDescriptor<Texture> HATLAP = new AssetDescriptor<Texture>("kartyalap.png", Texture.class);
 	public static final AssetDescriptor<Texture> KARTYA1 = new AssetDescriptor<Texture>("kartya_1.png", Texture.class);
@@ -209,6 +210,7 @@ public class Assets {
 		manager.load(AMMO);
 		manager.load(URHAJO);
 		manager.load(TAKONY);
+		manager.load(CSOMBA);
 		manager.load(EXPLOSION_ATLAS);
 
 		manager.load(HATLAP);
