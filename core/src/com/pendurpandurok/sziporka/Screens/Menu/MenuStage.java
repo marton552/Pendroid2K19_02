@@ -309,15 +309,15 @@ public class MenuStage extends MyStage {
 
             System.out.println(game.save.getFloat("skill_1")+" "+aram_volt);
 
-            if(game.save.getFloat("aram_volt") != (game.save.getFloat("skill_1")-game.save.getFloat("skill_3"))){
-                ideiglenes = (game.save.getFloat("skill_1")-game.save.getFloat("skill_3"))-game.save.getFloat("aram_volt");
+            if(game.save.getFloat("aram_volt") != (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/1.3f))){
+                ideiglenes = (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/3))-game.save.getFloat("aram_volt");
                 game.save.putFloat("aram%",game.save.getFloat("aram%")+ideiglenes);
-                game.save.putFloat("aram_volt", (game.save.getFloat("skill_1")-game.save.getFloat("skill_3")));
+                game.save.putFloat("aram_volt", (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/1.3f)));
             }
 
             if(game.save.getFloat("penz_volt") != game.save.getFloat("skill_4")+game.save.getFloat("skill_5")){
                 ideiglenes = (game.save.getFloat("skill_4")+game.save.getFloat("skill_5"))-game.save.getFloat("penz_volt");
-                game.save.putFloat("aram%",game.save.getFloat("aram%")+ideiglenes);
+                game.save.putFloat("penz%",game.save.getFloat("penz%")+ideiglenes);
                 game.save.putFloat("penz_volt", (game.save.getFloat("skill_4")+game.save.getFloat("skill_5")));
             }
 
