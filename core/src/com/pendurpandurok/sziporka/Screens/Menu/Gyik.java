@@ -62,7 +62,7 @@ public class Gyik extends OneSpriteStaticActor {
 
             if(getX() == eX) {
                 animStage = 1;
-                waitTime = System.currentTimeMillis() + 2000;
+                waitTime = System.currentTimeMillis() + 1000;
             }
         }
 
