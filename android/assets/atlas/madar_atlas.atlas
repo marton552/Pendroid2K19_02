@@ -1,0 +1,18 @@
+madar_atlas.png
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+0
+   rotate: false
+   xy: 0, 0
+   size: 1013, 1169
+   orig: 506, 584
+   offset: 0, 0
+   index: -1
+1
+   rotate: false
+   xy: 1013, 0
+   size: 1013, 1169
+   orig: 506, 584
+   offset: 0, 0
+   index: -1
