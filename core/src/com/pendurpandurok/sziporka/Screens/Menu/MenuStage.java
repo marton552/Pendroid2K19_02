@@ -71,6 +71,7 @@ public class MenuStage extends MyStage {
     public float veszt_volt = 0;
 
     boolean kepernyo = true;
+    public boolean isAllatOut = false;
 
     public MenuStage( final MyGdxGame game) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
