@@ -11,12 +11,12 @@ public class Madar extends OneSpriteAnimatedActor {
     MenuStage stage;
     float iX = 20;
 
-    float sX, y;
+    float sX, y, eX;
 
-    public Madar(float sX, float y, float iX, MenuStage stage) {
+    public Madar(float sX, float y, float iX, float eX, MenuStage stage) {
         super(Assets.manager.get(Assets.MADAR_ATLAS));
         this.stage = stage;
-        this.sX = sX; this.y = y; this.iX = iX;
+        this.sX = sX; this.y = y; this.iX = iX; this.eX = eX;
 
         setLooping(true);
         setFps(15);
@@ -46,5 +46,10 @@ public class Madar extends OneSpriteAnimatedActor {
         super.act(delta);
 
         setX(getX() + iX);
+
+        if(getX() < eX) {
+            stage.getActors().removeValue(this, false);
+            stage.isAllatOut = false;
+        }
     }
 }
