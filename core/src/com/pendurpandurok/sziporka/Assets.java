@@ -100,9 +100,9 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> HAS_F = new AssetDescriptor<Texture>("hodhasf.png", Texture.class);
 	public static final AssetDescriptor<Texture> HAS_L = new AssetDescriptor<Texture>("hodhasl.png", Texture.class);
-	public static final AssetDescriptor<Sound> LAUGH_1 = new AssetDescriptor<Sound>("sfx/laugh/1.wav", Sound.class);
-	public static final AssetDescriptor<Sound> LAUGH_2 = new AssetDescriptor<Sound>("sfx/laugh/2.wav", Sound.class);
-	public static final AssetDescriptor<Sound> LAUGH_3 = new AssetDescriptor<Sound>("sfx/laugh/3.wav", Sound.class);
+	public static final AssetDescriptor<Sound> LAUGH_1 = new AssetDescriptor<Sound>("sfx/laugh/1.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> LAUGH_2 = new AssetDescriptor<Sound>("sfx/laugh/2.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> LAUGH_3 = new AssetDescriptor<Sound>("sfx/laugh/3.ogg", Sound.class);
 
 	public static final AssetDescriptor<Texture> GOBLIN_1 = new AssetDescriptor<Texture>("goblin.png", Texture.class);
 	public static final AssetDescriptor<Texture> GOBLIN_2 = new AssetDescriptor<Texture>("goblin2.png", Texture.class);
