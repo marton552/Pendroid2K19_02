@@ -9,24 +9,21 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 public class Madar extends OneSpriteAnimatedActor {
 
     MenuStage stage;
-    float stepSize;
-    float speed = 20;
+    float iX = 20;
 
-    float sX, eX, y;
+    float sX, y;
 
-    public Madar(float sX, float y, float eX, MenuStage stage) {
+    public Madar(float sX, float y, float iX, MenuStage stage) {
         super(Assets.manager.get(Assets.MADAR_ATLAS));
         this.stage = stage;
-        this.sX = sX; this.y = y; this.eX = eX;
+        this.sX = sX; this.y = y; this.iX = iX;
 
         setLooping(true);
+        setFps(15);
 
         setSize(getWidth() / 20, getHeight() / 20);
         setPosition(sX, y);
         stage.isAllatOut = true;
-        setAlpha(0f);
-
-        stepSize = (eX - sX) / speed;
 
         addListener(new ClickListener() {
             @Override
@@ -42,5 +39,12 @@ public class Madar extends OneSpriteAnimatedActor {
         stage.game.save.flush();
         stage.getActors().removeValue(this, false);
         stage.isAllatOut = false;
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+
+        setX(getX() + iX);
     }
 }
