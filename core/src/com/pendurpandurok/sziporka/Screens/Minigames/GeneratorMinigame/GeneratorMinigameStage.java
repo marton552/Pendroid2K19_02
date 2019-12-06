@@ -53,6 +53,7 @@ public class GeneratorMinigameStage extends MyStage {
     MyLabel victoryLabel;
     MyButton victoryBtn;
     MyLabel infoout;
+    public int varjmeg = 0;
 
     public GeneratorMinigameStage(final MyGdxGame game) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
@@ -61,8 +62,19 @@ public class GeneratorMinigameStage extends MyStage {
         bg.setSize(getViewport().getWorldWidth(),getViewport().getWorldHeight());
         addActor(bg);
 
-        difficult = game.save.getFloat("generator_hp")+50;
-        difficult = difficult/4;
+        difficult = game.save.getFloat("generator_hp");
+        if(difficult > 75){
+            difficult = 5;
+        }
+        else if(difficult > 50){
+            difficult = 4;
+        }
+        else if(difficult > 25){
+            difficult = 3;
+        }
+        else if(difficult < 2){
+            difficult = 2;
+        }
 
         kocka = new OneSpriteStaticActor(Assets.manager.get(Assets.CSUSZKA_BG));
         kocka.setSize(getViewport().getWorldWidth()/4f,getViewport().getWorldWidth()/4f);
@@ -99,7 +111,6 @@ public class GeneratorMinigameStage extends MyStage {
             }
         });
         addActor(kocka2);
-
 
         player = new Player(this,100f);
 
@@ -194,22 +205,28 @@ public class GeneratorMinigameStage extends MyStage {
         if(eletbenvan){
         counter++;
         if(counter%2==0){
-            rnd1 = MathUtils.random(1, 50);
+            varjmeg--;
             if(isTouching && up){
                 if(magassag<150){
-                magassag+=3;}
+                magassag+=4;}
             }
             if(isTouching && up==false){
                 if(magassag>50){
-                magassag-=3;}
+                magassag-=4;}
             }
             player.play.setHeight(getViewport().getWorldHeight()/(magassag/10));
-            rnd2 = MathUtils.random(1, 25);
-            if(rnd1 == rnd2){
-                rnd1 =MathUtils.random(1,2);
-                y1 = Float.parseFloat(MathUtils.random(220, 270)+"");
-                if(rnd1 ==1) sokbomba.add(new Bomba(this,getViewport().getWorldHeight()/(y1/100)));
-                else sokpenz.add(new Coin(this,getViewport().getWorldHeight()/(y1/100)));
+            if(varjmeg < 1){
+            rnd2 = MathUtils.random(1, 2+Math.round(difficult));
+            varjmeg = 20;
+            }
+            y1 = Float.parseFloat(MathUtils.random(220, 270)+"");
+            if(rnd2 == 1){
+                sokbomba.add(new Bomba(this,getViewport().getWorldHeight()/(y1/100)));
+                rnd2 = 0;
+            }
+            if(rnd2 == 2){
+                sokpenz.add(new Coin(this,getViewport().getWorldHeight()/(y1/100)));
+                rnd2 = 0;
             }
             for (int i = 0;i<sokbomba.size();i++){
                 if(sokbomba.get(i).bomba.getX() > 0-sokbomba.get(i).bomba.getWidth())sokbomba.get(i).bomba.setX(sokbomba.get(i).bomba.getX()-8);

@@ -29,6 +29,7 @@ public class MyGdxGame extends MyGame {
 
 
 		save = Gdx.app.getPreferences("gameSave");
+		save.clear();
 
 		//save.contins("key") <- létre van-e hozva?
 		//save.putString("key", "value") <- string érték mentése
@@ -49,7 +50,7 @@ public class MyGdxGame extends MyGame {
 		}else{
 			save.putFloat("inditas",1);
 			//nagy változók
-			save.putFloat("penz_mennyiseg",10500.0f);
+			save.putFloat("penz_mennyiseg",50.0f);
 			save.putFloat("aram%",1.0f);
 			save.putFloat("penz%",1.0f);
 			save.putFloat("aramveszteseg%",0.5f);

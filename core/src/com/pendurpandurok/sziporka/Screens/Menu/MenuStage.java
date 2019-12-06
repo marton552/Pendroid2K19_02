@@ -72,8 +72,6 @@ public class MenuStage extends MyStage {
 
     boolean kepernyo = true;
 
-    public boolean isAllatOut = false;
-
     public MenuStage( final MyGdxGame game) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
@@ -290,11 +288,6 @@ public class MenuStage extends MyStage {
 
     }
 
-
-    public void spawnGyik() {
-
-    }
-
     int counter = 0;
     int rnd1 = 0;
     int rnd2 = 0;
@@ -306,40 +299,40 @@ public class MenuStage extends MyStage {
         super.act(delta);
         counter++;
 
-        rnd1 = MathUtils.random(1, (200 * (Math.round(game.save.getFloat("skill_1") + 1))));
-        if (nextPay <= System.currentTimeMillis()) {
+        rnd1 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
+        if (nextPay <= System.currentTimeMillis()){
             nextPay = System.currentTimeMillis() + 1000;
-            game.save.putFloat("eltelt_ido", game.save.getFloat("eltelt_ido") + 1);
+            game.save.putFloat("eltelt_ido",game.save.getFloat("eltelt_ido")+1);
             destroy_screen();
             draw_screen();
-            Matek_osztaly osszeg = new Matek_osztaly(this, game.save.getFloat("penz%"), game.save.getFloat("aram%"), game.save.getFloat("aramveszteseg%"), game.save.getFloat("generator_hp"), game.save.getFloat("lapat_hp"), game.save.getFloat("csovek_hp"), game.save.getFloat("munkasok_hp"), game.save.getFloat("gatfal_hp"));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + osszeg.osszeg * 1.0f);
-            game.save.putFloat("szerzett_penz", game.save.getFloat("szerzett_penz") + osszeg.osszeg * 1.0f);
+            Matek_osztaly osszeg = new Matek_osztaly(this,game.save.getFloat("penz%"),game.save.getFloat("aram%"),game.save.getFloat("aramveszteseg%"),game.save.getFloat("generator_hp"),game.save.getFloat("lapat_hp"),game.save.getFloat("csovek_hp"),game.save.getFloat("munkasok_hp"),game.save.getFloat("gatfal_hp"));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+osszeg.osszeg * 1.0f);
+            game.save.putFloat("szerzett_penz",game.save.getFloat("szerzett_penz")+osszeg.osszeg*1.0f);
 
-            System.out.println(game.save.getFloat("skill_1") + " " + aram_volt);
+            System.out.println(game.save.getFloat("skill_1")+" "+aram_volt);
 
-            if (game.save.getFloat("aram_volt") != (game.save.getFloat("skill_1") - (game.save.getFloat("skill_3") / 1.3f))) {
-                ideiglenes = (game.save.getFloat("skill_1") - (game.save.getFloat("skill_3") / 3)) - game.save.getFloat("aram_volt");
-                game.save.putFloat("aram%", game.save.getFloat("aram%") + ideiglenes);
-                game.save.putFloat("aram_volt", (game.save.getFloat("skill_1") - (game.save.getFloat("skill_3") / 1.3f)));
+            if(game.save.getFloat("aram_volt") != (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/1.3f))){
+                ideiglenes = (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/3))-game.save.getFloat("aram_volt");
+                game.save.putFloat("aram%",game.save.getFloat("aram%")+ideiglenes);
+                game.save.putFloat("aram_volt", (game.save.getFloat("skill_1")-(game.save.getFloat("skill_3")/1.3f)));
             }
 
-            if (game.save.getFloat("penz_volt") != game.save.getFloat("skill_4") + game.save.getFloat("skill_5")) {
-                ideiglenes = (game.save.getFloat("skill_4") + game.save.getFloat("skill_5")) - game.save.getFloat("penz_volt");
-                game.save.putFloat("penz%", game.save.getFloat("penz%") + ideiglenes);
-                game.save.putFloat("penz_volt", (game.save.getFloat("skill_4") + game.save.getFloat("skill_5")));
+            if(game.save.getFloat("penz_volt") != game.save.getFloat("skill_4")+game.save.getFloat("skill_5")){
+                ideiglenes = (game.save.getFloat("skill_4")+game.save.getFloat("skill_5"))-game.save.getFloat("penz_volt");
+                game.save.putFloat("penz%",game.save.getFloat("penz%")+ideiglenes);
+                game.save.putFloat("penz_volt", (game.save.getFloat("skill_4")+game.save.getFloat("skill_5")));
             }
 
-            if (game.save.getFloat("veszt_volt") != game.save.getFloat("skill_2")) {
-                ideiglenes = (game.save.getFloat("skill_2") - game.save.getFloat("veszt_volt")) * 0.04f;
-                game.save.putFloat("aramveszteseg%", game.save.getFloat("aramveszteseg%") + ideiglenes);
-                game.save.putFloat("veszt_volt", game.save.getFloat("skill_2"));
+            if(game.save.getFloat("veszt_volt") != game.save.getFloat("skill_2")){
+                ideiglenes = (game.save.getFloat("skill_2")-game.save.getFloat("veszt_volt"))*0.04f;
+                game.save.putFloat("aramveszteseg%",game.save.getFloat("aramveszteseg%")+ideiglenes);
+                game.save.putFloat("veszt_volt",game.save.getFloat("skill_2"));
             }
 
-            if (kepernyo == false) {
+            if(kepernyo == false){
                 sh_generator.destroy();
                 destroy_screen();
-                for (int i = 0; i < gen.size(); i++) {
+                for(int i = 0; i < gen.size();i++){
                     gen.get(i).destroy();
                 }
                 gen.clear();
@@ -347,57 +340,59 @@ public class MenuStage extends MyStage {
                 draw_screen();
             }
 
-            if (vis) {
+            if(vis){
                 smile.remove();
                 vis = false;
                 siker = false;
             }
 
-            if (siker == true && vis == false) {
+            if(siker == true && vis == false){
                 addActor(smile);
                 vis = true;
             }
             game.save.flush();
         }
 
-        if (game.save.getFloat("eltelt_ido") > (game.save.getFloat("eltelt_ido_0") + 1) * (60 * (game.save.getFloat("eltelt_ido_0") + 1))) {
-            addActor(new AchievementPanel("Teljesítmény elérve!\nFusson " + Math.round(((game.save.getFloat("eltelt_ido_0") + 1) * (60 * (game.save.getFloat("eltelt_ido_0") + 1))) / 60) + " percet a generátor\n" + Math.round((game.save.getFloat("eltelt_ido_0") + 1) * 10) + " pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + (game.save.getFloat("eltelt_ido_0") + 1) * 10);
-            game.save.putFloat("eltelt_ido_0", game.save.getFloat("eltelt_ido_0") + 1);
+        if(game.save.getFloat("eltelt_ido") > (game.save.getFloat("eltelt_ido_0")+1)*(60*(game.save.getFloat("eltelt_ido_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nFusson "+Math.round(((game.save.getFloat("eltelt_ido_0")+1)*(60*(game.save.getFloat("eltelt_ido_0")+1)))/60)+" percet a generátor\n"+Math.round((game.save.getFloat("eltelt_ido_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("eltelt_ido_0")+1)*10);
+            game.save.putFloat("eltelt_ido_0",game.save.getFloat("eltelt_ido_0")+1);
         }
 
-        if (game.save.getFloat("minigamek") > (game.save.getFloat("minigamek_0") + 1) * (5 * (game.save.getFloat("minigamek_0") + 1))) {
-            addActor(new AchievementPanel("Teljesítmény elérve!\nTeljesíts " + Math.round(((game.save.getFloat("minigamek_0") + 1) * (5 * (game.save.getFloat("minigamek_0") + 1))) / 60) + " minigamet\n" + Math.round((game.save.getFloat("minigamek_0") + 1) * 10) + " pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + (game.save.getFloat("minigamek_0") + 1) * 10);
-            game.save.putFloat("minigamek_0", game.save.getFloat("minigamek_0") + 1);
+        if(game.save.getFloat("minigamek") > (game.save.getFloat("minigamek_0")+1)*(5*(game.save.getFloat("minigamek_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nTeljesíts "+Math.round(((game.save.getFloat("minigamek_0")+1)*(5*(game.save.getFloat("minigamek_0")+1)))/60)+" minigamet\n"+Math.round((game.save.getFloat("minigamek_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("minigamek_0")+1)*10);
+            game.save.putFloat("minigamek_0",game.save.getFloat("minigamek_0")+1);
         }
 
-        if (game.save.getFloat("goblinok") > (game.save.getFloat("goblinok_0") + 1) * (50 * (game.save.getFloat("goblinok_0") + 1))) {
-            addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg " + Math.round(((game.save.getFloat("goblinok_0") + 1) * (50 * (game.save.getFloat("goblinok_0") + 1))) / 60) + " goblint\n" + Math.round((game.save.getFloat("goblinok_0") + 1) * 10) + " pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + (game.save.getFloat("goblinok_0") + 1) * 10);
-            game.save.putFloat("goblinok_0", game.save.getFloat("goblinok_0") + 1);
+        if(game.save.getFloat("goblinok") > (game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1)))/60)+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("goblinok_0")+1)*10);
+            game.save.putFloat("goblinok_0",game.save.getFloat("goblinok_0")+1);
         }
 
-        if (game.save.getFloat("szerzett_penz") > (game.save.getFloat("szerzett_penz_0") + 1) * (100 * (game.save.getFloat("szerzett_penz_0") + 1))) {
-            addActor(new AchievementPanel("Teljesítmény elérve!\nTermeljen a generátorod " + Math.round(((game.save.getFloat("szerzett_penz_0") + 1) * (100 * (game.save.getFloat("szerzett_penz_0") + 1))) / 60) + " pénzt\n" + Math.round((game.save.getFloat("szerzett_penz_0") + 1) * 10) + " pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + (game.save.getFloat("szerzett_penz_0") + 1) * 10);
-            game.save.putFloat("szerzett_penz_0", game.save.getFloat("szerzett_penz_0") + 1);
+        if(game.save.getFloat("szerzett_penz") > (game.save.getFloat("szerzett_penz_0")+1)*(100*(game.save.getFloat("szerzett_penz_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nTermeljen a generátorod "+Math.round(((game.save.getFloat("szerzett_penz_0")+1)*(100*(game.save.getFloat("szerzett_penz_0")+1)))/60)+" pénzt\n"+Math.round((game.save.getFloat("szerzett_penz_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("szerzett_penz_0")+1)*10);
+            game.save.putFloat("szerzett_penz_0",game.save.getFloat("szerzett_penz_0")+1);
         }
 
-        if (game.save.getFloat("fejlesztesek_szama") > (game.save.getFloat("fejlesztesek_szama_0") + 1) * (10 * (game.save.getFloat("fejlesztesek_szama_0") + 1))) {
-            addActor(new AchievementPanel("Teljesítmény elérve!\nFejlessz " + Math.round(((game.save.getFloat("fejlesztesek_szama_0") + 1) * (10 * (game.save.getFloat("fejlesztesek_szama_0") + 1))) / 60) + " elemet\n" + Math.round((game.save.getFloat("fejlesztesek_szama_0") + 1) * 10) + " pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
-            game.save.putFloat("penz_mennyiseg", game.save.getFloat("penz_mennyiseg") + (game.save.getFloat("fejlesztesek_szama_0") + 1) * 10);
-            game.save.putFloat("fejlesztesek_szama_0", game.save.getFloat("fejlesztesek_szama_0") + 1);
+        if(game.save.getFloat("fejlesztesek_szama") > (game.save.getFloat("fejlesztesek_szama_0")+1)*(10*(game.save.getFloat("fejlesztesek_szama_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nFejlessz "+Math.round(((game.save.getFloat("fejlesztesek_szama_0")+1)*(10*(game.save.getFloat("fejlesztesek_szama_0")+1)))/60)+" elemet\n"+Math.round((game.save.getFloat("fejlesztesek_szama_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this));
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("fejlesztesek_szama_0")+1)*10);
+            game.save.putFloat("fejlesztesek_szama_0",game.save.getFloat("fejlesztesek_szama_0")+1);
         }
 
-        rnd2 = MathUtils.random(1, (200 * (Math.round(game.save.getFloat("skill_1") + 1))));
-        if (rnd1 == rnd2) {
+        rnd2 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
+        if(rnd1 == rnd2){
             rnd1 = MathUtils.random(1, 3);
-            if (rnd1 == 1) {
+            if(rnd1 == 1){
                 System.out.println("Halacska");
-            } else if (rnd1 == 2) {
+            }
+            else if(rnd1 == 2){
                 System.out.println("Madár");
-            } else System.out.println("Gyík");
+            }
+            else System.out.println("Gyík");
         }
     }
 

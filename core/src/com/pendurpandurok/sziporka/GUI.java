@@ -103,7 +103,7 @@ public class GUI {
         }
 
         icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
-        icon.setPosition(iface.getX()+(iface.getWidth()-icon.getWidth()*1.3f),iface.getY()+iface.getHeight()/8);
+        icon.setPosition(iface.getX()+(iface.getWidth()-icon.getWidth()*1.3f),iface.getY()+iface.getHeight()/6);
 
         qwe.setPosition(iface.getX()+iface.getWidth()/15,iface.getY()+iface.getHeight()/2);
         qwe.setFontScale(0.7f);

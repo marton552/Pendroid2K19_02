@@ -93,7 +93,6 @@ public class Assets {
 	public static final AssetDescriptor<Texture> SKILL = new AssetDescriptor<Texture>("skill_points.png", Texture.class);
 	public static final AssetDescriptor<Texture> PSL = new AssetDescriptor<Texture>("skill.png", Texture.class);
 	public static final AssetDescriptor<Texture> SKILL_TREE = new AssetDescriptor<Texture>("skilltree.png", Texture.class);
-	public static final AssetDescriptor<Texture> ACH = new AssetDescriptor<Texture>("ach.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> BAR_B = new AssetDescriptor<Texture>("bar_back.png", Texture.class);
 	public static final AssetDescriptor<Texture> BAR_F = new AssetDescriptor<Texture>("bar_front.png", Texture.class);
@@ -124,7 +123,6 @@ public class Assets {
 	public static final AssetDescriptor<Texture> KARTYA3 = new AssetDescriptor<Texture>("kartya_4.png", Texture.class);
 	public static final AssetDescriptor<Texture> KARTYA4 = new AssetDescriptor<Texture>("kartya_5.png", Texture.class);
 	public static final AssetDescriptor<Texture> KARTYA5 = new AssetDescriptor<Texture>("kartya_6.png", Texture.class);
-	public static final AssetDescriptor<Texture> TW = new AssetDescriptor<Texture>("testwood.jpg", Texture.class);
 
 	public static final AssetDescriptor<Texture> ALVANY = new AssetDescriptor<Texture>("ragaszto.png", Texture.class);
 	public static final AssetDescriptor<Texture> PLAYER = new AssetDescriptor<Texture>("player.png", Texture.class);
@@ -202,7 +200,6 @@ public class Assets {
 		manager.load(HAPPY);
 		manager.load(SKILL);
 		manager.load(PSL);
-		manager.load(ACH);
 		manager.load(SKILL_TREE);
 
 		manager.load(BAR_F);
@@ -233,7 +230,6 @@ public class Assets {
 		manager.load(KARTYA4);
 		manager.load(KARTYA5);
 		manager.load(ROSSZKARTYA);
-		manager.load(TW);
 
         manager.load(ALVANY);
 
