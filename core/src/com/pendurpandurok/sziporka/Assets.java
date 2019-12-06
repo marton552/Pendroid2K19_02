@@ -158,6 +158,19 @@ public class Assets {
 	public static final AssetDescriptor<Sound> TAKONY_SOUND = new AssetDescriptor<Sound>("sfx/slime_jump.ogg", Sound.class);
 	public static final AssetDescriptor<Sound> EXPLOSION_SOUND = new AssetDescriptor<Sound>("sfx/explosion.ogg", Sound.class);
 
+	public static final AssetDescriptor<Texture> KEP1 = new AssetDescriptor<Texture>("kep1.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP2 = new AssetDescriptor<Texture>("kep2.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP3 = new AssetDescriptor<Texture>("kep3.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP4 = new AssetDescriptor<Texture>("kep4.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP5 = new AssetDescriptor<Texture>("kep5.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP6 = new AssetDescriptor<Texture>("kep6.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP7 = new AssetDescriptor<Texture>("kep7.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP8 = new AssetDescriptor<Texture>("kep8.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP9 = new AssetDescriptor<Texture>("kep9.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP10 = new AssetDescriptor<Texture>("kep10.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP11 = new AssetDescriptor<Texture>("kep11.png", Texture.class);
+	public static final AssetDescriptor<Texture> KEP12 = new AssetDescriptor<Texture>("kep12.png", Texture.class);
+
 
 
 	public static void prepare() {
@@ -286,6 +299,19 @@ public class Assets {
 
 		manager.load(TAKONY_SOUND);
 		manager.load(EXPLOSION_SOUND);
+
+		manager.load(KEP1);
+		manager.load(KEP2);
+		manager.load(KEP3);
+		manager.load(KEP4);
+		manager.load(KEP5);
+		manager.load(KEP6);
+		manager.load(KEP7);
+		manager.load(KEP8);
+		manager.load(KEP9);
+		manager.load(KEP10);
+		manager.load(KEP11);
+		manager.load(KEP12);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

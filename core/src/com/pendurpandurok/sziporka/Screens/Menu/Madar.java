@@ -9,7 +9,7 @@ import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 public class Madar extends OneSpriteAnimatedActor {
 
     MenuStage stage;
-    float iX = 20;
+    float iX = 10;
 
     float sX, y, eX;
 
@@ -19,7 +19,7 @@ public class Madar extends OneSpriteAnimatedActor {
         this.sX = sX; this.y = y; this.iX = iX; this.eX = eX;
 
         setLooping(true);
-        setFps(15);
+        setFps(30);
 
         setSize(getWidth() / 20, getHeight() / 20);
         setPosition(sX, y);

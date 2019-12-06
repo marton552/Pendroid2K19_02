@@ -73,6 +73,23 @@ public class MenuStage extends MyStage {
     boolean kepernyo = true;
     public boolean isAllatOut = false;
 
+    public int elsostart = 0;
+    public int holtart = 1;
+
+    public OneSpriteStaticActor kep1;
+    public OneSpriteStaticActor kep2;
+    public OneSpriteStaticActor kep3;
+    public OneSpriteStaticActor kep4;
+    public OneSpriteStaticActor kep5;
+    public OneSpriteStaticActor kep6;
+    public OneSpriteStaticActor kep7;
+    public OneSpriteStaticActor kep8;
+    public OneSpriteStaticActor kep9;
+    public OneSpriteStaticActor kep10;
+    public OneSpriteStaticActor kep11;
+    public OneSpriteStaticActor kep12;
+    public MyButton tovabb;
+
     public MenuStage( final MyGdxGame game) {
         super(new FitViewport(720f, keparanySzelesvaszonra()), game);
         this.game = game;
@@ -93,6 +110,7 @@ public class MenuStage extends MyStage {
 
         draw_screen();
 
+        if(game.save.getFloat("inditas") == 1 && elsostart == 0) elsostart = 1;
 
         game.save.flush();
 
@@ -108,7 +126,124 @@ public class MenuStage extends MyStage {
             }
         });
 
+        kep1 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP1));
+        kep1.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+        addActor(kep1);
+
+        kep2 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP2));
+        kep2.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep3 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP3));
+        kep3.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep4 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP4));
+        kep4.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep5 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP5));
+        kep5.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep6 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP6));
+        kep6.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep7 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP7));
+        kep7.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep8 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP8));
+        kep8.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep9 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP9));
+        kep9.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep10 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP10));
+        kep10.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep11 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP11));
+        kep11.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        kep12 = new OneSpriteStaticActor(Assets.manager.get(Assets.KEP12));
+        kep12.setSize(((FitViewport)getViewport()).getWorldWidth(), getViewport().getWorldHeight());
+
+        tovabb = new MyButton("Tovább", game.getButtonStyle());
+        tovabb.setWidth(getViewport().getWorldWidth()/4);
+        tovabb.setPosition(getViewport().getWorldWidth()-tovabb.getWidth(), 0);
+        tovabb.getLabel().setFontScale(0.8f);
+        tovabb.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+
+                if(holtart == 1){
+                    addActor(kep2);
+                    nextt();
+                }
+                else if(holtart == 2){
+                    addActor(kep3);
+                    nextt();
+                }
+                else if(holtart == 3){
+                    addActor(kep4);
+                    nextt();
+                }
+                else if(holtart == 4){
+                    addActor(kep5);
+                    nextt();
+                }
+                else if(holtart == 5){
+                    addActor(kep6);
+                    nextt();
+                }
+                else if(holtart == 6){
+                    addActor(kep7);
+                    nextt();
+                }
+                else if(holtart == 7){
+                    addActor(kep8);
+                    nextt();
+                }
+                else if(holtart == 8){
+                    addActor(kep9);
+                    nextt();
+                }
+                else if(holtart == 9){
+                    addActor(kep10);
+                    nextt();
+                }
+                else if(holtart == 10){
+                    addActor(kep11);
+                    nextt();
+                }
+                else if(holtart == 11){
+                    addActor(kep12);
+                    nextt();
+                }
+                else if(holtart == 12){
+                    elsostart = 2;
+                    kep1.remove();
+                    kep2.remove();
+                    kep3.remove();
+                    kep4.remove();
+                    kep5.remove();
+                    kep6.remove();
+                    kep7.remove();
+                    kep8.remove();
+                    kep9.remove();
+                    kep10.remove();
+                    kep11.remove();
+                    kep12.remove();
+                    tovabb.remove();
+                }
+
+            }
+        });
+        addActor(tovabb);
+
         //addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1)))/60)+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
+    }
+
+    public void nextt(){
+        holtart++;
+        tovabb.remove();
+        addActor(tovabb);
     }
 
     public void draw_screen(){
@@ -296,6 +431,7 @@ public class MenuStage extends MyStage {
 
     public void act(float delta) {
         super.act(delta);
+        if(elsostart != 1){
         counter++;
 
         rnd1 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
@@ -415,7 +551,7 @@ public class MenuStage extends MyStage {
                 } else addActor(new Gyik(getViewport().getWorldWidth(), 180, getViewport().getWorldWidth() - 150, 100, this));
 
             }
-        }
+        }}
     }
 
     @Override
