@@ -242,6 +242,12 @@ public class Assets {
 		manager.load(CSUSZKA_BG);
 		manager.load(CSUSZKA);
 
+		manager.load(ERDO);
+		manager.load(ASZTAL);
+
+		manager.load(GYIK);
+		manager.load(HAL);
+
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
 
