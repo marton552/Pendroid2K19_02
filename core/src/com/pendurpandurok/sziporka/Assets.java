@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -137,6 +138,15 @@ public class Assets {
 	public static final AssetDescriptor<Texture> HAL = new AssetDescriptor<Texture>("halacska.png", Texture.class);
     public static final AssetDescriptor<TextureAtlas> MADAR_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/madar_atlas.atlas", TextureAtlas.class);
 
+	public static final AssetDescriptor<Music> MENU_MUSIC = new AssetDescriptor<Music>("sfx/music/1.ogg", Music.class);
+
+	public static final AssetDescriptor<Music> MUSIC_1 = new AssetDescriptor<Music>("sfx/music/2.ogg", Music.class);
+	public static final AssetDescriptor<Music> MUSIC_2 = new AssetDescriptor<Music>("sfx/music/3.ogg", Music.class);
+	public static final AssetDescriptor<Music> MUSIC_3 = new AssetDescriptor<Music>("sfx/music/4.ogg", Music.class);
+	public static final AssetDescriptor<Music> MUSIC_4 = new AssetDescriptor<Music>("sfx/music/5.ogg", Music.class);
+	public static final AssetDescriptor<Music> MUSIC_5 = new AssetDescriptor<Music>("sfx/music/6.ogg", Music.class);
+
+
 
 	public static void prepare() {
 		manager = new AssetManager();
@@ -245,6 +255,14 @@ public class Assets {
 		manager.load(GYIK);
 		manager.load(HAL);
 		manager.load(MADAR_ATLAS);
+
+
+		manager.load(MENU_MUSIC);
+		manager.load(MUSIC_1);
+		manager.load(MUSIC_2);
+		manager.load(MUSIC_3);
+		manager.load(MUSIC_4);
+		manager.load(MUSIC_5);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

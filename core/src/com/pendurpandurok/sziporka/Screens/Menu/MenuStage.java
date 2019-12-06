@@ -108,12 +108,7 @@ public class MenuStage extends MyStage {
             }
         });
 
-
-        addActor(new Gyik(getViewport().getWorldWidth(), 180, getViewport().getWorldWidth() - 150, 100, this));
-        addActor(new Hal(getViewport().getWorldWidth() / 2, 40, this));
-        addActor(new Madar(getViewport().getWorldWidth(), getViewport().getWorldHeight() - 100, -10, this));
-
-        addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1)))/60)+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
+        //addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1)))/60)+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
     }
 
     public void draw_screen(){
@@ -400,15 +395,19 @@ public class MenuStage extends MyStage {
         }
 
         rnd2 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
-        if(rnd1 == rnd2){
-            rnd1 = MathUtils.random(1, 3);
-            if(rnd1 == 1){
-                System.out.println("Halacska");
+
+
+
+        if(isAllatOut == false) {
+            if (rnd1 == rnd2) {
+                rnd1 = MathUtils.random(1, 3);
+                if (rnd1 == 1) {
+                    addActor(new Hal(getViewport().getWorldWidth() / 2, 40, this));
+                } else if (rnd1 == 2) {
+                    addActor(new Madar(getViewport().getWorldWidth(), getViewport().getWorldHeight() - 100, -10, this));
+                } else addActor(new Gyik(getViewport().getWorldWidth(), 180, getViewport().getWorldWidth() - 150, 100, this));
+
             }
-            else if(rnd1 == 2){
-                System.out.println("Madár");
-            }
-            else System.out.println("Gyík");
         }
     }
 

@@ -2,6 +2,7 @@ package com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.pendurpandurok.sziporka.MusicPlayer;
 import com.pendurpandurok.sziporka.MyGdxGame;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
@@ -22,6 +23,8 @@ public class ShootUpMinigameScreen extends MyScreen {
         im.addProcessor(shootUpMinigameStage);
 
         Gdx.input.setInputProcessor(im);
+
+        MusicPlayer.playMinigameMusic(3);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.GeneratorMinigame;
 
 import com.badlogic.gdx.Gdx;
+import com.pendurpandurok.sziporka.MusicPlayer;
 import com.pendurpandurok.sziporka.MyGdxGame;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
@@ -14,6 +15,8 @@ public class GeneratorMinigameScreen extends MyScreen {
 
         generatorMinigameStage = new GeneratorMinigameStage(game);
         Gdx.input.setInputProcessor(generatorMinigameStage);
+
+        MusicPlayer.playMinigameMusic(1);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame;
 
 import com.badlogic.gdx.Gdx;
+import com.pendurpandurok.sziporka.MusicPlayer;
 import com.pendurpandurok.sziporka.MyGdxGame;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyScreen;
@@ -14,6 +15,8 @@ public class WorkerMinigameScreen extends MyScreen {
 
         workerMinigameStage = new WorkerMinigameStage(game);
         Gdx.input.setInputProcessor(workerMinigameStage);
+
+        MusicPlayer.playMinigameMusic(4);
     }
 
     @Override
