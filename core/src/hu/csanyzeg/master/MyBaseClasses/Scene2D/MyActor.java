@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Created by tuskeb on 2016. 09. 30..
  */
-abstract public class MyActor extends Actor implements InitableInterface {
+abstract public class MyActor extends Actor implements InitableInterface, IZindex {
 
     protected int zIndex = 0;
 

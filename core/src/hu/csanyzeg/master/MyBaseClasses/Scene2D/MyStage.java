@@ -342,20 +342,20 @@ abstract public class MyStage extends Stage implements InitableInterface {
      */
     public void addActor(Actor actor, int ZIndex) {
         super.addActor(actor);
-        if (actor instanceof MyActor){
+        if (actor instanceof IZindex){
             actor.setZIndex(ZIndex);
         }else{
             sortActorsByZindex();
         }
-        System.out.println(ZIndex);
+       // System.out.println(ZIndex);
     }
 
 
     public void sortActorsByZindex(){
 /*
         for (Actor a : getActors()) {
-            if (a instanceof MyActor){
-                System.out.println("E Z: " + ((MyActor) a).zIndex);
+            if (a instanceof IZindex){
+                System.out.println("U Z: " + ((IZindex) a).getZIndex());
             }else{
                 System.out.println("E not instance");
             }
@@ -368,10 +368,10 @@ abstract public class MyStage extends Stage implements InitableInterface {
             change = false;
             int z = Integer.MAX_VALUE;
             for (int i = getActors().items.length - 1; i > 0; i--) {
-                if (getActors().items[i] instanceof MyActor) {
+                if (getActors().items[i] instanceof IZindex) {
                     z = getActors().items[i].getZIndex();
                 }
-                if (getActors().items[i - 1] instanceof MyActor) {
+                if (getActors().items[i - 1] instanceof IZindex) {
                     if (getActors().items[i - 1].getZIndex() > z) {
                         Actor a = getActors().items[i - 1];
                         getActors().items[i - 1] = getActors().items[i];
@@ -396,14 +396,16 @@ abstract public class MyStage extends Stage implements InitableInterface {
 
          */
 
-        /*
+/*
         for (Actor a : getActors()) {
-            if (a instanceof MyActor){
-                System.out.println("U Z: " + ((MyActor) a).zIndex);
+            if (a instanceof IZindex){
+                System.out.println("U Z: " + ((IZindex) a).getZIndex());
             }else{
                 System.out.println("U not instance");
             }
         }
+
+
         System.out.println("--------------");
 */
     }

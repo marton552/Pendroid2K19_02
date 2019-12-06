@@ -112,6 +112,8 @@ public class MenuStage extends MyStage {
         addActor(new Gyik(getViewport().getWorldWidth(), 180, getViewport().getWorldWidth() - 150, 100, this));
         addActor(new Hal(getViewport().getWorldWidth() / 2, 40, this));
         addActor(new Madar(getViewport().getWorldWidth(), getViewport().getWorldHeight() - 100, -10, this));
+
+        addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1)))/60)+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
     }
 
     public void draw_screen(){

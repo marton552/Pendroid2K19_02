@@ -12,12 +12,13 @@ import javax.management.OperationsException;
 import javax.swing.GroupLayout;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MultiSpriteActor;
+import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyGroup;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.MyStage;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OffsetSprite;
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
-public class AchievementPanel extends Group {
+public class AchievementPanel extends MyGroup {
 
     float oY;
     float upY;
@@ -72,11 +73,11 @@ public class AchievementPanel extends Group {
         if (animState == 1) {
             if(waitTime <= System.currentTimeMillis()) animState++;
         }
-
+/*
         if(animState == 2) {
             if(getY() <= upY)
                 setY(getY() + showStep);
             else stage.getActors().removeValue(this, false);
-        }
+        }*/
     }
 }
