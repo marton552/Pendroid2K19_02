@@ -19,6 +19,7 @@ public class GUI {
     OneSpriteStaticActor iface_back;
     OneSpriteStaticActor iface;
     OneSpriteStaticActor lvlbar;
+    OneSpriteStaticActor felul;
 
     public GUI(final MenuStage gs, final String name, Float lvl, Float life, Float hanyadik){
 
@@ -29,13 +30,6 @@ public class GUI {
         iface = new OneSpriteStaticActor(Assets.manager.get(Assets.IF));
         iface.setSize(gs.getViewport().getWorldWidth()/1.5f,gs.getViewport().getWorldHeight()/10f);
         iface.setPosition(gs.getViewport().getWorldWidth()/5.5f,gs.getViewport().getWorldHeight()-(hanyadik*(gs.getViewport().getWorldHeight()/4f)));
-        iface.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                gs.another_screen(name);
-            }
-        });
         gs.addActor(iface);
 
 
@@ -110,18 +104,22 @@ public class GUI {
 
         icon.setSize(iface.getWidth()/4.2f,iface.getHeight()/1.45f);
         icon.setPosition(iface.getX()+(iface.getWidth()-icon.getWidth()*1.3f),iface.getY()+iface.getHeight()/8);
-        icon.addListener(new ClickListener() {
+
+        qwe.setPosition(iface.getX()+iface.getWidth()/15,iface.getY()+iface.getHeight()/2);
+        qwe.setFontScale(0.7f);
+        gs.addActor(qwe);
+
+        felul = new OneSpriteStaticActor(Assets.manager.get(Assets.CLICKABLE));
+        felul.setSize(gs.getViewport().getWorldWidth()/1.5f,gs.getViewport().getWorldHeight()/10f);
+        felul.setPosition(gs.getViewport().getWorldWidth()/5.5f,gs.getViewport().getWorldHeight()-(hanyadik*(gs.getViewport().getWorldHeight()/4f)));
+        felul.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 gs.another_screen(name);
             }
         });
-
-        qwe.setPosition(iface.getX()+iface.getWidth()/15,iface.getY()+iface.getHeight()/2);
-        qwe.setFontScale(0.7f);
-        gs.addActor(qwe);
-
+        gs.addActor(felul);
     }
 
     public void destroy(){

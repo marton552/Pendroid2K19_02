@@ -61,18 +61,10 @@ public class ShootMinigameStage extends MyStage {
         difficulty = Math.round(game.save.getFloat("gatfal_hp"));
         if(difficulty <= 10) difficulty = 20;
 
-        OneSpriteStaticActor bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND));
+        OneSpriteStaticActor bg = new OneSpriteStaticActor(Assets.manager.get(Assets.ERDO));
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
         addActor(bg);
 
-        OneSpriteStaticActor fal;
-
-        if(game.save.getFloat("gatfal_lvl") == 2.0f) fal = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT3));
-        else if(game.save.getFloat("gatfal_lvl") == 1.0f) fal = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT2));
-        else fal = new OneSpriteStaticActor(Assets.manager.get(Assets.GAT1));
-
-        fal.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
-        addActor(fal);
 
         OneSpriteStaticActor hpBarBG = new OneSpriteStaticActor(Assets.manager.get(Assets.FULLWHITE));
         hpBarBG.setSize(barW, 30);
@@ -138,7 +130,7 @@ public class ShootMinigameStage extends MyStage {
 
         addActor(victoryBg);
 
-        victoryLabel = new MyLabel("Sikeresen kiírtottad\naz összes goblint!"+"\nJutalmad "+25*(game.save.getFloat("skill_3")+1)+" pénz", game.getLabelStyle());
+        victoryLabel = new MyLabel("Sikeresen kiírtottad\naz összes goblint!"+"\nJutalmad "+Math.round(25*(game.save.getFloat("skill_3")+1))+" pénz", game.getLabelStyle());
         victoryLabel.setFontScale(0.7f);
         victoryLabel.setAlignment(Align.center);
         victoryLabel.setColor(Color.WHITE);

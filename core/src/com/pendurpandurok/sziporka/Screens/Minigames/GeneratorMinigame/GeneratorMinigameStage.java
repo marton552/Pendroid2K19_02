@@ -112,8 +112,9 @@ public class GeneratorMinigameStage extends MyStage {
 
         infoout = new MyLabel("20/"+penz, game.getLabelStyle());
         infoout.setFontScale(0.72f);
+        infoout.setAlignment(Align.center);
         infoout.setColor(Color.WHITE);
-        infoout.setPosition(Align.center,getViewport().getWorldHeight()-infoout.getHeight());
+        infoout.setPosition(getViewport().getWorldWidth()/2-infoout.getWidth()/2,getViewport().getWorldHeight()-infoout.getHeight());
         addActor(infoout);
 
         overBg = new OneSpriteStaticActor(Assets.manager.get(Assets.BLACK));
@@ -157,7 +158,7 @@ public class GeneratorMinigameStage extends MyStage {
 
         addActor(victoryBg);
 
-        victoryLabel = new MyLabel("Gyöztél! "+"\nJutalmad "+25*(game.save.getFloat("skill_3")+1)+" pénz", game.getLabelStyle());
+        victoryLabel = new MyLabel("Gyöztél! "+"\nJutalmad "+Math.round(25*(game.save.getFloat("skill_3")+1))+" pénz", game.getLabelStyle());
         victoryLabel.setFontScale(0.7f);
         victoryLabel.setAlignment(Align.center);
         victoryLabel.setColor(Color.WHITE);
