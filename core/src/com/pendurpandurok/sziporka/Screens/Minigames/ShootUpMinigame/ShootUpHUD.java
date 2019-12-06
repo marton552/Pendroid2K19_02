@@ -58,7 +58,6 @@ public class ShootUpHUD extends MyStage {
         overBg.setY(getViewport().getWorldHeight() / 2 - overBg.getHeight() / 2);
         overBg.setAlpha(0.8f);
         overBg.setVisible(false);
-        overBg.setZIndex(1000);
 
         addActor(overBg);
 
@@ -67,7 +66,6 @@ public class ShootUpHUD extends MyStage {
         overLabel.setColor(Color.RED);
         overLabel.setPosition(getViewport().getWorldWidth() / 2 - (overLabel.getWidth()*overLabel.getFontScaleX()) / 2, overBg.getY() + 300);
         overLabel.setVisible(false);
-        overLabel.setZIndex(1000);
         addActor(overLabel);
 
         overBtn = new MyButton("Újra", game.getButtonStyle());
@@ -81,7 +79,6 @@ public class ShootUpHUD extends MyStage {
                 screen.shootUpMinigameStage.restartGame();
             }
         });
-        overBg.setZIndex(1000);
 
         addActor(overBtn);
 

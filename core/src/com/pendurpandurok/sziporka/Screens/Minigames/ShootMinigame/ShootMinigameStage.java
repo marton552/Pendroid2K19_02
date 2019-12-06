@@ -94,7 +94,6 @@ public class ShootMinigameStage extends MyStage {
         overBg.setY(getViewport().getWorldHeight() / 2 - overBg.getHeight() / 2);
         overBg.setAlpha(0.8f);
         overBg.setVisible(false);
-        overBg.setZIndex(1000);
 
         addActor(overBg);
 
@@ -103,7 +102,6 @@ public class ShootMinigameStage extends MyStage {
         overLabel.setColor(Color.RED);
         overLabel.setPosition(getViewport().getWorldWidth() / 2 - (overLabel.getWidth()*overLabel.getFontScaleX()) / 2, overBg.getY() + 300);
         overLabel.setVisible(false);
-        overLabel.setZIndex(1000);
 
         addActor(overLabel);
 
@@ -118,7 +116,6 @@ public class ShootMinigameStage extends MyStage {
                 restartGame();
             }
         });
-        overBg.setZIndex(1000);
 
         addActor(overBtn);
 
