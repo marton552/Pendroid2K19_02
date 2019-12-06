@@ -342,11 +342,47 @@ abstract public class MyStage extends Stage implements InitableInterface {
      */
     public void addActor(Actor actor, int ZIndex) {
         super.addActor(actor);
-        actor.setZIndex(ZIndex);
+        if (actor instanceof MyActor){
+            actor.setZIndex(ZIndex);
+        }else{
+            sortActorsByZindex();
+        }
+        System.out.println(ZIndex);
     }
 
 
     public void sortActorsByZindex(){
+/*
+        for (Actor a : getActors()) {
+            if (a instanceof MyActor){
+                System.out.println("E Z: " + ((MyActor) a).zIndex);
+            }else{
+                System.out.println("E not instance");
+            }
+        }
+*/
+
+        boolean change = true;
+
+        while (change) {
+            change = false;
+            int z = Integer.MAX_VALUE;
+            for (int i = getActors().items.length - 1; i > 0; i--) {
+                if (getActors().items[i] instanceof MyActor) {
+                    z = getActors().items[i].getZIndex();
+                }
+                if (getActors().items[i - 1] instanceof MyActor) {
+                    if (getActors().items[i - 1].getZIndex() > z) {
+                        Actor a = getActors().items[i - 1];
+                        getActors().items[i - 1] = getActors().items[i];
+                        getActors().items[i] = a;
+                        change = true;
+                    }
+                }
+            }
+        }
+
+        /*
         getActors().sort(new Comparator<Actor>() {
             @Override
             public int compare(Actor actor, Actor t1) {
@@ -357,5 +393,18 @@ abstract public class MyStage extends Stage implements InitableInterface {
                 }
             }
         });
+
+         */
+
+        /*
+        for (Actor a : getActors()) {
+            if (a instanceof MyActor){
+                System.out.println("U Z: " + ((MyActor) a).zIndex);
+            }else{
+                System.out.println("U not instance");
+            }
+        }
+        System.out.println("--------------");
+*/
     }
 }
