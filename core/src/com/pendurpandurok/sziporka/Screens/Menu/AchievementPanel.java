@@ -73,11 +73,11 @@ public class AchievementPanel extends MyGroup {
         if (animState == 1) {
             if(waitTime <= System.currentTimeMillis()) animState++;
         }
-/*
+
         if(animState == 2) {
             if(getY() <= upY)
                 setY(getY() + showStep);
             else stage.getActors().removeValue(this, false);
-        }*/
+        }
     }
 }
