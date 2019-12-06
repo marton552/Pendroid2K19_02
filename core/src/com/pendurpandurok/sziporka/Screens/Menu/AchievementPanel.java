@@ -32,7 +32,7 @@ public class AchievementPanel extends Group {
         super();
         oY = y;
         this.stage = stage;
-        setZIndex(0);
+        setZIndex(100000);
         setSize(w, h);
         setPosition(0, y + h);
         upY = getY();

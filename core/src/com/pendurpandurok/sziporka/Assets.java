@@ -135,6 +135,7 @@ public class Assets {
 
     public static final AssetDescriptor<Texture> GYIK = new AssetDescriptor<Texture>("gyik.png", Texture.class);
 	public static final AssetDescriptor<Texture> HAL = new AssetDescriptor<Texture>("halacska.png", Texture.class);
+    public static final AssetDescriptor<TextureAtlas> MADAR_ATLAS = new AssetDescriptor<TextureAtlas>("atlas/madar_atlas.atlas", TextureAtlas.class);
 
 
 	public static void prepare() {
@@ -243,6 +244,7 @@ public class Assets {
 
 		manager.load(GYIK);
 		manager.load(HAL);
+		manager.load(MADAR_ATLAS);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
