@@ -111,6 +111,7 @@ public class MenuStage extends MyStage {
 
         addActor(new Gyik(getViewport().getWorldWidth(), 180, getViewport().getWorldWidth() - 150, 100, this));
         addActor(new Hal(getViewport().getWorldWidth() / 2, 40, this));
+        addActor(new Madar(getViewport().getWorldWidth(), getViewport().getWorldHeight() - 100, -10, this));
     }
 
     public void draw_screen(){
