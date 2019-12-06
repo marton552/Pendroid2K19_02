@@ -135,7 +135,11 @@ public class Assets {
 	public static final AssetDescriptor<Texture> ERDO = new AssetDescriptor<Texture>("csunyaerdo.png", Texture.class);
 	public static final AssetDescriptor<Texture> ASZTAL = new AssetDescriptor<Texture>("asztal.png", Texture.class);
 
-    public static void prepare() {
+    public static final AssetDescriptor<Texture> GYIK = new AssetDescriptor<Texture>("gyik.png", Texture.class);
+	public static final AssetDescriptor<Texture> HAL = new AssetDescriptor<Texture>("halacska.png", Texture.class);
+
+
+	public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
 	}
@@ -240,6 +244,9 @@ public class Assets {
 
 		manager.load(ERDO);
 		manager.load(ASZTAL);
+
+		manager.load(GYIK);
+		manager.load(HAL);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}
