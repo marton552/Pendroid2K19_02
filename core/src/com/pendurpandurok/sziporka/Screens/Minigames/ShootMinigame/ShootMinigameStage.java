@@ -172,6 +172,8 @@ public class ShootMinigameStage extends MyStage {
         getActors().removeValue(g, false);
         goblins.remove(g);
 
+        Assets.manager.get(Assets.GOBLIN_DEATH_SOUND).play(1);
+
         killedGoblins++;
 
         if(killedGoblins >= maxGoblinKill) {
@@ -220,6 +222,8 @@ public class ShootMinigameStage extends MyStage {
             goblins.remove(i);
         }
 
+        Assets.manager.get(Assets.LOSE_SOUND).play(1);
+
         goblins.clear();
     }
 
@@ -232,6 +236,8 @@ public class ShootMinigameStage extends MyStage {
 
         game.save.putFloat("gatfal_hp", 100.0f);
         game.save.flush();
+
+        Assets.manager.get(Assets.VICTORY_SOUND).play(1);
     }
 
     public void restartGame() {

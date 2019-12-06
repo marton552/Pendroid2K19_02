@@ -142,6 +142,8 @@ public class ShootUpMinigameStage extends MyStage {
         temp.setPosition(line.getX(), getCamera().position.y - getViewport().getWorldHeight() / 2);
         addActor(temp);
 
+        Assets.manager.get(Assets.EXPLOSION_SOUND).play(1);
+
         //temp.setSize(line.getWidth(), line.getHeight() + getViewport().getWorldHeight());
         /*temp.setAlpha(1f);
         addActor(temp);
@@ -162,6 +164,8 @@ public class ShootUpMinigameStage extends MyStage {
         if(isPlaying){
             currKill++;
             screen.hud.updateKillText(maxKill, currKill);
+
+            Assets.manager.get(Assets.TAKONY_SOUND).play(1);
 
             Blood blood = new Blood(this);
             blood.setZIndex(1);
@@ -189,6 +193,8 @@ public class ShootUpMinigameStage extends MyStage {
         explosion.setPosition(urhajo.getX() + urhajo.getWidth() / 2 - explosion.getWidth() / 2, urhajo.getY() + urhajo.getHeight() / 2 - explosion.getHeight() / 2);
 
         addActor(explosion);
+
+        Assets.manager.get(Assets.EXPLOSION_SOUND).play(1);
 
         urhajo.setVisible(false);
 

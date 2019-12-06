@@ -232,6 +232,8 @@ public class GeneratorMinigameStage extends MyStage {
                     overLabel.setVisible(true);
                     overBg.setVisible(true);
                     overBtn.setVisible(true);
+
+                    Assets.manager.get(Assets.LOSE_SOUND).play(1);
                 }
             }
             for (int i = 0;i<sokpenz.size();i++){
@@ -241,10 +243,12 @@ public class GeneratorMinigameStage extends MyStage {
                     penz++;
                     infoout.setText("20/"+penz);
                     if(penz == 20){
-                    eletbenvan = false;
-                    victoryBg.setVisible(true);
-                    victoryBtn.setVisible(true);
-                    victoryLabel.setVisible(true);}
+                        eletbenvan = false;
+                        victoryBg.setVisible(true);
+                        victoryBtn.setVisible(true);
+                        victoryLabel.setVisible(true);
+                        Assets.manager.get(Assets.VICTORY_SOUND).play(1);
+                    }
                 }
             }
         }}

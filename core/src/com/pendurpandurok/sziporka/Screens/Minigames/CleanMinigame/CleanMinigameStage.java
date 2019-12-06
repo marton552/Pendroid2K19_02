@@ -208,6 +208,7 @@ public class CleanMinigameStage extends MyStage {
         }}
     }
 
+    boolean endGame = false;
 
     int wait = 0;
     double nextPay = System.currentTimeMillis() + 1000;
@@ -236,6 +237,10 @@ public class CleanMinigameStage extends MyStage {
                     victoryBg.setVisible(true);
                     victoryBtn.setVisible(true);
                     victoryLabel.setVisible(true);
+                    if(endGame == false) {
+                        endGame = true;
+                        Assets.manager.get(Assets.VICTORY_SOUND).play(1);
+                    }
 
                 }
             }
@@ -249,6 +254,11 @@ public class CleanMinigameStage extends MyStage {
                     overLabel.setVisible(true);
                     overBg.setVisible(true);
                     overBtn.setVisible(true);
+
+                    if(endGame == false) {
+                        endGame = true;
+                        Assets.manager.get(Assets.LOSE_SOUND).play(1);
+                    }
                 }
             }
             if(wait == 11){
@@ -260,6 +270,12 @@ public class CleanMinigameStage extends MyStage {
                     overLabel.setVisible(true);
                     overBg.setVisible(true);
                     overBtn.setVisible(true);
+
+                    if(endGame == false) {
+                        endGame = true;
+                        Assets.manager.get(Assets.LOSE_SOUND).play(1);
+                    }
+
                 }
             }
 

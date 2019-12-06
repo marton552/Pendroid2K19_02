@@ -356,42 +356,49 @@ public class MenuStage extends MyStage {
             addActor(new AchievementPanel("Teljesítmény elérve!\nFusson "+Math.round(((game.save.getFloat("eltelt_ido_0")+1)*(60*(game.save.getFloat("eltelt_ido_0")+1)))/60)+" percet a generátor\n"+Math.round((game.save.getFloat("eltelt_ido_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("eltelt_ido_0")+1)*10);
             game.save.putFloat("eltelt_ido_0",game.save.getFloat("eltelt_ido_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("minigamek") > (game.save.getFloat("minigamek_0")+1)*(5*(game.save.getFloat("minigamek_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nTeljesíts "+Math.round(((game.save.getFloat("minigamek_0")+1)*(5*(game.save.getFloat("minigamek_0")+1))))+" minigamet\n"+Math.round((game.save.getFloat("minigamek_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("minigamek_0")+1)*10);
             game.save.putFloat("minigamek_0",game.save.getFloat("minigamek_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("goblinok") > (game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nÖlj meg "+Math.round(((game.save.getFloat("goblinok_0")+1)*(50*(game.save.getFloat("goblinok_0")+1))))+" goblint\n"+Math.round((game.save.getFloat("goblinok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this),100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("goblinok_0")+1)*10);
             game.save.putFloat("goblinok_0",game.save.getFloat("goblinok_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("szerzett_penz") > (game.save.getFloat("szerzett_penz_0")+1)*(100*(game.save.getFloat("szerzett_penz_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nTermeljen a generátorod "+Math.round(((game.save.getFloat("szerzett_penz_0")+1)*(100*(game.save.getFloat("szerzett_penz_0")+1))))+" pénzt\n"+Math.round((game.save.getFloat("szerzett_penz_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("szerzett_penz_0")+1)*10);
             game.save.putFloat("szerzett_penz_0",game.save.getFloat("szerzett_penz_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("fejlesztesek_szama") > (game.save.getFloat("fejlesztesek_szama_0")+1)*(10*(game.save.getFloat("fejlesztesek_szama_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nFejlessz "+Math.round(((game.save.getFloat("fejlesztesek_szama_0")+1)*(10*(game.save.getFloat("fejlesztesek_szama_0")+1))))+" elemet\n"+Math.round((game.save.getFloat("fejlesztesek_szama_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("fejlesztesek_szama_0")+1)*10);
             game.save.putFloat("fejlesztesek_szama_0",game.save.getFloat("fejlesztesek_szama_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("allatok") > (game.save.getFloat("allatok_0")+1)*(10*(game.save.getFloat("allatok_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nVadássz le "+Math.round(((game.save.getFloat("allatok_0")+1)*(10*(game.save.getFloat("allatok_0")+1))))+" allatot\n"+Math.round((game.save.getFloat("allatok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("allatok_0")+1)*10);
             game.save.putFloat("allatok_0",game.save.getFloat("allatok_0")+1);
+            game.save.flush();
         }
 
         if(game.save.getFloat("inditas") > (game.save.getFloat("inditas_0")+1)*(5*(game.save.getFloat("inditas_0")+1))){
             addActor(new AchievementPanel("Teljesítmény elérve!\nLépj be "+Math.round(((game.save.getFloat("inditas_0")+1)*(5*(game.save.getFloat("inditas_0")+1))))+" alkalommal a játékba\n"+Math.round((game.save.getFloat("inditas_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this), 100000);
             game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("inditas_0")+1)*5);
             game.save.putFloat("inditas_0",game.save.getFloat("inditas_0")+1);
+            game.save.flush();
         }
 
         rnd2 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));

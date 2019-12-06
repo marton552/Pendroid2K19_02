@@ -146,6 +146,18 @@ public class Assets {
 	public static final AssetDescriptor<Music> MUSIC_4 = new AssetDescriptor<Music>("sfx/music/5.ogg", Music.class);
 	public static final AssetDescriptor<Music> MUSIC_5 = new AssetDescriptor<Music>("sfx/music/6.ogg", Music.class);
 
+	public static final AssetDescriptor<Sound> GOBLIN_SOUND1 = new AssetDescriptor<Sound>("sfx/goblin/goblin_groan1.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> GOBLIN_SOUND2 = new AssetDescriptor<Sound>("sfx/goblin/goblin_groan2.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> GOBLIN_SOUND3 = new AssetDescriptor<Sound>("sfx/goblin/goblin_groan3.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> GOBLIN_DEATH_SOUND = new AssetDescriptor<Sound>("sfx/goblin/goblin_splash.ogg", Sound.class);
+
+	public static final AssetDescriptor<Sound> VICTORY_SOUND = new AssetDescriptor<Sound>("sfx/victory.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> LOSE_SOUND = new AssetDescriptor<Sound>("sfx/lose.ogg", Sound.class);
+
+
+	public static final AssetDescriptor<Sound> TAKONY_SOUND = new AssetDescriptor<Sound>("sfx/slime_jump.ogg", Sound.class);
+	public static final AssetDescriptor<Sound> EXPLOSION_SOUND = new AssetDescriptor<Sound>("sfx/explosion.ogg", Sound.class);
+
 
 
 	public static void prepare() {
@@ -263,6 +275,17 @@ public class Assets {
 		manager.load(MUSIC_3);
 		manager.load(MUSIC_4);
 		manager.load(MUSIC_5);
+
+		manager.load(GOBLIN_SOUND1);
+		manager.load(GOBLIN_SOUND2);
+		manager.load(GOBLIN_SOUND3);
+		manager.load(GOBLIN_DEATH_SOUND);
+
+		manager.load(VICTORY_SOUND);
+		manager.load(LOSE_SOUND);
+
+		manager.load(TAKONY_SOUND);
+		manager.load(EXPLOSION_SOUND);
 
 		manager.load(ALEGREYAREGULAR_FONT);
 	}

@@ -41,6 +41,12 @@ public class Goblin extends OneSpriteStaticActor {
 
             }
         });
+
+        int randSound = MathUtils.random(0, 2);
+
+        if(randSound == 0) Assets.manager.get(Assets.GOBLIN_SOUND1).play(1);
+        else if(randSound == 1) Assets.manager.get(Assets.GOBLIN_SOUND2).play(1);
+        else Assets.manager.get(Assets.GOBLIN_SOUND3).play(1);
     }
 
     public void goblinDeath() {

@@ -166,12 +166,16 @@ public class ShootUpHUD extends MyStage {
         victoryBg.setVisible(state);
         victoryLabel.setVisible(state);
         victoryBtn.setVisible(state);
+
+        if(state) Assets.manager.get(Assets.VICTORY_SOUND).play(1);
     }
 
     public void togOverPanel(boolean state) {
         overBg.setVisible(state);
         overLabel.setVisible(state);
         overBtn.setVisible(state);
+
+        if(state) Assets.manager.get(Assets.LOSE_SOUND).play(1);
     }
 
     @Override

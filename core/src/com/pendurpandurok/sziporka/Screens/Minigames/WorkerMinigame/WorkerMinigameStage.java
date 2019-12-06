@@ -218,6 +218,8 @@ public class WorkerMinigameStage extends MyStage {
         doneBtn.setVisible(true);
         doneLabel.setVisible(true);
         doneBg.setVisible(true);
+
+        Assets.manager.get(Assets.VICTORY_SOUND).play(1);
     }
 
 
