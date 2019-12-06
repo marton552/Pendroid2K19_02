@@ -1,0 +1,16 @@
+1.
+Üdvözöllek! Ez a gát itt mögöttem a hódok vízerõmûve. A feladatod ezt az erõmûvet karbantartani és fejleszteni. Ezt a gát meg fogja háláni sok-sok pénzel.
+
+2.
+Apropó pénz. Hogy is kapod? Függ 3 fõ értéktõl. A szerezhetõ pénztõl, a termelt áram mennyiségétõl, és az áram veszteségétõl. Ezek szorzatából jön ki hogy mennyi pénzt kapsz másodpercenként. Valamint függ attól hogy mennyi élete van az egyes elemeknek.
+
+3.
+Ha már elemek. Lehet minden elemen belül még több kicsi elemet fejleszteni. A mellettük lévõ ábra mutatja hogy mit fejleszt.
+-Több pénz
+-Több áram
+-Kevesebb áramveszteség
+-Valamint az adott elem tûrõképessége
+Minnél jobb egy elem tûrõképessége, annál lassabban megy le az élete.
+
+4.
+Ha elég elemet fejlesztesz akkor elérhetõ egy új nagy fejlesztés. Ezzel egy új kinézetet, és egy rakat plusz pontot kapsz 
