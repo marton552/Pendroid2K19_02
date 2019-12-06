@@ -384,6 +384,18 @@ public class MenuStage extends MyStage {
             game.save.putFloat("fejlesztesek_szama_0",game.save.getFloat("fejlesztesek_szama_0")+1);
         }
 
+        if(game.save.getFloat("allatok") > (game.save.getFloat("allatok_0")+1)*(10*(game.save.getFloat("allatok_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nVadássz le "+Math.round(((game.save.getFloat("allatok_0")+1)*(10*(game.save.getFloat("allatok_0")+1))))+" allatot\n"+Math.round((game.save.getFloat("allatok_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this),100000);
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("allatok_0")+1)*10);
+            game.save.putFloat("allatok_0",game.save.getFloat("allatok_0")+1);
+        }
+
+        if(game.save.getFloat("inditas") > (game.save.getFloat("inditas_0")+1)*(5*(game.save.getFloat("inditas_0")+1))){
+            addActor(new AchievementPanel("Teljesítmény elérve!\nLépj be "+Math.round(((game.save.getFloat("inditas_0")+1)*(5*(game.save.getFloat("inditas_0")+1))))+" alkalommal a játékba\n"+Math.round((game.save.getFloat("inditas_0")+1)*10)+" pénz jutalom", getViewport().getWorldHeight() - 200, getViewport().getWorldWidth(), 200, game, this),100000);
+            game.save.putFloat("penz_mennyiseg",game.save.getFloat("penz_mennyiseg")+(game.save.getFloat("inditas_0")+1)*5);
+            game.save.putFloat("inditas_0",game.save.getFloat("inditas_0")+1);
+        }
+
         rnd2 = MathUtils.random(1, (200*(Math.round(game.save.getFloat("skill_1")+1))));
         if(rnd1 == rnd2){
             rnd1 = MathUtils.random(1, 3);

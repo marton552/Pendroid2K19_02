@@ -111,6 +111,7 @@ public class MyGdxGame extends MyGame {
 			save.putString("kordinata","");
 
 			//acihvmentek
+			save.putFloat("inditas_0",0);
 			save.putFloat("allatok_0",0);
 			save.putFloat("eltelt_ido_0",0);
 			save.putFloat("minigamek_0",0);

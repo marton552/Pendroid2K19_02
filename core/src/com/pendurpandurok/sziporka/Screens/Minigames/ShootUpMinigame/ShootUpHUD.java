@@ -45,7 +45,7 @@ public class ShootUpHUD extends MyStage {
         bombLine.setSize(screen.shootUpMinigameStage.urhajo.getWidth(), getViewport().getWorldHeight());
         bombLine.setVisible(false);
         bombLine.addBaseCollisionRectangleShape();
-        bombLine.setAlpha(0.8f);
+        bombLine.setAlpha(0.4f);
         addActor(bombLine);
 
         bomb = new Bomb(this);
