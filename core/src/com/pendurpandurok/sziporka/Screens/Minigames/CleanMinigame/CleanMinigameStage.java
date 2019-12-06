@@ -71,7 +71,7 @@ public class CleanMinigameStage extends MyStage {
         Collections.shuffle(sorrend);
         System.out.println(sorrend);
 
-        OneSpriteStaticActor background = new OneSpriteStaticActor(Assets.manager.get(Assets.TW));
+        OneSpriteStaticActor background = new OneSpriteStaticActor(Assets.manager.get(Assets.ASZTAL));
         background.setSize((getViewport()).getWorldWidth(), getViewport().getWorldHeight());
         addActor(background);
 
@@ -129,7 +129,7 @@ public class CleanMinigameStage extends MyStage {
 
         addActor(victoryBg);
 
-        victoryLabel = new MyLabel("Sikeresen megtaláltad\na párokat!\nJutalmad "+25*(game.save.getFloat("skill_3")+1)+" pénz", game.getLabelStyle());
+        victoryLabel = new MyLabel("Sikeresen megtaláltad\na párokat!\nJutalmad "+Math.round(25*(game.save.getFloat("skill_3")+1))+" pénz", game.getLabelStyle());
         victoryLabel.setFontScale(0.7f);
         victoryLabel.setAlignment(Align.center);
         victoryLabel.setColor(Color.WHITE);

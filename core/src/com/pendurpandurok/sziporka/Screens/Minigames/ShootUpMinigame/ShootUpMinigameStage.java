@@ -52,7 +52,13 @@ public class ShootUpMinigameStage extends MyStage {
         this.screen = screen;
         this.game = game;
 
-        getCamera().position.y = 0;
+        addBackButtonListener(new BackButtonListener() {
+            @Override
+            public void backKeyDown() {
+                game.setScreen(new MenuScreen(game));
+            }
+        });
+
 
 
         for (int i = 0; i < 3; i++) {

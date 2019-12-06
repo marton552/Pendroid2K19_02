@@ -4,8 +4,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.pendurpandurok.sziporka.Screens.Menu.MenuStage;
+import com.pendurpandurok.sziporka.Screens.Minigames.CleanMinigame.CleanMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.GeneratorMinigame.GeneratorMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootMinigame.ShootMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.ShootUpMinigame.ShootUpMinigameScreen;
+import com.pendurpandurok.sziporka.Screens.Minigames.WorkerMinigame.WorkerMinigameScreen;
 
 import hu.csanyzeg.master.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.csanyzeg.master.MyBaseClasses.UI.MyButton;
 import hu.csanyzeg.master.MyBaseClasses.UI.MyLabel;
 
 public class Upgrade {
@@ -23,7 +29,7 @@ public class Upgrade {
         public int melyik = 0;
         public float mennyikene = 0;
 
-    public Upgrade(final MenuStage gs, String name, final Integer hanyadik){
+    public Upgrade(final MenuStage gs, final String name, final Integer hanyadik){
 
 
         //0 => pénz
@@ -289,6 +295,7 @@ public class Upgrade {
             }
         });
         gs.addActor(front);
+
     }
 
     public void destroy(){
